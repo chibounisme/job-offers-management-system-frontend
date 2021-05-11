@@ -10043,10 +10043,12 @@ header.masthead h1 {
 }
 
 .showcase .showcase-text {
+
   padding: 3rem;
 }
 .showcase .showcase-img {
-  min-height: 30rem;
+  
+  min-height: 15rem;
   background-size: cover;
 }
 @media (min-width: 768px) {
@@ -10070,7 +10072,7 @@ header.masthead h1 {
 .call-to-action {
   position: relative;
   background-color: #343a40;
-  background: url("./assets/img/bg-masthead.jpg") no-repeat center center;
+  background: url(https://hbr.org/resources/images/article_assets/2014/10/Mar20_05_1187745190.jpg) no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;
@@ -10088,4 +10090,7 @@ header.masthead h1 {
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+body {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
