@@ -11,7 +11,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProfileComponent implements OnInit {
   closeModal: string;
-
+ tags :any =[{name:" amibitieux"},{name:"serieux"}];
   constructor(private modalService: NgbModal) {}
 
   triggerModal(content) {
