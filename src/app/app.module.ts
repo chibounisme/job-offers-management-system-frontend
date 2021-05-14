@@ -9,7 +9,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
-
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule ,NgSelectModule, FormsModule
+    NgbModule ,NgSelectModule, FormsModule,BrowserAnimationsModule, SimpleNotificationsModule.forRoot(),ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
