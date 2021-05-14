@@ -12,12 +12,14 @@ import { FormsModule } from '@angular/forms';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileAdminComponent } from './pages/profile-admin/profile-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     ProfileComponent,
+    ProfileAdminComponent,
   ],
   imports: [
     BrowserModule,
