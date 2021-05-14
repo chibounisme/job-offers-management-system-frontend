@@ -134,48 +134,71 @@
                 <!-- modal -->
                 <ng-template #modalData let-modal>
                     <form [formGroup]="profileForm" (ngSubmit)="onclick()">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="modal-basic-title">Modifie ton Profil</h4>
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Modifie ton Profil</h4>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">Example file input</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="file">
+                                <label for="file">Example file input</label>
+                                <input type="file" class="form-control-file" id="file" formControlName="file">
                             </div>
                             <div class="form-group">
-                                <label for="inputAddress">Nom</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="Nom">
+                                <label for="Nom">Nom</label>
+                                <input
+                                    [ngClass]="{'is-valid': profileForm.controls.Nom.valid && profileForm.controls.Nom.dirty, 'is-invalid': profileForm.controls.Nom.invalid}"
+                                    type="text" class="form-control" id="Nom" placeholder="1234 Main St"
+                                    formControlName="Nom">
                             </div>
                             <div class="form-group">
-                                <label for="inputAddress">Prénom</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="Prenom">
+                                <label for="Prenom">Prénom</label>
+                                <input
+                                    [ngClass]="{'is-valid': profileForm.controls.Prenom.valid && profileForm.controls.Prenom.dirty, 'is-invalid': profileForm.controls.Prenom.invalid}"
+                                    type="text" class="form-control" id="Prenom" placeholder="1234 Main St"
+                                    formControlName="Prenom">
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                                <input
+                                    [ngClass]="{'is-valid': profileForm.controls.Email.valid && profileForm.controls.Email.dirty, 'is-invalid': profileForm.controls.Email.invalid}"
+                                    type="text" class="form-control" id="Email" placeholder="1234 Main St"
+                                    formControlName="Email">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Mot de passe</label>
-                                    <input type="email" class="form-control" id="inputEmail4" formControlName="mdp">
+                                    <label for="mdp">Mot de passe</label>
+                                    <input
+                                        [ngClass]="{'is-valid': profileForm.controls.mdp.valid && profileForm.controls.mdp.dirty, 'is-invalid': profileForm.controls.mdp.invalid}"
+                                        type="password" class="form-control" id="mdp" formControlName="mdp">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Confirmer mot de passe</label>
-                                    <input type="password" class="form-control" id="inputPassword4" formControlName="cmdp">
+                                    <label for="cmdp">Confirmer mot de passe</label>
+                                    <input
+                                        [ngClass]="{'is-valid': profileForm.controls.cmdp.valid && profileForm.controls.cmdp.dirty, 'is-invalid': profileForm.controls.cmdp.invalid}"
+                                        type="password" class="form-control" id="cmdp" formControlName="cmdp">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputAddress">Address</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="adresse">
+                                <label for="adresse">Address</label>
+                                <input
+                                    [ngClass]="{'is-valid': profileForm.controls.adresse.valid && profileForm.controls.adresse.dirty, 'is-invalid': profileForm.controls.adresse.invalid}"
+                                    type="text" class="form-control" id="adresse" placeholder="1234 Main St"
+                                    formControlName="adresse">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputCity">Gouvernorat</label>
-                                    <input type="text" class="form-control" id="inputCity" formControlName="Gouvernorat">
+                                    <label for="Gouvernorat">Gouvernorat</label>
+                                    <input
+                                        [ngClass]="{'is-valid': profileForm.controls.Gouvernorat.valid && profileForm.controls.Gouvernorat.dirty, 'is-invalid': profileForm.controls.Gouvernorat.invalid}"
+                                        type="text" class="form-control" id="Gouvernorat" formControlName="Gouvernorat">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="inputState">Ville</label>
-                                    <select id="inputState" class="form-control" formControlName="Ville">
+                                    <label for="Ville">Ville</label>
+                                    <select id="Ville" class="form-control" formControlName="Ville">
                                         <option selected>Choose...</option>
                                         <option>...</option>
                                     </select>
@@ -189,15 +212,16 @@
                             </div>
                             <br>
 
-                       
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
-                        <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Fermer</button>
-                    </div>
-                </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">Enregistrer les modifications</button>
+                            <button type="button" class="btn btn-danger"
+                                (click)="modal.close('Save click')">Fermer</button>
+                        </div>
+                    </form>
                 </ng-template>
-                
+
             </div>
             <div class="col-md-12">
                 <div class="card mb-3">
@@ -217,4 +241,5 @@
         </div>
     </div>
 </div>
-<simple-notifications [options]="options" (create)="created($event)" (destroy)="destroyed($event)"></simple-notifications>
+<simple-notifications [options]="options" (create)="created($event)" (destroy)="destroyed($event)">
+</simple-notifications>
