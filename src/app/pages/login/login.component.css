@@ -3,7 +3,7 @@ body {
   font-family: 'Karla', sans-serif; }
 
 .intro-section {
-  background-image: url(https://images-ext-2.discordapp.net/external/oKFzIsbLPV0MtdceIUDTp4K_02QHz2wbK57iureIhKs/https/www.bootstrapdash.com/demo/login-templates-pro/login-8/assets/images/login-bg.jpg?width=396&height=611);
+  background-image: url(https://images.unsplash.com/photo-1605543667606-52b0f1ee1b72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -138,15 +138,15 @@ body {
 .login-btn {
   padding: 17px 40px 16px 41px;
   border-radius: 4px;
-  background-color: #f0004f;
+  background-color: #007bff;
   font-size: 17px;
   font-weight: bold;
   color: #fff;
   line-height: 20px; }
   .login-btn:hover {
-    border: 1px solid #f0004f;
+    border: 1px solid #007bff;
     background-color: transparent;
-    color: #f0004f; }
+    color: #007bff; }
 
 .forgot-password-link {
   font-size: 14px;

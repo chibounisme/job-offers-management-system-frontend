@@ -76,12 +76,6 @@ export class ProfileComponent implements OnInit {
       this.modalService.dismissAll();
     }
   }
-  checkPasswords(group: FormGroup) { // here we have the 'passwords' group
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('confirmPassword')?.value;
-
-    return password === confirmPassword ? null : { notSame: true }
-  }
   checkPassword(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const cmdp = control.value;

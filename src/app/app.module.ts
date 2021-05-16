@@ -13,6 +13,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileAdminComponent } from './pages/profile-admin/profile-admin.component';
+import { RegisterComponent } from './pages/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { ProfileAdminComponent } from './pages/profile-admin/profile-admin.compo
     HomeComponent,
     ProfileComponent,
     ProfileAdminComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,47 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Register</h5>
+                        <form class="form-signin"[formGroup]="profileForm"  >
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                                <input
+                                    [ngClass]="{'is-valid': profileForm.controls.Email.valid && profileForm.controls.Email.dirty, 'is-invalid': profileForm.controls.Email.invalid && profileForm.controls.Email.dirty}"
+                                    type="text" class="form-control" id="Email" placeholder="Email..."
+                                    formControlName="Email">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="mdp">Mot de passe</label>
+                                    <input
+                                        [ngClass]="{'is-valid': profileForm.controls.mdp.valid && profileForm.controls.mdp.dirty, 'is-invalid': profileForm.controls.mdp.invalid && profileForm.controls.mdp.dirty}"
+                                        type="password" class="form-control" id="mdp" formControlName="mdp">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cmdp">Confirmer mot de passe</label>
+                                    <input
+                                        [ngClass]="{'is-valid': profileForm.controls.cmdp.valid && profileForm.controls.cmdp.dirty, 'is-invalid': profileForm.controls.cmdp.invalid && profileForm.controls.cmdp.dirty}"
+                                        type="password" class="form-control" id="cmdp" formControlName="cmdp">
+                                </div>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase"
+                                type="submit" [disabled]="profileForm.invalid">Register</button>
+                            <a class="d-block text-center mt-2 small" routerLink="/login">Login</a>
+                            <hr class="my-4">
+                            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
+                                    class="fab fa-google mr-2"></i> Sign up with Google</button>
+                            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
+                                    class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
