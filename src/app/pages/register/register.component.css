@@ -3,7 +3,8 @@
     --input-padding-y: .75rem;
   }
   
-  body {
+  main {
+    height: 100%;
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
   }
@@ -24,7 +25,7 @@
   .card-signin .card-img-left {
     width: 45%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://thumbs.dreamstime.com/b/flat-lay-workplace-laptop-coffe-note-taking-hand-withe-desk-vertical-format-top-view-189568197.jpg://source.unsplash.com/WEQbe2jBg40/414x512');
+    background: scroll center url('https://todotek.net/wp-content/uploads/2020/01/digitalizacion1_vertical.jpg');
     background-size: cover;
   }
   

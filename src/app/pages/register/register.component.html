@@ -1,4 +1,4 @@
-<body>
+<main>
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
@@ -8,7 +8,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Register</h5>
-                        <form class="form-signin"[formGroup]="profileForm"  >
+                        <form class="form-signin" [formGroup]="profileForm">
                             <div class="form-group">
                                 <label for="Email">Email</label>
                                 <input
@@ -30,8 +30,8 @@
                                         type="password" class="form-control" id="cmdp" formControlName="cmdp">
                                 </div>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase"
-                                type="submit" [disabled]="profileForm.invalid">Register</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+                                [disabled]="profileForm.invalid">Register</button>
                             <a class="d-block text-center mt-2 small" routerLink="/login">Login</a>
                             <hr class="my-4">
                             <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
@@ -44,4 +44,4 @@
             </div>
         </div>
     </div>
-</body>
+</main>
