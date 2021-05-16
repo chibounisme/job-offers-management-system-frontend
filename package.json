@@ -24,6 +24,7 @@
     "angular2-notifications": "^9.0.0",
     "aos": "^2.3.4",
     "bootstrap": "^4.6.0",
+    "bs-stepper": "^1.7.0",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
