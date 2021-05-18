@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
     mdp: new FormControl('', Validators.minLength(8)),
     cmdp: new FormControl('', [Validators.minLength(8), this.checkPassword()]),
     Email: new FormControl('', Validators.email),
-    tel: new FormControl(''),
+    tel: new FormControl('',[Validators.minLength(8),Validators.pattern("[234579]{1}[0-9]{7}")]),
     adresse: new FormControl(''),
     Gouvernorat: new FormControl(''),
     Ville: new FormControl(''),

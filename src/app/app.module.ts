@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileAdminComponent } from './pages/profile-admin/profile-admin.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { RegisterComponent } from './pages/register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule ,NgSelectModule, FormsModule,BrowserAnimationsModule, SimpleNotificationsModule.forRoot(),ReactiveFormsModule
+    NgbModule ,NgSelectModule, FormsModule,BrowserAnimationsModule, SimpleNotificationsModule.forRoot(),ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

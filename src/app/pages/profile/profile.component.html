@@ -168,6 +168,13 @@
                                     type="text" class="form-control" id="Email" placeholder="1234 Main St"
                                     formControlName="Email">
                             </div>
+                            <div class="form-group">
+                                <label for="tel">Telephone</label>
+                                <input
+                                    [ngClass]="{'is-valid': profileForm.controls.tel.valid && profileForm.controls.tel.dirty, 'is-invalid': profileForm.controls.tel.invalid}"
+                                    type="tel" class="form-control" id="tel" placeholder="..."
+                                    formControlName="tel">
+                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="mdp">Mot de passe</label>
@@ -183,7 +190,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="adresse">Address</label>
+                                <label for="adresse">Addresse</label>
                                 <input
                                     [ngClass]="{'is-valid': profileForm.controls.adresse.valid && profileForm.controls.adresse.dirty, 'is-invalid': profileForm.controls.adresse.invalid}"
                                     type="text" class="form-control" id="adresse" placeholder="1234 Main St"
