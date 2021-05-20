@@ -33,8 +33,7 @@ FormBuilder:any;
   stepper: Stepper;
   ngOnInit(): void {
     this.stepper = new Stepper(this.document.querySelector('.bs-stepper'));
-    this.stepper.next();
-    this.stepper.next();
+    
   }
 
   onclick() {

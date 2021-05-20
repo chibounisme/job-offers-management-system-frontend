@@ -156,32 +156,67 @@
                 <!-- finish register -->
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="content"> <a href="#">
-                                    <div class="content-overlay"></div> <img class="content-image" src="https://i.imgur.com/7cNRozs.jpg">
-                                    <div class="content-details fadeIn-bottom">
-                                        <h3 class="content-title">Geysers Valley Hotel</h3>
-                                        <p class="content-text"><i class="fa fa-map-marker"></i> Russia</p>
-                                    </div>
-                                </a> </div>
+                        <div class="col-lg-10 col-xl-9 mx-auto">
+                            <div class="card card-signin flex-row my-5">
+                                <div class="card-img-left d-none d-md-flex">
+                                    <!-- Background image for card set in CSS! -->
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Register</h5>
+                                    <form class="form-signin" [formGroup]="profileForm" (ngSubmit)="onclick()">
+                                        <div class="form-group">
+                                            <label for="Email">Email</label>
+                                            <input
+                                                [ngClass]="{'is-valid': profileForm.controls.Email.valid && profileForm.controls.Email.dirty, 'is-invalid': profileForm.controls.Email.invalid && profileForm.controls.Email.dirty}"
+                                                type="text" class="form-control" id="Email" placeholder="Email..."
+                                                formControlName="Email">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="mdp">Mot de passe</label>
+                                                <input
+                                                    [ngClass]="{'is-valid': profileForm.controls.mdp.valid && profileForm.controls.mdp.dirty, 'is-invalid': profileForm.controls.mdp.invalid && profileForm.controls.mdp.dirty}"
+                                                    type="password" class="form-control" id="mdp" formControlName="mdp">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="cmdp">Confirmer mot de passe</label>
+                                                <input
+                                                    [ngClass]="{'is-valid': profileForm.controls.cmdp.valid && profileForm.controls.cmdp.dirty, 'is-invalid': profileForm.controls.cmdp.invalid && profileForm.controls.cmdp.dirty}"
+                                                    type="password" class="form-control" id="cmdp"
+                                                    formControlName="cmdp">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-lg btn-primary btn-block text-uppercase"
+                                            [disabled]="profileForm.invalid">Register</button>
+                                        <a class="d-block text-center mt-2 small" routerLink="/login">Login</a>
+                                        <hr class="my-4">
+                                        <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
+                                                class="fab fa-google mr-2"></i> Sign up with Google</button>
+                                        <button class="btn btn-lg btn-facebook btn-block text-uppercase"
+                                            type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with
+                                            Facebook</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="content"> <a href="#">
-                                    <div class="content-overlay"></div> <img class="content-image" src="https://i.imgur.com/CS59IJZ.jpg">
-                                    <div class="content-details fadeIn-bottom">
-                                        <h3 class="content-title">Khumbu Valley Hotel</h3>
-                                        <p class="content-text"><i class="fa fa-map-marker"></i> Nepal</p>
-                                    </div>
-                                </a> </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="content"> <a href="#">
-                                    <div class="content-overlay"></div> <img class="content-image" src="https://i.imgur.com/LITAKvq.jpg">
-                                    <div class="content-details fadeIn-bottom">
-                                        <h3 class="content-title">Waipi’o Valley Hotel</h3>
-                                        <p class="content-text"><i class="fa fa-map-marker"></i> Hawaii</p>
-                                    </div>
-                                </a> </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="confirm-register-part" class="content" role="tabpanel" aria-labelledby="confirm-register-part-trigger">
+            <main>
+                <!-- confirm register -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-9 mx-auto">
+                            <div class="card card-signin flex-row my-5">
+                                <div class="card-img-left d-none d-md-flex">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Register</h5>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
