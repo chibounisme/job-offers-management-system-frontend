@@ -2,7 +2,8 @@
     <div class="bs-stepper-header" role="tablist">
         <!-- your steps here -->
         <div class="step" data-target="#register-part">
-            <button type="button" class="step-trigger" role="tab" aria-controls="register-part" id="register-part-trigger">
+            <button type="button" class="step-trigger" role="tab" aria-controls="register-part"
+                id="register-part-trigger">
                 <span class="bs-stepper-circle">1</span>
                 <span class="bs-stepper-label">Register</span>
             </button>
@@ -123,7 +124,8 @@
                                                 <label for="Gouvernorat">Gouvernorat</label>
                                                 <input
                                                     [ngClass]="{'is-valid': profileForm2.controls.Gouvernorat.valid && profileForm2.controls.Gouvernorat.dirty, 'is-invalid': profileForm2.controls.Gouvernorat.invalid}"
-                                                    type="text" class="form-control" id="Gouvernorat" formControlName="Gouvernorat">
+                                                    type="text" class="form-control" id="Gouvernorat"
+                                                    formControlName="Gouvernorat">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="Ville">Ville</label>
@@ -136,13 +138,15 @@
                                         <div>
                                             <label for="inputEmail4">Tags</label>
                                             <ng-select [multiple]="true">
-                                                <ng-option *ngFor="let tag of tags" [value]="tag.id">{{tag.name}}</ng-option>
+                                                <ng-option *ngFor="let tag of tags" [value]="tag.id">{{tag.name}}
+                                                </ng-option>
                                             </ng-select>
                                         </div>
                                         <br>
                                         <button class="btn btn-lg btn-primary btn-block text-uppercase"
-                                            [disabled]="profileForm2.invalid || !profileForm2.dirty">Create account</button> -->
-                                        
+                                            [disabled]="profileForm2.invalid || !profileForm2.dirty">Create
+                                            account</button> 
+
                                     </form>
                                 </div>
                             </div>
@@ -155,68 +159,64 @@
             <main>
                 <!-- finish register -->
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-xl-12 mx-auto">
-                            <div class="card card-signin flex-row my-5">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title text-center">Register</h5>
-                                    <div class="container">
-                                        <div class="col-sm-12">
-                            
-                                            <div class="bs-calltoaction bs-calltoaction-success">
-                                                <div class="row">
-                                                    <div class="col-md-9 cta-contents">
-                                                        <h1 class="cta-title">Its a Call To Action</h1>
-                                                        <div class="cta-desc">
-                                                            <p>Describe the action here.</p>
-                                                            <p>Describe the action here.</p>
-                                                            <p>Describe the action here.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 cta-button">
-                                                        <a href="#" class="btn btn-lg btn-block btn-success" >Go for It!</a>
-                                                    </div>
-                                                 </div>
+                    <div class="row " >
+                        <div class="col-md-6 " >
+                            <div class="profile-card-6" ><img
+                                    src="assets/img/oklm.jpg"
+                                    class="img img-responsive">
+                                <div class="profile-name">Go To
+                                    <br>Profile
+                                </div>
+                                <div class="profile-position">visit your profile</div>
+                                <div class="profile-overview">
+                                    <div class="profile-overview">
+                                        <div class="row text-center">
+                                            <!-- <div class="col-xs-4">
+                                                <h3>1</h3>
+                                                <p>Rank</p>
                                             </div>
-                            
-                                            <div class="bs-calltoaction bs-calltoaction-warning">
-                                                <div class="row">
-                                                    <div class="col-md-9 cta-contents">
-                                                        <h1 class="cta-title">Its a Call To Action</h1>
-                                                        <div class="cta-desc">
-                                                            <p>Describe the action here.</p>
-                                                            <p>Describe the action here.</p>
-                                                            <p>Describe the action here.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 cta-button">
-                                                        <a href="#" class="btn btn-lg btn-block btn-warning">Go for It!</a>
-                                                    </div>
-                                                 </div>
+                                            <div class="col-xs-4">
+                                                <h3>50</h3>
+                                                <p>Matches</p>
                                             </div>
-
-                                            <div class="bs-calltoaction bs-calltoaction-danger">
-                                                <div class="row">
-                                                    <div class="col-md-9 cta-contents">
-                                                        <h1 class="cta-title">Its a Call To Action</h1>
-                                                        <div class="cta-desc">
-                                                            <p>Describe the action here.</p>
-                                                            <p>Describe the action here.</p>
-                                                            <p>Describe the action here.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 cta-button">
-                                                        <a href="#" class="btn btn-lg btn-block btn-danger">Go for It!</a>
-                                                    </div>
-                                                 </div>
-                                            </div>
-                            
+                                            <div class="col-xs-4">
+                                                <h3>35</h3>
+                                                <p>Goals</p>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="profile-card-6"><img
+                                    src="https://image.freepik.com/free-photo/successful-businesswoman-working-laptop-computer-thinks-new-ideas-her-office-dressed-up-white-clothes_231208-4811.jpg"
+                                    class="img img-responsive">
+                                <div class="profile-name">Go To
+                                    <br>Job Offers
+                                </div>
+                                <div class="profile-position">Visit all Job Offers! </div>
+                                <div class="profile-overview">
+                                    <div class="profile-overview">
+                                        <div class="row text-center">
+                                            <!-- <div class="col-xs-4">
+                                                <h3>1</h3>
+                                                <p>Rank</p>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h3>50</h3>
+                                                <p>Matches</p>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h3>35</h3>
+                                                <p>Goals</p>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </main>
