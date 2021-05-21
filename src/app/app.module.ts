@@ -16,6 +16,7 @@ import { ProfileAdminComponent } from './pages/profile-admin/profile-admin.compo
 import { RegisterComponent } from './pages/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Stepper3Component } from './stepper3/stepper3.component';
+import { OfferListComponent } from './pages/offer-list/offer-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { Stepper3Component } from './stepper3/stepper3.component';
     ProfileAdminComponent,
     RegisterComponent,
     Stepper3Component,
+    OfferListComponent,
   ],
   imports: [
     BrowserModule,
