@@ -20,7 +20,7 @@
         <div class="step" data-target="#finish-register-part">
             <button type="button" class="step-trigger" role="tab" aria-controls="finish-register-part"
                 id="finish-register-part-trigger">
-                <span class="bs-stepper-circle">2</span>
+                <span class="bs-stepper-circle">3</span>
                 <span class="bs-stepper-label">Finish Register</span>
             </button>
         </div>
@@ -37,7 +37,7 @@
                                 <div class="card-img-left d-none d-md-flex">
                                     <!-- Background image for card set in CSS! -->
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" >
                                     <h5 class="card-title text-center">Register</h5>
                                     <form class="form-signin" [formGroup]="profileForm" (ngSubmit)="onclick()">
                                         <div class="form-group">
@@ -62,6 +62,7 @@
                                                     formControlName="cmdp">
                                             </div>
                                         </div>
+                                        <br>
                                         <button class="btn btn-lg btn-primary btn-block text-uppercase"
                                             [disabled]="profileForm.invalid">Register</button>
                                         <a class="d-block text-center mt-2 small" routerLink="/login">Login</a>
@@ -158,67 +159,7 @@
         <div id="finish-register-part" class="content" role="tabpanel" aria-labelledby="finish-register-part-trigger">
             <main>
                 <!-- finish register -->
-                <div class="container" >
-                    <div class="row " >
-                        <a class="col-md-6 " href="/profile" >
-                            <div class="profile-card-6" ><img
-                                    src="assets/img/oklm.jpg"
-                                    class="img img-responsive">
-                                <div class="profile-name">Go To
-                                    <br>Profile
-                                </div>
-                                <div class="profile-position">visit your profile</div>
-                                <div class="profile-overview">
-                                    <div class="profile-overview">
-                                        <div class="row text-center">
-                                            <!-- <div class="col-xs-4">
-                                                <h3>1</h3>
-                                                <p>Rank</p>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <h3>50</h3>
-                                                <p>Matches</p>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <h3>35</h3>
-                                                <p>Goals</p>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="col-md-6" href="/">
-                            <div class="profile-card-6"><img
-                                    src="https://image.freepik.com/free-photo/successful-businesswoman-working-laptop-computer-thinks-new-ideas-her-office-dressed-up-white-clothes_231208-4811.jpg"
-                                    class="img img-responsive">
-                                <div class="profile-name">Go To
-                                    <br>Job Offers
-                                </div>
-                                <div class="profile-position">Visit all Job Offers! </div>
-                                <div class="profile-overview">
-                                    <div class="profile-overview">
-                                        <div class="row text-center">
-                                            <!-- <div class="col-xs-4">
-                                                <h3>1</h3>
-                                                <p>Rank</p>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <h3>50</h3>
-                                                <p>Matches</p>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <h3>35</h3>
-                                                <p>Goals</p>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
+                <app-stepper3></app-stepper3>
             </main>
         </div>
     </div>

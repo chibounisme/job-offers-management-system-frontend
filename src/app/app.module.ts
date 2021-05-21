@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileAdminComponent } from './pages/profile-admin/profile-admin.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Stepper3Component } from './stepper3/stepper3.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProfileComponent,
     ProfileAdminComponent,
     RegisterComponent,
+    Stepper3Component,
   ],
   imports: [
     BrowserModule,
