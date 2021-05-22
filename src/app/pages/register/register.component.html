@@ -37,7 +37,7 @@
                                 <div class="card-img-left d-none d-md-flex">
                                     <!-- Background image for card set in CSS! -->
                                 </div>
-                                <div class="card-body" >
+                                <div class="card-body">
                                     <h5 class="card-title text-center">Register</h5>
                                     <form class="form-signin" [formGroup]="profileForm" (ngSubmit)="onclick1()">
                                         <div class="form-group">
@@ -63,6 +63,9 @@
                                             </div>
                                         </div>
                                         <br>
+                                        <div *ngIf="registerErrorExists" class="alert alert-danger" role="alert">
+                                            Email already used!
+                                        </div>
                                         <button class="btn btn-lg btn-primary btn-block text-uppercase"
                                             [disabled]="profileForm.invalid">Register</button>
                                         <a class="d-block text-center mt-2 small" routerLink="/login">Login</a>
@@ -120,12 +123,12 @@
                                                 type="text" class="form-control" id="adresse" placeholder="1234 Main St"
                                                 formControlName="adresse">
                                         </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-6">
                                             <label for="sexe">Sexe</label>
                                             <select id="sexe" class="form-control" formControlName="sexe">
                                                 <option selected>Choose...</option>
-                                                <option>Homme</option>
-                                                <option>Femme</option>
+                                                <option value="Homme">Homme</option>
+                                                <option value="Femme">Femme</option>
                                             </select>
                                         </div>
                                         <div class="form-row">
@@ -146,7 +149,7 @@
                                         </div>
                                         <div>
                                             <label for="inputEmail4">Tags</label>
-                                            <ng-select [multiple]="true">
+                                            <ng-select [multiple]="true" [(ngModel)]="selectedTags" [ngModelOptions]="{standalone: true}">
                                                 <ng-option *ngFor="let tag of tags" [value]="tag.id">{{tag.name}}
                                                 </ng-option>
                                             </ng-select>
@@ -154,7 +157,7 @@
                                         <br>
                                         <button class="btn btn-lg btn-primary btn-block text-uppercase"
                                             [disabled]="profileForm2.invalid || !profileForm2.dirty">Create
-                                            account</button> 
+                                            account</button>
 
                                     </form>
                                 </div>

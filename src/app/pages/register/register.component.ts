@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   faThumbtack = faThumbtack;
   faHashtag = faHashtag;
   registerErrorExists: boolean = false;
+  selectedTags: any;
   tags: any = [{ name: " amibitieux" }, { name: "serieux" }];
   profileForm = this.formBuilder.group({
     Email: new FormControl('', [Validators.required, Validators.email]),
@@ -27,11 +28,10 @@ export class RegisterComponent implements OnInit {
     Nom: new FormControl('', Validators.minLength(3)),
     Prenom: new FormControl('', Validators.minLength(3)),
     tel: new FormControl('', [Validators.minLength(8), Validators.pattern("[234579]{1}[0-9]{7}")]),
-    sex: new FormControl(''),
+    sexe: new FormControl(''),
     adresse: new FormControl(''),
     Gouvernorat: new FormControl(''),
-    Ville: new FormControl(''),
-    Tags: new FormControl(''),
+    Ville: new FormControl('')
   });
   constructor(private formBuilder: FormBuilder
     , @Inject(DOCUMENT) private document: Document,
@@ -52,11 +52,11 @@ export class RegisterComponent implements OnInit {
       first_name: this.profileForm2.value.Prenom,
       last_name: this.profileForm2.value.Nom,
       tel: this.profileForm2.value.tel,
-      sex: this.profileForm2.value.sex,
+      sex: this.profileForm2.value.sexe,
       address: this.profileForm2.value.adresse,
       state: this.profileForm2.value.Gouvernorat,
       city: this.profileForm2.value.Ville,
-      tags: this.profileForm2.value.tags
+      tags: this.selectedTags.map(tag => tag.$ngOptionLabel)
     }).subscribe(_ => {
       this.stepper.next();
     }, err => {
