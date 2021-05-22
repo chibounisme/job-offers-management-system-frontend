@@ -17,6 +17,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Stepper3Component } from './stepper3/stepper3.component';
 import { OfferListComponent } from './pages/offer-list/offer-list.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +32,14 @@ import { OfferListComponent } from './pages/offer-list/offer-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule ,NgSelectModule, FormsModule,BrowserAnimationsModule, SimpleNotificationsModule.forRoot(),ReactiveFormsModule,
-    FontAwesomeModule
+    NgbModule,
+    NgSelectModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot(),
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
