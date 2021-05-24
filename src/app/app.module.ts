@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Stepper3Component } from './stepper3/stepper3.component';
 import { OfferListComponent } from './pages/offer-list/offer-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JoboffersComponent } from './pages/joboffers/joboffers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     Stepper3Component,
     OfferListComponent,
+    JoboffersComponent,
   ],
   imports: [
     BrowserModule,
