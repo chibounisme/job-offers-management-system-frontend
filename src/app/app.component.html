@@ -1,23 +1,21 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse " id="navbarSupportedContent" >
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/" routerLinkActive="active"
-        >Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/offers" routerLinkActive="active"
-        >offers</a>
+        <a class="nav-link" routerLink="/offers" routerLinkActive="active">offers</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/profile" routerLinkActive="active"
-        >Profile</a>
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink='/login' routerLinkActive="active ">Pricing</a>
@@ -32,12 +30,13 @@
         <a class="btn btn-primary" routerLink='/login' role="button">Sign In!</a>
       </li>
     </ul>
-    
-    
+
+
   </div>
 </nav>
 <!-- Masthead-->
-<router-outlet></router-outlet>
+<router-outlet> </router-outlet>
+
 <!-- Footer-->
 <footer class="footer bg-light">
   <div class="container">
@@ -71,3 +70,4 @@
   </div>
 </footer>
 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<ngx-loading-bar [includeSpinner]="false" [height]="15"></ngx-loading-bar>

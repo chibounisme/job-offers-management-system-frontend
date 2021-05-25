@@ -19,6 +19,8 @@ import { Stepper3Component } from './stepper3/stepper3.component';
 import { OfferListComponent } from './pages/offer-list/offer-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JoboffersComponent } from './pages/joboffers/joboffers.component';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,7 @@ import { JoboffersComponent } from './pages/joboffers/joboffers.component';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
+    LoadingBarRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
