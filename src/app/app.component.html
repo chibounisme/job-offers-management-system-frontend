@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/offers" routerLinkActive="active">offers</a>
