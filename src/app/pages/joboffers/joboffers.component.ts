@@ -41,6 +41,10 @@ export class JoboffersComponent implements OnInit {
     this.jobService.getJobs(1, {}).subscribe((res: any) => {
       console.log('done');
       this.jobs = res;
+      this.jobs.map(job => { job.tags = job.tags.
+        map(tag =>   tag ).
+        join('🔹'); return (job) })
+        console.log(this.jobs)
     }, err => {
       console.log(err);
     })

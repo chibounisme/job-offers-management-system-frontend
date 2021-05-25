@@ -32,11 +32,11 @@
                                             CDI
                                         </span>
                                     </label>
-                                </div> 
+                                </div>
                             </div>
-                        </article> 
-                    </div> 
-                </aside> 
+                        </article>
+                    </div>
+                </aside>
                 <aside class="col-sm-12">
                     <div class="card">
                         <article class="card-group-item">
@@ -69,11 +69,11 @@
                                             EmploisTunisie.tn
                                         </span>
                                     </label>
-                                </div> 
+                                </div>
                             </div>
-                        </article> 
-                    </div> 
-                </aside> 
+                        </article>
+                    </div>
+                </aside>
                 <aside class="col-sm-12">
                     <div class="card">
                         <article class="card-group-item">
@@ -92,9 +92,9 @@
                                             <input type="number" class="form-control" placeholder="$1,0000">
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
-                        </article> 
+                        </article>
                         <article class="card-group-item">
                             <header class="card-header">
                                 <h6 class="title">les tags les plus utilisés </h6>
@@ -105,7 +105,7 @@
                                         <span class="float-right badge badge-light round">52</span>
                                         <input type="checkbox" class="custom-control-input" id="Check1">
                                         <label class="custom-control-label" for="Check1">Sérieux</label>
-                                    </div> 
+                                    </div>
 
                                     <div class="custom-control custom-checkbox">
                                         <span class="float-right badge badge-light round">132</span>
@@ -131,7 +131,7 @@
                 </aside>
             </div>
         </div>
-        
+
         <br><br>
         <article class="bg-secondary mb-3">
             <div class="card-body text-center">
@@ -143,45 +143,49 @@
             <br><br>
         </article>
     </div>
-    
+
     <aside class=' col-sm-8'>
         <br>
         <div class="container h-10">
             <div class="d-flex justify-content-center h-100">
-              <div class="searchbar">
-                <input class="search_input" type="text" name="" placeholder="Search...">
-                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-              </div>
+                <div class="searchbar">
+                    <input class="search_input" type="text" name="" placeholder="Search...">
+                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                </div>
             </div>
-          </div>
+        </div>
         <br>
-        <div class="container mt-3 mb-3">
+        <div class="container mt-3 mb-3 " *ngFor="let job of jobs; let index = index;">
             <div class="d-flex justify-content-center row">
                 <div class="col-md-10">
                     <div class="row p-2 bg-white border rounded">
-                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                        <div class="col-md-3 mt-1" *ngIf="job.type == 'CDD'"><img class="img-fluid img-responsive rounded product-image"
                                 src="assets/img/cdd.png"></div>
+                                <div class="col-md-3 mt-1" *ngIf="job.type == 'CDI'"><img class="img-fluid img-responsive rounded product-image"
+                                    src="assets/img/cdi.jpg"></div>
+                                    <div class="col-md-3 mt-1" *ngIf="job.type != 'CDD'&& job.type != 'CDI'"><img class="img-fluid img-responsive rounded product-image"
+                                        src="assets/img/logo.jpg"></div>
                         <div class="col-md-6 mt-1">
-                            <h5>nom du poste</h5>
+                            <h5>{{job.title}}</h5>
                             <div class="d-flex flex-row">
-                                <h6> nom de la société
+                                <h6> {{job.company_name}}
                                 </h6>
                             </div>
-                            <div class="mt-1 mb-1 spec-1"><span>tag1</span><span
-                                    class="dot"></span><span>tag2</span><span class="dot"></span><span>tag3<br></span>
+
+                            <div class="mt-1 mb-1 spec-1 text-primary text-truncate"> {{job.tags}}
                             </div>
-                            <p class="text-justify text-truncate para mb-0">1ere phrase description suivis de
-                                ...<br><br></p>
+                            <p class="text-justify text-truncate para mb-0 text-truncate"  >{{job.description}}</p>
                         </div>
                         <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                             <div class="d-flex flex-row align-items-center">
-                                <h6 class="text">salaire: </h6>
-                                <h4 class="mr-1">$13.99</h4>
+                                <h6 class="text" >salaire:  </h6>
+                                <h4 class="mr-3" style =" font-size:15px ;" *ngIf=" job.salary !='' && job.salary !='vide'" >{{job.salary}}</h4>
                             </div>
-                            <h6 class="text-success">place</h6>
+                            <h6 class="text-success">{{job.location}}</h6>
                             <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm "
                                     (click)="triggerModal(modalData)" type="button">Details</button><button
-                                    class="btn btn-outline-primary btn-sm mt-2" type="button" (click)="onclick()">Enregistrer</button></div>
+                                    class="btn btn-outline-primary btn-sm mt-2" type="button"
+                                    (click)="onclick()">Enregistrer</button></div>
                         </div>
                     </div>
 
@@ -193,18 +197,18 @@
         </div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
             </ul>
-          </nav>
-        
+        </nav>
+
 
     </aside>
 </div>

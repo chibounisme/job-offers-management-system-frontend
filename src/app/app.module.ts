@@ -26,6 +26,7 @@ import { AuthInterceptor } from './services/authintercepter';
 import { JobService } from './services/job.service';
 import { AuthService } from './services/auth.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { AuthService } from './services/auth.service';
     Stepper3Component,
     OfferListComponent,
     JoboffersComponent,
+
   ],
   imports: [
     BrowserModule,
