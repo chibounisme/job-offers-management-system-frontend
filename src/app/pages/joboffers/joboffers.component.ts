@@ -7,6 +7,12 @@ import { NotificationsService } from 'angular2-notifications';
   styleUrls: ['./joboffers.component.css']
 })
 export class JoboffersComponent implements OnInit {
+  options: any = {
+    timeOut: 3000,
+    showProgressBar: true,
+    pauseOnHover: true,
+    clickToClose: true
+  };
   closeModal: string;
   constructor(private modalService: NgbModal, private _service: NotificationsService) { }
   private getDismissReason(reason: any): string {
@@ -25,7 +31,11 @@ export class JoboffersComponent implements OnInit {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
   }
+  onclick(){
+    this._service.success("offre enregistré");}
   ngOnInit(): void {
+    
   }
-
+  created(event: any) { };
+  destroyed(event: any) { };
 }

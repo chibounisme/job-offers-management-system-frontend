@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import { Inject } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'job-offers-management-system-frontend';
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(@Inject(DOCUMENT) private document: Document, public authService: AuthService, private router: Router) {}
   ngOnInit(){
     this.document.querySelector(".navbar-toggler").addEventListener("click",()=>{
       if (this.document.querySelector(".collapse.navbar-collapse").classList.contains("show")){
@@ -19,6 +21,10 @@ export class AppComponent implements OnInit {
       else{this.document.querySelector(".collapse.navbar-collapse").classList.add("show")}
     })
     
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/');
   }
 }
 

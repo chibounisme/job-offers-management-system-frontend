@@ -25,7 +25,10 @@
       <li class="nav-item">
         <a class="nav-link" routerLink='/register' routerLinkActive="active ">Register</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a class="btn btn-primary" role="button" (click)="logout()">Sign Out!</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedOut()">
         <a class="btn btn-primary" routerLink='/login' role="button">Sign In!</a>
       </li>
     </ul>
