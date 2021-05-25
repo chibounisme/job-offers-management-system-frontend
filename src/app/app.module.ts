@@ -20,6 +20,8 @@ import { OfferListComponent } from './pages/offer-list/offer-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JoboffersComponent } from './pages/joboffers/joboffers.component';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    LoadingBarRouterModule
+    LoadingBarRouterModule,
+    MatProgressBarModule,
+    LoadingBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
