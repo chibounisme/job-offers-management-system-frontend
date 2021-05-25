@@ -17,11 +17,12 @@ import { RegisterComponent } from './pages/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Stepper3Component } from './stepper3/stepper3.component';
 import { OfferListComponent } from './pages/offer-list/offer-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JoboffersComponent } from './pages/joboffers/joboffers.component';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { AuthInterceptor } from './services/authintercepter';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,13 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
     MatProgressBarModule,
     LoadingBarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
