@@ -15,7 +15,7 @@ export class JoboffersComponent implements OnInit {
     clickToClose: true
   };
   closeModal: string;
-  constructor(private modalService: NgbModal, private _service: NotificationsService ,private JobService : JobService) { }
+  constructor(private modalService: NgbModal, private _service: NotificationsService, private jobService: JobService) { }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -25,7 +25,7 @@ export class JoboffersComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-   
+
   triggerModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
@@ -33,16 +33,19 @@ export class JoboffersComponent implements OnInit {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
   }
-  onclick(){
-    this._service.success("offre enregistré");}
-    jobs: any
+  onclick() {
+    this._service.success("offre enregistré");
+  }
+  jobs: any
   ngOnInit(): void {
-    this.JobService.GetJobs(1,{}).subscribe((res:any) => {
-      this.jobs=res
-      console.log(res)
+    this.jobService.getJobs(1, {}).subscribe((res: any) => {
+      console.log('done');
+      this.jobs = res;
+    }, err => {
+      console.log(err);
     })
-    
-    
+
+
   }
   created(event: any) { };
   destroyed(event: any) { };

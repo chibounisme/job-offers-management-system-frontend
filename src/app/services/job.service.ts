@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,8 @@ import { Injectable } from '@angular/core';
 export class JobService {
 
   constructor(private http: HttpClient) { }
-  GetJobs(pagenumber: any,option:any) {
-    return this.http.post('http://localhost:3000/jobs?page='+pagenumber, option);
+  getJobs(pagenumber: any, option: any) {
+    console.log('sending ' + pagenumber);
+    return this.http.post<any>('http://localhost:3000/jobs?page=' + pagenumber, option);
   }
 }

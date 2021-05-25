@@ -23,6 +23,8 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { AuthInterceptor } from './services/authintercepter';
+import { JobService } from './services/job.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
