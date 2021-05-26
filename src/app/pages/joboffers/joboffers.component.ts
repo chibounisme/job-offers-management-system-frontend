@@ -23,7 +23,17 @@ export class JoboffersComponent implements OnInit {
   nextPageNumber: number;
   totalPages: number;
   closeModal: string;
-  constructor( private viewPortScroller: ViewportScroller,private modalService: NgbModal, private _service: NotificationsService, private jobService: JobService) { }
+  searchTerm: string = "";
+  jobSource: string = "all";
+  jobType: string = "all";
+  minSalary: number;
+  maxSalary: number;
+  isSerieuxChecked: boolean = false;
+  isAmbitieuxChecked: boolean = false;
+  isBosseurChecked: boolean = false;
+  isDisciplineChecked: boolean = false;
+
+  constructor(private viewPortScroller: ViewportScroller, private modalService: NgbModal, private _service: NotificationsService, private jobService: JobService) { }
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -34,32 +44,103 @@ export class JoboffersComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-selectedjobindex: number ;
-  triggerModal( content , index) {
-    
+  selectedjobindex: number;
+  triggerModal(content, index) {
+
     this.selectedjobindex = index;
-    this.jobs[this.selectedjobindex].description=this.jobs[this.selectedjobindex].description.replace(/(?:\r\n|\r|\n)/g, '<br>');
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' , size: "xl" }).result.then((res) => {
+    this.jobs[this.selectedjobindex].description = this.jobs[this.selectedjobindex].description.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: "xl" }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
-    
+
   }
 
-  onclick() {
-    this._service.success("offre enregistré");
+  onclick(jobId: any) {
+    this.jobService.addJobToFavorites(jobId).subscribe(_ => {
+      this._service.success("offre enregistré");
+    });
   }
 
-  jobs: any;
+  jobs: any = [];
 
   ngOnInit(): void {
-    this.getCurrentPageJobs();
+    this.searchJobs();
   }
 
-  getCurrentPageJobs() {
+  calculatePageNumbers() {
+    this.previousPageNumber = this.currentPageNumber - 1;
+    this.nextPageNumber = this.currentPageNumber + 1;
+  }
+
+  goToPreviousPage() {
+    this.currentPageNumber--;
+    this.searchJobs(true);
+    this.viewPortScroller.scrollToPosition([0, 0]);
+
+  }
+
+  goToNextPage() {
+    this.currentPageNumber++;
+    this.searchJobs(true);
+    this.viewPortScroller.scrollToPosition([0, 0]);
+  }
+
+  goToNextMany() {
+    const futurePageNumber = this.currentPageNumber + 25;
+    this.currentPageNumber = Math.min(futurePageNumber, this.totalPages);
+    this.searchJobs(true);
+    this.viewPortScroller.scrollToPosition([0, 0]);
+
+  }
+  goToPreviousMany() {
+    const futurePageNumber = this.currentPageNumber - 25;
+    this.currentPageNumber = Math.max(futurePageNumber, 1);
+    this.searchJobs(true);
+    this.viewPortScroller.scrollToPosition([0, 0]);
+
+  }
+  created(event: any) { };
+  destroyed(event: any) { };
+
+  searchJobs(dontChangePageNumber: boolean = false) {
     this.hasLoadedJobs = false;
-    this.jobService.getJobs(this.currentPageNumber, {}).subscribe((res: any) => {
+    let options = {};
+    if (this.searchTerm)
+      options = {
+        search: this.searchTerm
+      };
+    if (this.jobType != 'all')
+      options = {
+        ...options,
+        type: this.jobType
+      };
+    if (this.jobSource != 'all')
+      options = {
+        ...options,
+        source: this.jobSource
+      };
+    let tags = [];
+    if (this.isAmbitieuxChecked) tags = ['ambitieux'];
+    if (this.isBosseurChecked) tags = [...tags, 'bosseur'];
+    if (this.isDisciplineChecked) tags = [...tags, 'discipliné'];
+    if (this.isSerieuxChecked) tags = [...tags, 'sérieux'];
+    if (tags.length)
+      options = {
+        ...options,
+        tags
+      }
+    if (this.minSalary && this.maxSalary && this.maxSalary >= this.minSalary) {
+      options = {
+        ...options,
+        min_salary: this.minSalary,
+        max_salary: this.maxSalary,
+      };
+    }
+    if (!dontChangePageNumber)
+      this.currentPageNumber = 1;
+    this.jobService.getJobs(this.currentPageNumber, options).subscribe((res: any) => {
       this.jobs = res.jobs;
       this.jobs.map(job => {
         job.tags = job.tags
@@ -74,39 +155,5 @@ selectedjobindex: number ;
     });
   }
 
-  calculatePageNumbers() {
-    this.previousPageNumber = this.currentPageNumber - 1;
-    this.nextPageNumber = this.currentPageNumber + 1;
-  }
-
-  goToPreviousPage() {
-    this.currentPageNumber--;
-    this.getCurrentPageJobs();
-    this.viewPortScroller.scrollToPosition([0, 0]);
-    
-  }
-
-  goToNextPage() {
-    this.currentPageNumber++;
-    this.getCurrentPageJobs();
-    this.viewPortScroller.scrollToPosition([0, 0]);
-  }
-
-  goToNextMany() {
-    const futurePageNumber = this.currentPageNumber + 25;
-    this.currentPageNumber = Math.min(futurePageNumber, this.totalPages);
-    this.getCurrentPageJobs();
-    this.viewPortScroller.scrollToPosition([0, 0]);
-    
-  }
-  goToPreviousMany() {
-    const futurePageNumber = this.currentPageNumber - 25;
-    this.currentPageNumber = Math.max(futurePageNumber, 1);
-    this.getCurrentPageJobs();
-    this.viewPortScroller.scrollToPosition([0, 0]);
-   
-  }
-  created(event: any) { };
-  destroyed(event: any) { };
 }
 

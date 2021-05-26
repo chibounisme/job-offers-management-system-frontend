@@ -8,8 +8,15 @@ import { Observable } from 'rxjs';
 export class JobService {
 
   constructor(private http: HttpClient) { }
+
   getJobs(pagenumber: any, option: any) {
-    console.log('sending ' + pagenumber);
     return this.http.post<any>('http://localhost:3000/jobs?page=' + pagenumber, option);
   }
+
+  addJobToFavorites(jobId: any) {
+    return this.http.post<any>('http://localhost:3000/jobs/add', {
+      job_offer_id: jobId
+    });
+  }
+
 }

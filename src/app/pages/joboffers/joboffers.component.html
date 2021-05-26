@@ -12,22 +12,22 @@
                             <div class="filter-content">
                                 <div class="card-body">
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="job_type_all" type="radio"
-                                            name="job_type" value="all">
+                                        <input [disabled]="!hasLoadedJobs" [(ngModel)]="jobType" class="custom-control-input" id="job_type_all"
+                                            type="radio" name="job_type" value="all" (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_type_all">
                                             Tous les Types
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="job_type_cdd" type="radio"
-                                            name="job_type" value="cdd">
+                                        <input [disabled]="!hasLoadedJobs" [(ngModel)]="jobType" class="custom-control-input" id="job_type_cdd"
+                                            type="radio" name="job_type" value="cdd" (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_type_cdd">
                                             CDD
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="job_type_cdi" type="radio"
-                                            name="job_type" value="cdi">
+                                        <input [disabled]="!hasLoadedJobs" [(ngModel)]="jobType" class="custom-control-input" id="job_type_cdi"
+                                            type="radio" name="job_type" value="cdi" (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_type_cdi">
                                             CDI
                                         </label>
@@ -46,29 +46,33 @@
                             <div class="filter-content">
                                 <div class="card-body">
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="job_source_all" type="radio"
-                                            name="job_source" value="all">
+                                        <input [disabled]="!hasLoadedJobs" class="custom-control-input" id="job_source_all" type="radio"
+                                            name="job_source" value="all" [(ngModel)]="jobSource"
+                                            (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_source_all">
                                             Tous les Sites
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="job_source_jobi" type="radio"
-                                            name="job_source" value="jobi">
+                                        <input [disabled]="!hasLoadedJobs" class="custom-control-input" id="job_source_jobi" type="radio"
+                                            name="job_source" value="jobi" [(ngModel)]="jobSource"
+                                            (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_source_jobi">
                                             Jobi.tn
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="job_source_tanit" type="radio"
-                                            name="job_source" value="tanit">
+                                        <input [disabled]="!hasLoadedJobs" class="custom-control-input" id="job_source_tanit" type="radio"
+                                            name="job_source" value="tanit" [(ngModel)]="jobSource"
+                                            (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_source_tanit">
                                             TanitJobs.tn
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" id="job_source_emploi" type="radio"
-                                            name="job_source" value="emploi">
+                                        <input [disabled]="!hasLoadedJobs" class="custom-control-input" id="job_source_emploi" type="radio"
+                                            name="job_source" value="emploi" [(ngModel)]="jobSource"
+                                            (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_source_emploi">
                                             EmploisTunisie.tn
                                         </label>
@@ -89,12 +93,17 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label>Minimum</label>
-                                            <input type="number" class="form-control" id="inputEmail4" placeholder="$0">
+                                            <input [disabled]="!hasLoadedJobs" type="number" [(ngModel)]="minSalary"
+                                                class="form-control" id="inputEmail4" placeholder="0 TND">
                                         </div>
                                         <div class="form-group col-md-6 text-right">
                                             <label>Maximum</label>
-                                            <input type="number" class="form-control" placeholder="$1,0000">
+                                            <input [disabled]="!hasLoadedJobs" type="number" [(ngModel)]="maxSalary"
+                                                class="form-control" placeholder="1,000 TND">
                                         </div>
+                                    </div>
+                                    <div class="form-row float-right">
+                                        <button [disabled]="!hasLoadedJobs" class="btn btn-primary" (click)="searchJobs()">Valider</button>
                                     </div>
                                 </div>
                             </div>
@@ -106,26 +115,22 @@
                             <div class="filter-content">
                                 <div class="card-body">
                                     <div class="custom-control custom-checkbox">
-                                        <span class="float-right badge badge-light round">52</span>
-                                        <input type="checkbox" class="custom-control-input" id="Check1">
+                                        <input [disabled]="!hasLoadedJobs"[(ngModel)]="isSerieuxChecked" (ngModelChange)="searchJobs()"  type="checkbox" class="custom-control-input" id="Check1">
                                         <label class="custom-control-label" for="Check1">Sérieux</label>
                                     </div>
 
                                     <div class="custom-control custom-checkbox">
-                                        <span class="float-right badge badge-light round">132</span>
-                                        <input type="checkbox" class="custom-control-input" id="Check2">
+                                        <input [disabled]="!hasLoadedJobs" [(ngModel)]="isAmbitieuxChecked" (ngModelChange)="searchJobs()" type="checkbox" class="custom-control-input" id="Check2">
                                         <label class="custom-control-label" for="Check2">Ambitieux</label>
                                     </div>
 
                                     <div class="custom-control custom-checkbox">
-                                        <span class="float-right badge badge-light round">17</span>
-                                        <input type="checkbox" class="custom-control-input" id="Check3">
+                                        <input [disabled]="!hasLoadedJobs" [(ngModel)]="isBosseurChecked" (ngModelChange)="searchJobs()" type="checkbox" class="custom-control-input" id="Check3">
                                         <label class="custom-control-label" for="Check3">Bosseur</label>
                                     </div>
 
                                     <div class="custom-control custom-checkbox">
-                                        <span class="float-right badge badge-light round">7</span>
-                                        <input type="checkbox" class="custom-control-input" id="Check4">
+                                        <input [disabled]="!hasLoadedJobs" [(ngModel)]="isDisciplineChecked" (ngModelChange)="searchJobs()" type="checkbox" class="custom-control-input" id="Check4">
                                         <label class="custom-control-label" for="Check4">Discipliné</label>
                                     </div>
                                 </div>
@@ -146,7 +151,7 @@
                     <br>
                     <p>
                         <a class="btn btn-warning" target="_blank" href="#">Lien Publicité
-                            <i class="fa fa-window-restore "></i>
+                            <i class="fa fa-window-restore"></i>
                         </a>
                     </p>
                 </div>
@@ -156,14 +161,17 @@
 
     <aside class='col-md-8 d-flex flex-column justify-content-start align-items-center'>
         <br>
-        <div class="container h-10">
-            <div class="d-flex justify-content-center h-100">
-                <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a class="search_icon btn"><i class="fas fa-search"></i></a>
+        <form (ngSubmit)="searchJobs()">
+            <div class="container h-10">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="searchbar">
+                        <input class="search_input" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"
+                            type="text" name="" placeholder="Search...">
+                        <button class="search_icon btn"><i class="fas fa-search"></i></button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
         <br>
         <div class="spinner-border text-primary mt-3 mb-3" role="status" *ngIf="!hasLoadedJobs">
             <span class="sr-only">Loading...</span>
@@ -172,12 +180,20 @@
             <div class="d-flex justify-content-center row mt-3 mb-3" *ngFor="let job of jobs; let index = index;">
                 <div class="col-md-10">
                     <div class="row p-2 bg-white border rounded">
-                        <div class="col-md-3 mt-1" *ngIf="job.type == 'CDD'"><img
+                        <div class="col-md-3 mt-1"
+                            *ngIf="job.type.includes('CDD') && (jobType == 'cdd' || jobType == 'all'); else second"><img
                                 class="img-fluid img-responsive rounded product-image" src="assets/img/cdd.png"></div>
-                        <div class="col-md-3 mt-1" *ngIf="job.type == 'CDI'"><img
-                                class="img-fluid img-responsive rounded product-image" src="assets/img/cdi.jpg"></div>
-                        <div class="col-md-3 mt-1" *ngIf="job.type != 'CDD'&& job.type != 'CDI'"><img
-                                class="img-fluid img-responsive rounded product-image" src="assets/img/logo.jpg"></div>
+                        <ng-template #second>
+                            <ng-container
+                                *ngIf="job.type.includes('CDI') && (jobType == 'cdi' || jobType == 'all');else third">
+                                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                        src="assets/img/cdi.jpg"></div>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #third>
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                    src="assets/img/logo.jpg"></div>
+                        </ng-template>
                         <div class="col-md-6 mt-1">
                             <h5>{{job.title}}</h5>
                             <div class="d-flex flex-row">
@@ -195,12 +211,12 @@
                                 <h6 class="text">salaire: </h6>
                                 <h4 class="mr-3" style=" font-size:15px ;">{{job.salary}}</h4>
                             </div>
-                            <h6 class="text-success" *ngIf=" job.location !='' && job.salary !='location'">📌
+                            <h6 class="text-success" *ngIf=" job.location !='' && job.location !='vide'">📌
                                 {{job.location}}</h6>
                             <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm "
                                     (click)="triggerModal(modalData,index)" type="button">Details</button><button
                                     class="btn btn-outline-primary btn-sm mt-2" type="button"
-                                    (click)="onclick()">Enregistrer</button></div>
+                                    (click)="onclick(job._id)">Enregistrer</button></div>
                         </div>
                     </div>
 
@@ -211,7 +227,7 @@
             </div>
         </div>
         <div class="container mt-3 mb-3" *ngIf="hasLoadedJobs && jobs.length == 0">
-            <p class="sr-only">No jobs were found</p>
+            <p class="title text-center">No jobs were found!</p>
         </div>
         <nav aria-label="Page navigation example" *ngIf="hasLoadedJobs && jobs.length != 0">
             <ul class="pagination justify-content-center">

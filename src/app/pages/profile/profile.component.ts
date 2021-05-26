@@ -62,7 +62,6 @@ export class ProfileComponent implements OnInit {
   created(event: any) { };
   destroyed(event: any) { };
   onclick() {
-    console.log(this.profileForm);
     if (this.profileForm.valid) {
       // appel lel backend
 
