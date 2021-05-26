@@ -13,15 +13,12 @@
         <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/offers" routerLinkActive="active">offers</a>
+        <a class="nav-link" routerLink="/offers" routerLinkActive="active">Offers</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink='/login' routerLinkActive="active ">Pricing</a>
-      </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedOut()">
         <a class="nav-link" routerLink='/register' routerLinkActive="active ">Register</a>
       </li>
       <li class="nav-item" *ngIf="authService.isLoggedIn()">
