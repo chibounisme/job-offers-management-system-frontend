@@ -144,7 +144,7 @@
         </article>
     </div>
 
-    <aside class=' col-sm-8'>
+    <aside class='col-sm-8 d-flex flex-column justify-content-start align-items-center'>
         <br>
         <div class="container h-10">
             <div class="d-flex justify-content-center h-100">
@@ -155,16 +155,19 @@
             </div>
         </div>
         <br>
-        <div class="container mt-3 mb-3 " *ngFor="let job of jobs; let index = index;">
-            <div class="d-flex justify-content-center row">
+        <div class="spinner-border text-primary mt-3 mb-3" role="status" *ngIf="!hasLoadedJobs">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="container" *ngIf="hasLoadedJobs">
+            <div class="d-flex justify-content-center row mt-3 mb-3" *ngFor="let job of jobs; let index = index;">
                 <div class="col-md-10">
                     <div class="row p-2 bg-white border rounded">
-                        <div class="col-md-3 mt-1" *ngIf="job.type == 'CDD'"><img class="img-fluid img-responsive rounded product-image"
-                                src="assets/img/cdd.png"></div>
-                                <div class="col-md-3 mt-1" *ngIf="job.type == 'CDI'"><img class="img-fluid img-responsive rounded product-image"
-                                    src="assets/img/cdi.jpg"></div>
-                                    <div class="col-md-3 mt-1" *ngIf="job.type != 'CDD'&& job.type != 'CDI'"><img class="img-fluid img-responsive rounded product-image"
-                                        src="assets/img/logo.jpg"></div>
+                        <div class="col-md-3 mt-1" *ngIf="job.type == 'CDD'"><img
+                                class="img-fluid img-responsive rounded product-image" src="assets/img/cdd.png"></div>
+                        <div class="col-md-3 mt-1" *ngIf="job.type == 'CDI'"><img
+                                class="img-fluid img-responsive rounded product-image" src="assets/img/cdi.jpg"></div>
+                        <div class="col-md-3 mt-1" *ngIf="job.type != 'CDD'&& job.type != 'CDI'"><img
+                                class="img-fluid img-responsive rounded product-image" src="assets/img/logo.jpg"></div>
                         <div class="col-md-6 mt-1">
                             <h5>{{job.title}}</h5>
                             <div class="d-flex flex-row">
@@ -174,14 +177,16 @@
 
                             <div class="mt-1 mb-1 spec-1 text-primary text-truncate"> {{job.tags}}
                             </div>
-                            <p class="text-justify text-truncate para mb-0 text-truncate"  >{{job.description}}</p>
+                            <p class="text-justify text-truncate para mb-0 text-truncate">{{job.description}}</p>
                         </div>
                         <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                            <div class="d-flex flex-row align-items-center">
-                                <h6 class="text" >salaire:  </h6>
-                                <h4 class="mr-3" style =" font-size:15px ;" *ngIf=" job.salary !='' && job.salary !='vide'" >{{job.salary}}</h4>
+                            <div class="d-flex flex-row align-items-center"
+                                *ngIf=" job.salary !='' && job.salary !='vide'">
+                                <h6 class="text">salaire: </h6>
+                                <h4 class="mr-3" style=" font-size:15px ;">{{job.salary}}</h4>
                             </div>
-                            <h6 class="text-success">{{job.location}}</h6>
+                            <h6 class="text-success" *ngIf=" job.location !='' && job.salary !='location'">📌
+                                {{job.location}}</h6>
                             <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm "
                                     (click)="triggerModal(modalData)" type="button">Details</button><button
                                     class="btn btn-outline-primary btn-sm mt-2" type="button"
@@ -195,16 +200,32 @@
                 </div>
             </div>
         </div>
-        <nav aria-label="Page navigation example">
+        <div class="container mt-3 mb-3" *ngIf="hasLoadedJobs && jobs.length == 0">
+            <p class="sr-only">No jobs were found</p>
+        </div>
+        <nav aria-label="Page navigation example" *ngIf="hasLoadedJobs && jobs.length != 0">
             <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                <li class="page-item" [ngClass]="{'disabled': previousPageNumber == 0}">
+                    <a class="page-link btn" tabindex="-1" aria-disabled="true"
+                      (click)="goToPreviousPage()">Previous</a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
+                    <a class="page-link btn" *ngIf="currentPageNumber >= 4" (click)="goToPreviousMany()">...</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link btn" *ngIf="previousPageNumber != 0" (click)="goToPreviousPage()">{{previousPageNumber}}</a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link btn">{{currentPageNumber}}</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link btn" *ngIf="nextPageNumber < totalPages + 1" (click)="goToNextPage()">{{nextPageNumber}}</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link btn" *ngIf=" totalPages - currentPageNumber > 1" (click)="goToNextMany()">...</a>
+                </li>
+                <li class="page-item" [ngClass]="{'disabled': nextPageNumber == totalPages + 1}">
+                    <a class="page-link btn" (click)="goToNextPage()">Next</a>
                 </li>
             </ul>
         </nav>

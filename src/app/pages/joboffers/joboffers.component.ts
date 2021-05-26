@@ -14,8 +14,14 @@ export class JoboffersComponent implements OnInit {
     pauseOnHover: true,
     clickToClose: true
   };
+  hasLoadedJobs: boolean = false;
+  previousPageNumber: number;
+  currentPageNumber: number = 1;
+  nextPageNumber: number;
+  totalPages: number;
   closeModal: string;
   constructor(private modalService: NgbModal, private _service: NotificationsService, private jobService: JobService) { }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -33,24 +39,61 @@ export class JoboffersComponent implements OnInit {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
   }
+
   onclick() {
     this._service.success("offre enregistré");
   }
-  jobs: any
+
+  jobs: any;
+
   ngOnInit(): void {
-    this.jobService.getJobs(1, {}).subscribe((res: any) => {
-      console.log('done');
-      this.jobs = res;
-      this.jobs.map(job => { job.tags = job.tags.
-        map(tag =>   tag ).
-        join('🔹'); return (job) })
-        console.log(this.jobs)
+    this.getCurrentPageJobs();
+  }
+
+  getCurrentPageJobs() {
+    this.hasLoadedJobs = false;
+    this.jobService.getJobs(this.currentPageNumber, {}).subscribe((res: any) => {
+      this.jobs = res.jobs;
+      this.jobs.map(job => {
+        job.tags = job.tags
+          .map(tag => tag)
+          .join('🔹'); return (job);
+      })
+      this.totalPages = res.totalPages;
+      console.log(this.totalPages);
+      this.calculatePageNumbers();
+      this.hasLoadedJobs = true;
     }, err => {
       console.log(err);
-    })
-
-
+    });
   }
+
+  calculatePageNumbers() {
+    this.previousPageNumber = this.currentPageNumber - 1;
+    this.nextPageNumber = this.currentPageNumber + 1;
+  }
+
+  goToPreviousPage() {
+    this.currentPageNumber--;
+    this.getCurrentPageJobs();
+  }
+
+  goToNextPage() {
+    this.currentPageNumber++;
+    this.getCurrentPageJobs();
+  }
+
+  goToNextMany() {
+    const futurePageNumber = this.currentPageNumber + 25;
+    this.currentPageNumber = Math.min(futurePageNumber, this.totalPages);
+    this.getCurrentPageJobs();
+  }
+  goToPreviousMany() {
+    const futurePageNumber = this.currentPageNumber - 25;
+    this.currentPageNumber = Math.max(futurePageNumber, 1);
+    this.getCurrentPageJobs();
+  }
+
   created(event: any) { };
   destroyed(event: any) { };
 }
