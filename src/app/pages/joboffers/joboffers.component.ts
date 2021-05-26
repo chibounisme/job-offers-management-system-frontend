@@ -67,7 +67,6 @@ selectedjobindex: number ;
           .join('🔹'); return (job);
       })
       this.totalPages = res.totalPages;
-      console.log(this.totalPages);
       this.calculatePageNumbers();
       this.hasLoadedJobs = true;
     }, err => {

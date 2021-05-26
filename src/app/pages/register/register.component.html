@@ -68,7 +68,8 @@
                                         </div>
                                         <button class="btn btn-lg btn-primary btn-block text-uppercase"
                                             [disabled]="profileForm.invalid">Register</button>
-                                        <a class="d-block text-center mt-2 small" routerLink="/login">Login</a>
+                                        <p class="text-center mt-1 mb-0 d-block small">ou</p>
+                                        <a class="d-block text-center mt-0 small" routerLink="/login">Login</a>
                                         <hr class="my-4">
                                         <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
                                                 class="fab fa-google mr-2"></i> Sign up with Google</button>
@@ -149,7 +150,8 @@
                                         </div>
                                         <div>
                                             <label for="inputEmail4">Tags</label>
-                                            <ng-select [multiple]="true" [(ngModel)]="selectedTags" [ngModelOptions]="{standalone: true}">
+                                            <ng-select [multiple]="true" [(ngModel)]="selectedTags"
+                                                [ngModelOptions]="{standalone: true}">
                                                 <ng-option *ngFor="let tag of tags" [value]="tag.id">{{tag.name}}
                                                 </ng-option>
                                             </ng-select>

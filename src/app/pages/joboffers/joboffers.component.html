@@ -1,37 +1,37 @@
 <div class="row" style="background-color: lightblue;">
-
-
-    <div class="col-sm-4">
+    <div class="col-md-4">
         <br>
-
         <div class="container">
             <div class="row">
                 <aside class="col-sm-12">
                     <div class="card">
                         <article class="card-group-item">
                             <header class="card-header">
-                                <h6 class="title">Choisir type </h6>
+                                <h6 class="title mb-0">Choisir Type</h6>
                             </header>
                             <div class="filter-content">
                                 <div class="card-body">
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">
-                                            tous les types
-                                        </span>
-                                    </label>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" id="job_type_all" type="radio"
+                                            name="job_type" value="all">
+                                        <label class="custom-control-label" for="job_type_all">
+                                            Tous les Types
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" id="job_type_cdd" type="radio"
+                                            name="job_type" value="cdd">
+                                        <label class="custom-control-label" for="job_type_cdd">
                                             CDD
-                                        </span>
-                                    </label>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" id="job_type_cdi" type="radio"
+                                            name="job_type" value="cdi">
+                                        <label class="custom-control-label" for="job_type_cdi">
                                             CDI
-                                        </span>
-                                    </label>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </article>
@@ -41,34 +41,38 @@
                     <div class="card">
                         <article class="card-group-item">
                             <header class="card-header">
-                                <h6 class="title">Coisir site </h6>
+                                <h6 class="title mb-0">Choisir Site</h6>
                             </header>
                             <div class="filter-content">
                                 <div class="card-body">
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">
-                                            tous les sites
-                                        </span>
-                                    </label>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" id="job_source_all" type="radio"
+                                            name="job_source" value="all">
+                                        <label class="custom-control-label" for="job_source_all">
+                                            Tous les Sites
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" id="job_source_jobi" type="radio"
+                                            name="job_source" value="jobi">
+                                        <label class="custom-control-label" for="job_source_jobi">
                                             Jobi.tn
-                                        </span>
-                                    </label>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">
-                                            Tanitjobs.tn
-                                        </span>
-                                    </label>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" id="job_source_tanit" type="radio"
+                                            name="job_source" value="tanit">
+                                        <label class="custom-control-label" for="job_source_tanit">
+                                            TanitJobs.tn
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" id="job_source_emploi" type="radio"
+                                            name="job_source" value="emploi">
+                                        <label class="custom-control-label" for="job_source_emploi">
                                             EmploisTunisie.tn
-                                        </span>
-                                    </label>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </article>
@@ -78,7 +82,7 @@
                     <div class="card">
                         <article class="card-group-item">
                             <header class="card-header">
-                                <h6 class="title">salaire </h6>
+                                <h6 class="title mb-0">Salaire</h6>
                             </header>
                             <div class="filter-content">
                                 <div class="card-body">
@@ -97,7 +101,7 @@
                         </article>
                         <article class="card-group-item">
                             <header class="card-header">
-                                <h6 class="title">les tags les plus utilisés </h6>
+                                <h6 class="title mb-0">Les Tags les Plus Utilisés</h6>
                             </header>
                             <div class="filter-content">
                                 <div class="card-body">
@@ -133,24 +137,30 @@
         </div>
 
         <br><br>
-        <article class="bg-secondary mb-3">
-            <div class="card-body text-center">
-                <h4 class="text-white">Pub <br> pub </h4>
-                <p class="h5 text-white"> pub</p> <br>
-                <p><a class="btn btn-warning" target="_blank" href="#"> linkpub
-                        <i class="fa fa-window-restore "></i></a></p>
-            </div>
-            <br><br>
-        </article>
+        <div class="container">
+            <article class="bg-secondary mb-3">
+                <div class="card-body text-center">
+                    <h4 class="text-white">Publicité</h4>
+                    <h4 class="text-white">Publicité</h4>
+                    <p class="h5 text-white">Publicite</p>
+                    <br>
+                    <p>
+                        <a class="btn btn-warning" target="_blank" href="#">Lien Publicité
+                            <i class="fa fa-window-restore "></i>
+                        </a>
+                    </p>
+                </div>
+            </article>
+        </div>
     </div>
 
-    <aside class='col-sm-8 d-flex flex-column justify-content-start align-items-center'>
+    <aside class='col-md-8 d-flex flex-column justify-content-start align-items-center'>
         <br>
         <div class="container h-10">
             <div class="d-flex justify-content-center h-100">
                 <div class="searchbar">
                     <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    <a class="search_icon btn"><i class="fas fa-search"></i></a>
                 </div>
             </div>
         </div>
@@ -207,30 +217,31 @@
             <ul class="pagination justify-content-center">
                 <li class="page-item" [ngClass]="{'disabled': previousPageNumber == 0}">
                     <a class="page-link btn" tabindex="-1" aria-disabled="true"
-                      (click)="goToPreviousPage()">Previous</a>
+                        (click)="goToPreviousPage()">Previous</a>
                 </li>
                 <li class="page-item">
                     <a class="page-link btn" *ngIf="currentPageNumber >= 4" (click)="goToPreviousMany()">...</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link btn" *ngIf="previousPageNumber != 0" (click)="goToPreviousPage()">{{previousPageNumber}}</a>
+                    <a class="page-link btn" *ngIf="previousPageNumber != 0"
+                        (click)="goToPreviousPage()">{{previousPageNumber}}</a>
                 </li>
                 <li class="page-item active">
                     <a class="page-link btn">{{currentPageNumber}}</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link btn" *ngIf="nextPageNumber < totalPages + 1" (click)="goToNextPage()">{{nextPageNumber}}</a>
+                    <a class="page-link btn" *ngIf="nextPageNumber < totalPages + 1"
+                        (click)="goToNextPage()">{{nextPageNumber}}</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link btn" *ngIf=" totalPages - currentPageNumber > 1" (click)="goToNextMany()">...</a>
+                    <a class="page-link btn" *ngIf=" totalPages - currentPageNumber > 1"
+                        (click)="goToNextMany()">...</a>
                 </li>
                 <li class="page-item" [ngClass]="{'disabled': nextPageNumber == totalPages + 1}">
                     <a class="page-link btn" (click)="goToNextPage()">Next</a>
                 </li>
             </ul>
         </nav>
-
-
     </aside>
 </div>
 <ng-template #modalData let-modal>
@@ -242,9 +253,11 @@
     </div>
     <div class="modal-body">
         <h4 class='text-primary'>Société : {{jobs[selectedjobindex].company_name}}</h4>
-        <h6 class='text-success' *ngIf="jobs[selectedjobindex].domain != null && jobs[selectedjobindex].domain != '' && jobs[selectedjobindex].domain != 'vide'" >domaine : {{jobs[selectedjobindex].domain}}</h6>
-        <div [innerHTML]= "jobs[selectedjobindex].description">
-           
+        <h6 class='text-success'
+            *ngIf="jobs[selectedjobindex].domain != null && jobs[selectedjobindex].domain != '' && jobs[selectedjobindex].domain != 'vide'">
+            domaine : {{jobs[selectedjobindex].domain}}</h6>
+        <div [innerHTML]="jobs[selectedjobindex].description">
+
         </div>
 
     </div>
