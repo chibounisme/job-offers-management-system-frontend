@@ -188,7 +188,7 @@
                             <h6 class="text-success" *ngIf=" job.location !='' && job.salary !='location'">📌
                                 {{job.location}}</h6>
                             <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm "
-                                    (click)="triggerModal(modalData)" type="button">Details</button><button
+                                    (click)="triggerModal(modalData,index)" type="button">Details</button><button
                                     class="btn btn-outline-primary btn-sm mt-2" type="button"
                                     (click)="onclick()">Enregistrer</button></div>
                         </div>
@@ -235,16 +235,21 @@
 </div>
 <ng-template #modalData let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Modifie ton Profil</h4>
+        <h4 class="modal-title" id="modal-basic-title">{{jobs[selectedjobindex].title}}</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">×</span>
         </button>
     </div>
     <div class="modal-body">
+        <h4 class='text-primary'>Société : {{jobs[selectedjobindex].company_name}}</h4>
+        <h6 class='text-success' *ngIf="jobs[selectedjobindex].domain != null && jobs[selectedjobindex].domain != '' && jobs[selectedjobindex].domain != 'vide'" >domaine : {{jobs[selectedjobindex].domain}}</h6>
+        <div [innerHTML]= "jobs[selectedjobindex].description">
+           
+        </div>
 
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary">visiter l'annonce</button>
+        <a [href]="jobs[selectedjobindex].url_link" target="_blank" class="btn btn-primary">visiter l'annonce</a>
         <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Fermer</button>
     </div>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationsService } from 'angular2-notifications';
+import { slide } from 'ngx-router-animations';
 import { JobService } from 'src/app/services/job.service';
 @Component({
   selector: 'app-joboffers',
@@ -31,13 +32,17 @@ export class JoboffersComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-
-  triggerModal(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((res) => {
+selectedjobindex: number ;
+  triggerModal( content , index) {
+    
+    this.selectedjobindex = index;
+    this.jobs[this.selectedjobindex].description=this.jobs[this.selectedjobindex].description.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' , size: "xl" }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
+    
   }
 
   onclick() {
