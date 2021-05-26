@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT, ViewportScroller } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationsService } from 'angular2-notifications';
 import { slide } from 'ngx-router-animations';
@@ -8,6 +9,7 @@ import { JobService } from 'src/app/services/job.service';
   templateUrl: './joboffers.component.html',
   styleUrls: ['./joboffers.component.css']
 })
+
 export class JoboffersComponent implements OnInit {
   options: any = {
     timeOut: 3000,
@@ -21,7 +23,7 @@ export class JoboffersComponent implements OnInit {
   nextPageNumber: number;
   totalPages: number;
   closeModal: string;
-  constructor(private modalService: NgbModal, private _service: NotificationsService, private jobService: JobService) { }
+  constructor( private viewPortScroller: ViewportScroller,private modalService: NgbModal, private _service: NotificationsService, private jobService: JobService) { }
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -81,24 +83,30 @@ selectedjobindex: number ;
   goToPreviousPage() {
     this.currentPageNumber--;
     this.getCurrentPageJobs();
+    this.viewPortScroller.scrollToPosition([0, 0]);
+    
   }
 
   goToNextPage() {
     this.currentPageNumber++;
     this.getCurrentPageJobs();
+    this.viewPortScroller.scrollToPosition([0, 0]);
   }
 
   goToNextMany() {
     const futurePageNumber = this.currentPageNumber + 25;
     this.currentPageNumber = Math.min(futurePageNumber, this.totalPages);
     this.getCurrentPageJobs();
+    this.viewPortScroller.scrollToPosition([0, 0]);
+    
   }
   goToPreviousMany() {
     const futurePageNumber = this.currentPageNumber - 25;
     this.currentPageNumber = Math.max(futurePageNumber, 1);
     this.getCurrentPageJobs();
+    this.viewPortScroller.scrollToPosition([0, 0]);
+   
   }
-
   created(event: any) { };
   destroyed(event: any) { };
 }
