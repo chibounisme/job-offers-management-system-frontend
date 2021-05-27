@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardAdminComponent implements OnInit {
 
   constructor() { }
+selectedpage: boolean[]=[false,false,false,false];
 
   ngOnInit(): void {
+    this.selectedpage[0]=true;
+  }
+  choosecomponent(i: any){
+    this.selectedpage=[false,false,false,false];
+    this.selectedpage[i]=true
   }
 
 }
