@@ -12,6 +12,9 @@ interface User {
   providedIn: 'root'
 })
 export class AuthService {
+  updateToken(token: any) {
+    this.setSession(token);
+  }
 
   constructor(private http: HttpClient) { }
   // standard login

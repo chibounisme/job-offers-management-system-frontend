@@ -1,4 +1,4 @@
-<div class="container" style="background-color: lightblue;">
+<div class="container" style="background-color: lightblue;" *ngIf="profile != null">
     <div class="main-body">
         <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
@@ -47,7 +47,7 @@
                                 <h6 class="mb-0">Nom</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Kenneth Valdez
+                                {{profile.last_name}}
                             </div>
                         </div>
                         <hr>
@@ -56,7 +56,7 @@
                                 <h6 class="mb-0">Prénom</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Kenneth Valdez
+                                {{profile.first_name}}
                             </div>
                         </div>
                         <hr>
@@ -65,7 +65,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                fip@jukmuh.al
+                                {{profile.email}}
                             </div>
                         </div>
                         <hr>
@@ -74,7 +74,7 @@
                                 <h6 class="mb-0">Téléphone</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                (239) 816-9029
+                                {{profile.tel}}
                             </div>
                         </div>
                         <hr>
@@ -83,7 +83,7 @@
                                 <h6 class="mb-0">Addresse</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                                {{profile.address}}
                             </div>
                         </div>
                         <hr>
@@ -92,7 +92,7 @@
                                 <h6 class="mb-0">Gouvernorat</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                                {{profile.state}}
                             </div>
                         </div>
                         <hr>
@@ -101,7 +101,7 @@
                                 <h6 class="mb-0">Ville</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                                {{profile.city}}
                             </div>
                         </div>
                         <hr>
@@ -111,7 +111,7 @@
                                 <h6 class="mb-0">Tags</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                hhhhhh
+                                {{profile.tags}}
                             </div>
                         </div>
 
@@ -138,28 +138,28 @@
                                 <label for="Nom">Nom</label>
                                 <input
                                     [ngClass]="{'is-valid': profileForm.controls.Nom.valid && profileForm.controls.Nom.dirty, 'is-invalid': profileForm.controls.Nom.invalid}"
-                                    type="text" class="form-control" id="Nom" placeholder="1234 Main St"
+                                    type="text" class="form-control" id="Nom" [placeholder]="profile.last_name"
                                     formControlName="Nom">
                             </div>
                             <div class="form-group">
                                 <label for="Prenom">Prénom</label>
                                 <input
                                     [ngClass]="{'is-valid': profileForm.controls.Prenom.valid && profileForm.controls.Prenom.dirty, 'is-invalid': profileForm.controls.Prenom.invalid}"
-                                    type="text" class="form-control" id="Prenom" placeholder="1234 Main St"
+                                    type="text" class="form-control" id="Prenom" [placeholder]="profile.first_name"
                                     formControlName="Prenom">
                             </div>
                             <div class="form-group">
                                 <label for="Email">Email</label>
                                 <input
                                     [ngClass]="{'is-valid': profileForm.controls.Email.valid && profileForm.controls.Email.dirty, 'is-invalid': profileForm.controls.Email.invalid}"
-                                    type="text" class="form-control" id="Email" placeholder="1234 Main St"
+                                    type="text" class="form-control" id="Email" [placeholder]="profile.email"
                                     formControlName="Email">
                             </div>
                             <div class="form-group">
                                 <label for="tel">Telephone</label>
                                 <input
                                     [ngClass]="{'is-valid': profileForm.controls.tel.valid && profileForm.controls.tel.dirty, 'is-invalid': profileForm.controls.tel.invalid}"
-                                    type="tel" class="form-control" id="tel" placeholder="..."
+                                    type="tel" class="form-control" id="tel" [placeholder]="profile.tel"
                                     formControlName="tel">
                             </div>
                             <div class="form-row">
@@ -180,7 +180,7 @@
                                 <label for="adresse">Addresse</label>
                                 <input
                                     [ngClass]="{'is-valid': profileForm.controls.adresse.valid && profileForm.controls.adresse.dirty, 'is-invalid': profileForm.controls.adresse.invalid}"
-                                    type="text" class="form-control" id="adresse" placeholder="1234 Main St"
+                                    type="text" class="form-control" id="adresse" [placeholder]="profile.address"
                                     formControlName="adresse">
                             </div>
                             <div class="form-row">
@@ -188,7 +188,7 @@
                                     <label for="Gouvernorat">Gouvernorat</label>
                                     <input
                                         [ngClass]="{'is-valid': profileForm.controls.Gouvernorat.valid && profileForm.controls.Gouvernorat.dirty, 'is-invalid': profileForm.controls.Gouvernorat.invalid}"
-                                        type="text" class="form-control" id="Gouvernorat" formControlName="Gouvernorat">
+                                        type="text" class="form-control" id="Gouvernorat" formControlName="Gouvernorat" [placeholder]="profile.state">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="Ville">Ville</label>
@@ -209,7 +209,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">Enregistrer les modifications</button>
+                            <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid" >Enregistrer les modifications</button>
                             <button type="button" class="btn btn-danger"
                                 (click)="modal.close('Save click')">Fermer</button>
                         </div>
@@ -218,21 +218,21 @@
 
             </div>
             <div class="col-md-12">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Nom Offre</h6>
+                <div class="card ">
+                    <div class="card-body pb-0 "  *ngFor="let joboffer of profile.favorites">
+                        <div class="row" >
+                            <div class="col-sm-5">
+                                <h6 class="mb-0">{{joboffer.title}}</h6>
                             </div>
-                            <div class="col-sm-3 text-secondary" style="padding-left: 100px;">
-                                Nom Société
+                            <div class="col-sm-4 text-secondary">
+                                {{joboffer.company_name}}
                             </div>
                             <!-- on doit pas oublier le onclick ici -->
-                            <a class="col-sm-5"  style="padding-left: 370px;" href="#" > Go To >></a>
-                            <button type="button" class="close col-sm-1" aria-label="Close" >
+                            <a class="col-sm-2"   [href]="joboffer.url_link" target="_blank" > Go To >></a>
+                            <button type="button" class="close col-sm-1" aria-label="Close" (click)="deletejobofferfromfavorites(joboffer)">
                                 <span aria-hidden="true">&times;</span>
                               </button>
-
+                              
                         </div>
                         <hr>
                     </div>

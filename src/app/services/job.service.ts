@@ -19,4 +19,8 @@ export class JobService {
     });
   }
 
+  deleteJobToFavorites(jobUrl: any) {
+    return this.http.delete<any>('http://localhost:3000/jobs/delete?job_offer_link=' + jobUrl);
+  }
+
 }
