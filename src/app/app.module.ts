@@ -25,6 +25,7 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { AuthInterceptor } from './services/authintercepter';
 import { JobService } from './services/job.service';
 import { AuthService } from './services/auth.service';
+import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { AuthService } from './services/auth.service';
     Stepper3Component,
     OfferListComponent,
     JoboffersComponent,
+    DashboardAdminComponent,
 
   ],
   imports: [
