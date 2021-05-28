@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   profile = {
     email: ''
   };
-  constructor(private userService: UserService, @Inject(DOCUMENT) private document: Document, public authService: AuthService, private router: Router, public loader: LoadingBarService) { 
+  constructor(private userService: UserService, @Inject(DOCUMENT) private document: Document, public authService: AuthService, private router: Router, public loader: LoadingBarService) {
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
     });

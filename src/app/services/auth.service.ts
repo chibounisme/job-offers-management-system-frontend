@@ -33,6 +33,10 @@ export class AuthService {
     localStorage.removeItem("expires_at");
   }
 
+  getToken() {
+    return localStorage.getItem('id_token');
+  }
+
   public isLoggedIn() {
     return moment().isBefore(this.getExpiration());
   }
