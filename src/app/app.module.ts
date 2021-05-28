@@ -26,6 +26,7 @@ import { AuthInterceptor } from './services/authintercepter';
 import { JobService } from './services/job.service';
 import { AuthService } from './services/auth.service';
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin
     HttpClientModule,
     LoadingBarRouterModule,
     MatProgressBarModule,
-    LoadingBarModule
+    LoadingBarModule,
+    TooltipModule 
   ],
   providers: [
     {
