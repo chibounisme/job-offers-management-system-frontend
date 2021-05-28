@@ -17,7 +17,7 @@ export class DashboardAdminComponent implements OnInit {
   isAdmin() {
     return this.profile.email == 'mohamedchiboub97@gmail.com';
   }
-selectedpage: boolean[]=[false,false,false,false];
+selectedpage: boolean[]=[false,false,false,false,false,false];
 
   ngOnInit(): void {
     this.selectedpage[0]=true;

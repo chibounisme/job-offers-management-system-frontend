@@ -17,7 +17,7 @@
                 </li>
                 <li class="nav-item">
                     <a (click)="choosecomponent(0)" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-home" ></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                                class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
                 <li class="nav-item pcoded-hasmenu">
                     <a (click)="choosecomponent(1)" class="nav-link"><span class="pcoded-micon"><i
@@ -29,8 +29,16 @@
                             tables</span></a>
                 </li>
                 <li class="nav-item">
-                    <a  (click)="choosecomponent(3)" class="nav-link"><span class="pcoded-micon"><i
+                    <a (click)="choosecomponent(3)" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="choosecomponent(4)" class="nav-link"><span class="pcoded-micon"><i
+                                class="feather icon-users"></i></span><span class="pcoded-mtext">profiles</span></a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="choosecomponent(5)" class="nav-link"><span class="pcoded-micon"><i
+                                class="feather icon-calendar"></i></span><span class="pcoded-mtext">calendar</span></a>
                 </li>
 
             </ul>
@@ -52,7 +60,7 @@
     <a class="mobile-menu" id="mobile-header" href="#!">
         <i class="feather icon-more-horizontal"></i>
     </a>
-    <div style="margin-left:264px;"class="collapse navbar-collapse">
+    <div style="margin-left:264px;" class="collapse navbar-collapse">
         <a href="#!" class="mob-toggler"></a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -233,6 +241,8 @@
                                                 <i class="fas fa-money-bill-alt text-c-red f-18"></i>
                                             </div>
                                         </div>
+                                        <p class="m-b-0 text-white"><span
+                                                class="label label-danger m-r-10">+52%</span>From Previous Month</p>
                                     </div>
                                 </div>
                             </div>
@@ -326,7 +336,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6 col-xl-4">
                                 <div class="card card-social">
                                     <div class="card-block border-bottom">
@@ -1027,7 +1037,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                
+
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -1035,23 +1045,23 @@
                                         </div>
                                         <div class="card-body">
                                             <button type="button" class="btn btn-primary" title="btn btn-primary"
-                                            tooltip="btn btn-primary" placement="top" >Primary</button>
+                                                tooltip="btn btn-primary" placement="top">Primary</button>
                                             <button type="button" class="btn btn-secondary" title="btn btn-secondary"
-                                            tooltip="btn btn-secondary" placement="top">Secondary</button>
+                                                tooltip="btn btn-secondary" placement="top">Secondary</button>
                                             <button type="button" class="btn btn-success" title="btn btn-success"
-                                            tooltip="btn btn-success" placement="top">Success</button>
+                                                tooltip="btn btn-success" placement="top">Success</button>
                                             <button type="button" class="btn btn-danger" title="btn btn-danger"
-                                            tooltip="btn btn-danger" placement="top">Danger</button>
+                                                tooltip="btn btn-danger" placement="top">Danger</button>
                                             <button type="button" class="btn btn-warning" title="btn btn-warning"
-                                            tooltip="btn btn-warning" placement="top">Warning</button>
+                                                tooltip="btn btn-warning" placement="top">Warning</button>
                                             <button type="button" class="btn btn-info" title="btn btn-info"
-                                            tooltip="btn btn-info" placement="top">Info</button>
+                                                tooltip="btn btn-info" placement="top">Info</button>
                                             <button type="button" class="btn btn-light" title="btn btn-light"
-                                            tooltip="btn btn-light" placement="top">Light</button>
+                                                tooltip="btn btn-light" placement="top">Light</button>
                                             <button type="button" class="btn btn-dark" title="btn btn-dark"
-                                            tooltip="btn btn-dark" placement="top">Dark</button>
+                                                tooltip="btn btn-dark" placement="top">Dark</button>
                                             <button type="button" class="btn btn-link" title="btn btn-link"
-                                            tooltip="btn btn-link" placement="top">Link</button>
+                                                tooltip="btn btn-link" placement="top">Link</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1065,22 +1075,29 @@
                                         </div>
                                         <div class="card-body">
                                             <button type="button" class="btn btn-outline-primary"
-                                                title="btn btn-outline-primary" tooltip="btn btn-outline-primary" placement="top">Primary</button>
+                                                title="btn btn-outline-primary" tooltip="btn btn-outline-primary"
+                                                placement="top">Primary</button>
                                             <button type="button" class="btn btn-outline-secondary"
-                                                title="btn btn-outline-secondary"
-                                                tooltip="btn btn-outline-secondary" placement="top">Secondary</button>
+                                                title="btn btn-outline-secondary" tooltip="btn btn-outline-secondary"
+                                                placement="top">Secondary</button>
                                             <button type="button" class="btn btn-outline-success"
-                                                title="btn btn-outline-success" tooltip="btn btn-outline-success" placement="top">Success</button>
+                                                title="btn btn-outline-success" tooltip="btn btn-outline-success"
+                                                placement="top">Success</button>
                                             <button type="button" class="btn btn-outline-danger"
-                                                title="btn btn-outline-danger" tooltip="btn btn-outline-danger" placement="top">Danger</button>
+                                                title="btn btn-outline-danger" tooltip="btn btn-outline-danger"
+                                                placement="top">Danger</button>
                                             <button type="button" class="btn btn-outline-warning"
-                                                title="btn btn-outline-warning" tooltip="btn btn-outline-warning" placement="top">Warning</button>
+                                                title="btn btn-outline-warning" tooltip="btn btn-outline-warning"
+                                                placement="top">Warning</button>
                                             <button type="button" class="btn btn-outline-info"
-                                                title="btn btn-outline-info" tooltip="btn btn-outline-info" placement="top">Info</button>
+                                                title="btn btn-outline-info" tooltip="btn btn-outline-info"
+                                                placement="top">Info</button>
                                             <button type="button" class="btn btn-outline-light"
-                                                title="btn btn-outline-light"tooltip="btn btn-outline-light" placement="top">Light</button>
+                                                title="btn btn-outline-light" tooltip="btn btn-outline-light"
+                                                placement="top">Light</button>
                                             <button type="button" class="btn btn-outline-dark"
-                                                title="btn btn-outline-dark" tooltip="btn btn-outline-dark" placement="top">Dark</button>
+                                                title="btn btn-outline-dark" tooltip="btn btn-outline-dark"
+                                                placement="top">Dark</button>
                                         </div>
                                     </div>
                                 </div>
@@ -3164,6 +3181,35 @@
                             <!-- [ donut-Chart ] end -->
                         </div>
                         <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pcoded-main-container container-fluid custom-pcoded" *ngIf="selectedpage[4]">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper"> 
+                        <div class="col-md-10">
+                            <div class="card ">
+                                <div class="card-body pb-0 " >
+                                    <div class="row" >
+                                        <div class="col-sm-1">
+                                            <img src="assets/img/Chiboub Mohamed.jpg" class="avatar img-fluid rounded-circle">
+                                        </div>
+                                        <div class="col-sm-6 my-auto">
+                                            <h6 >sdgss</h6>
+                                        </div>
+                                        <!-- on doit pas oublier le onclick ici -->
+                                        <a class="col-sm-3 my-auto "style="margin-left : 20px!important"  > Go To >></a>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
