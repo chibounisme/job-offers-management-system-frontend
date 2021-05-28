@@ -30,6 +30,8 @@
     "@ngx-loading-bar/core": "^5.1.2",
     "@ngx-loading-bar/router": "^5.1.2",
     "@swimlane/ngx-charts": "^18.0.1",
+    "@syncfusion/ej2-angular-calendars": "^19.1.64",
+    "@syncfusion/ej2-angular-schedule": "^19.1.65",
     "angular2-notifications": "^9.0.0",
     "aos": "^2.3.4",
     "bootstrap": "^4.6.0",

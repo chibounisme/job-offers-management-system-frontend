@@ -27,6 +27,9 @@ import { JobService } from './services/job.service';
 import { AuthService } from './services/auth.service';
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { CalendarComponent } from './pages/dashboard-admin/calendar/calendar.component';
+import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 
 @NgModule({
@@ -41,6 +44,7 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     OfferListComponent,
     JoboffersComponent,
     DashboardAdminComponent,
+    CalendarComponent,
 
   ],
   imports: [
@@ -57,7 +61,9 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     LoadingBarRouterModule,
     MatProgressBarModule,
     LoadingBarModule,
-    TooltipModule 
+    TooltipModule ,
+    ScheduleModule,
+    DatePickerModule
   ],
   providers: [
     {
