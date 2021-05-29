@@ -30,6 +30,7 @@ import { TooltipModule } from 'ng2-tooltip-directive';
 import { CalendarComponent } from './pages/dashboard-admin/calendar/calendar.component';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { SafeUrlPipe } from './services/safe-url';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
     JoboffersComponent,
     DashboardAdminComponent,
     CalendarComponent,
-
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,

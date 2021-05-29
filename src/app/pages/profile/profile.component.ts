@@ -8,6 +8,7 @@ import { Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { JobService } from 'src/app/services/job.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -42,15 +43,15 @@ export class ProfileComponent implements OnInit {
 
   FormBuilder: any;
 
-  constructor(private authService: AuthService, private userService: UserService, private modalService: NgbModal, private _service: NotificationsService, private formBuilder: FormBuilder, private jobservice: JobService) { }
+  constructor(private sanitizer:DomSanitizer, private authService: AuthService, private userService: UserService, private modalService: NgbModal, private _service: NotificationsService, private formBuilder: FormBuilder, private jobservice: JobService) { }
 
   triggerModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
-        console.log('ok');
-        
+      console.log('ok');
 
-      
+
+
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
@@ -68,10 +69,24 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
+      this.profile.image = 'http://127.0.0.1:3000/' + this.profile.image.split('\\').join('/');
       profile.tags = profile.tags
         .map(tag => tag)
         .join('🔹');
     })
+  }
+
+  sanitize(url:string){
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+}
+
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.profileForm.patchValue({
+        file: file
+      });
+    }
   }
   created(event: any) { };
   destroyed(event: any) { };
@@ -79,62 +94,69 @@ export class ProfileComponent implements OnInit {
     if (this.profileForm.valid) {
       // appel lel backend
       let updateProfile = {};
-        if (this.profileForm.value.Nom)
-          updateProfile = {
-            ...updateProfile,
-            last_name: this.profileForm.value.Nom
-          }
-        if (this.profileForm.value.Nom)
-          updateProfile = {
-            ...updateProfile,
-            last_name: this.profileForm.value.Nom
-          }
-        if (this.profileForm.value.Prenom)
-          updateProfile = {
-            ...updateProfile,
-            first_name: this.profileForm.value.Prenom
-          }
-        if (this.profileForm.value.Email)
-          updateProfile = {
-            ...updateProfile,
-            email: this.profileForm.value.Email
-          }
-        if (this.profileForm.value.tel)
-          updateProfile = {
-            ...updateProfile,
-            tel: this.profileForm.value.tel
-          }
-        if (this.profileForm.value.Gouvernorat)
-          updateProfile = {
-            ...updateProfile,
-            state: this.profileForm.value.Gouvernorat
-          }
-        if (this.profileForm.value.adresse)
-          updateProfile = {
-            ...updateProfile,
-            address: this.profileForm.value.adresse
-          }
-        if (this.profileForm.value.Ville)
-          updateProfile = {
-            ...updateProfile,
-            city: this.profileForm.value.Ville
-          }
-        if (this.profileForm.value.Tags)
-          updateProfile = {
-            ...updateProfile,
-            tags: this.profileForm.value.Tags
-          }
-        this.userService.updateProfile(updateProfile).subscribe(res => {
-          this.profile = res;
-          if(res.token) {
-            this.authService.updateToken(res.token);
-          }
-          this._service.success("succés");
-          this.modalService.dismissAll();
-        }, err => {
-          this.modalService.dismissAll();
-            this._service.error("This email already exists");
-        })
+      if (this.profileForm.value.Nom)
+        updateProfile = {
+          ...updateProfile,
+          last_name: this.profileForm.value.Nom
+        }
+      if (this.profileForm.value.Nom)
+        updateProfile = {
+          ...updateProfile,
+          last_name: this.profileForm.value.Nom
+        }
+      if (this.profileForm.value.Prenom)
+        updateProfile = {
+          ...updateProfile,
+          first_name: this.profileForm.value.Prenom
+        }
+      if (this.profileForm.value.Email)
+        updateProfile = {
+          ...updateProfile,
+          email: this.profileForm.value.Email
+        }
+      if (this.profileForm.value.tel)
+        updateProfile = {
+          ...updateProfile,
+          tel: this.profileForm.value.tel
+        }
+      if (this.profileForm.value.Gouvernorat)
+        updateProfile = {
+          ...updateProfile,
+          state: this.profileForm.value.Gouvernorat
+        }
+      if (this.profileForm.value.adresse)
+        updateProfile = {
+          ...updateProfile,
+          address: this.profileForm.value.adresse
+        }
+      if (this.profileForm.value.Ville)
+        updateProfile = {
+          ...updateProfile,
+          city: this.profileForm.value.Ville
+        }
+      if (this.profileForm.value.Tags)
+        updateProfile = {
+          ...updateProfile,
+          tags: this.profileForm.value.Tags
+        }
+      if (this.profileForm.value.file) {
+        updateProfile = {
+          ...updateProfile,
+          file: this.profileForm.value.file
+        }
+      }
+      this.userService.updateProfile(updateProfile).subscribe((res: any) => {
+        this.profile = res;
+        this.profile.image = 'http://127.0.0.1:3000/' + this.profile.image.split('\\').join('/');
+        if (res.token) {
+          this.authService.updateToken(res.token);
+        }
+        this._service.success("succés");
+        this.modalService.dismissAll();
+      }, err => {
+        this.modalService.dismissAll();
+        this._service.error("This email already exists");
+      })
     }
   }
   checkPassword(): ValidatorFn {
