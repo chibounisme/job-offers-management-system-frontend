@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import { UserService } from './services/user.service';
+import { DashboardService } from './services/dashboard.service';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,6 @@ export class AppComponent implements OnInit {
       }
       else { this.document.querySelector(".collapse.navbar-collapse").classList.add("show") }
     })
-
   }
   logout() {
     this.authService.logout();

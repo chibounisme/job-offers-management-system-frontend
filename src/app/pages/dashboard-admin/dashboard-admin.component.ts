@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,23 +10,31 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DashboardAdminComponent implements OnInit {
   profile: any;
-  constructor(private userService: UserService) { 
+  dashboardData: any;
+  maxFacebookValue: any = 50;
+  maxGoogleValue: any = 50;
+  maxEmailValue: any = 50;
+  constructor(@Inject(DOCUMENT) private document: Document, private dashboardService: DashboardService, private userService: UserService) {
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
     });
+    this.dashboardData = null;
   }
-
   isAdmin() {
     return this.profile.email == 'mohamedchiboub97@gmail.com';
   }
-selectedpage: boolean[]=[false,false,false,false,false,false];
+  formatBytes(a, b = 2) { if (0 === a) return "0 Bytes"; const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024)); return parseFloat((a / Math.pow(1024, d)).toFixed(c)) + " " + ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d] }
+  selectedpage: boolean[] = [false, false, false, false, false, false];
 
   ngOnInit(): void {
-    this.selectedpage[0]=true;
+    this.selectedpage[0] = true;
+    this.dashboardService.getDashboardInformation().subscribe(data => {
+      this.dashboardData = data;
+    })
   }
-  choosecomponent(i: any){
-    this.selectedpage=[false,false,false,false];
-    this.selectedpage[i]=true
+  choosecomponent(i: any) {
+    this.selectedpage = [false, false, false, false];
+    this.selectedpage[i] = true
   }
 
 }
