@@ -27,9 +27,6 @@ import { JobService } from './services/job.service';
 import { AuthService } from './services/auth.service';
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
-import { CalendarComponent } from './pages/dashboard-admin/calendar/calendar.component';
-import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
-import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { SafeUrlPipe } from './services/safe-url';
 
 
@@ -45,7 +42,7 @@ import { SafeUrlPipe } from './services/safe-url';
     OfferListComponent,
     JoboffersComponent,
     DashboardAdminComponent,
-    CalendarComponent,
+
     SafeUrlPipe
   ],
   imports: [
@@ -63,8 +60,6 @@ import { SafeUrlPipe } from './services/safe-url';
     MatProgressBarModule,
     LoadingBarModule,
     TooltipModule ,
-    ScheduleModule,
-    DatePickerModule
   ],
   providers: [
     {

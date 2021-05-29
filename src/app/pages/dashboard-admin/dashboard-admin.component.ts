@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,9 +15,10 @@ export class DashboardAdminComponent implements OnInit {
   maxFacebookValue: any = 50;
   maxGoogleValue: any = 50;
   maxEmailValue: any = 50;
-  constructor(@Inject(DOCUMENT) private document: Document, private dashboardService: DashboardService, private userService: UserService) {
+  constructor(@Inject(DOCUMENT) private document: Document, private dashboardService: DashboardService, private userService: UserService,private sanitizer:DomSanitizer) {
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
+      this.profile.image = 'http://127.0.0.1:3000/' + this.profile.image.split('\\').join('/');
     });
     this.dashboardData = null;
   }
@@ -36,5 +38,7 @@ export class DashboardAdminComponent implements OnInit {
     this.selectedpage = [false, false, false, false];
     this.selectedpage[i] = true
   }
-
+  sanitize(url:string){
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+} 
 }
