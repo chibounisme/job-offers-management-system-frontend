@@ -13,10 +13,11 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'ProfileAdmin', component: ProfileAdminComponent, canActivate: [AuthGuard] },
+  { path: 'profile-admin', component: ProfileAdminComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'offers', component: JoboffersComponent, canActivate: [AuthGuard] },
   {path:'dash' ,component:DashboardAdminComponent}
+  
 ];
 
 @NgModule({

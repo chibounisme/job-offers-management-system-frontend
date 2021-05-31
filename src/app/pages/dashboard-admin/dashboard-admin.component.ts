@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { UserService } from 'src/app/services/user.service';
 import * as moment from 'moment';
+import { subscribeOn } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -35,7 +36,7 @@ export class DashboardAdminComponent implements OnInit {
   ];
   multi1 = [
     {
-      "name": "TanitJobs",
+      "name": "Total des offres",
       "series": [
         
       ]
@@ -44,7 +45,7 @@ export class DashboardAdminComponent implements OnInit {
   
   view: any[] = [600, 400];
   view1: any[] = [500, 400];
-
+users :any[];
   // options
   legend: boolean = true;
   showLabels: boolean = true;
@@ -124,7 +125,13 @@ single4 = [
     
     )
     
-   
+   this.userService.getAllUsers().subscribe((users) =>{
+     this.users= users
+     for( let prof of users){
+      prof.image = 'http://127.0.0.1:3000/' + prof.image.split('\\').join('/');
+     }
+    
+   })
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
       this.profile.image = 'http://127.0.0.1:3000/' + this.profile.image.split('\\').join('/');

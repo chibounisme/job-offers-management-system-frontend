@@ -2369,18 +2369,22 @@
                     <div class="col-md-10">
                         <div class="card ">
                             <div class="card-body pb-0 ">
-                                <div class="row">
+                                <div *ngFor="let prof of users">
+                                <div class="row" >
                                     <div class="col-sm-1">
-                                        <img src="assets/img/Chiboub Mohamed.jpg"
+                                        <img [src]="prof.image ? sanitize(prof.image) :'assets/img/profile-picture.png' | safeUrl"
+                                         alt="User-Profile-Image"
                                             class="avatar img-fluid rounded-circle">
                                     </div>
                                     <div class="col-sm-6 my-auto">
-                                        <h6>sdgss</h6>
+                                        <h6>{{prof.first_name}} {{prof.last_name}}</h6>
                                     </div>
                                     <!-- on doit pas oublier le onclick ici -->
-                                    <a class="col-sm-3 my-auto "> Go Check the profile Infos >></a>
+                                    <a class="col-sm-3 my-auto " [href]="'profile-admin?email='+prof.email"> Go Check the profile Infos >></a>
+                                    
                                 </div>
                                 <hr>
+                            </div>
                             </div>
                         </div>
                     </div>

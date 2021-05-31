@@ -7,9 +7,14 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-
+  getAllUsers() {
+    return this.http.get<any>('http://localhost:3000/users/profile/all');
+  }
   getUserProfile() {
     return this.http.get<any>('http://localhost:3000/users/profile');
+  }
+  deleteUserProfile(email: string){
+    return this.http.delete<any>('http://localhost:3000/users/profile/' + email);
   }
 
   updateProfile(profile) {
