@@ -15,24 +15,24 @@
                 <li class="nav-item pcoded-menu-caption">
                     <label>Navigation</label>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" [ngClass]="{'active':selectedpage[0]}">
                     <a (click)="choosecomponent(0)" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
-                <li class="nav-item pcoded-hasmenu">
+                <li class="nav-item" [ngClass]="{'active':selectedpage[1]}">
                     <a (click)="choosecomponent(1)" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-box"></i></span><span class="pcoded-mtext">Componant</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" [ngClass]="{'active':selectedpage[2]}">
                     <a (click)="choosecomponent(2)" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-align-justify"></i></span><span class="pcoded-mtext">
                             tables</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" [ngClass]="{'active':selectedpage[3]}">
                     <a (click)="choosecomponent(3)" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" [ngClass]="{'active':selectedpage[4]}">
                     <a (click)="choosecomponent(4)" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-users"></i></span><span class="pcoded-mtext">profiles</span></a>
                 </li>
