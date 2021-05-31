@@ -28,6 +28,7 @@ import { AuthService } from './services/auth.service';
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { SafeUrlPipe } from './services/safe-url';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {
@@ -65,7 +66,9 @@ import {
     MatProgressBarModule,
     LoadingBarModule,
     TooltipModule,
-    SocialLoginModule
+    SocialLoginModule,
+    TooltipModule,
+    NgxChartsModule
   ],
   providers: [
     {
