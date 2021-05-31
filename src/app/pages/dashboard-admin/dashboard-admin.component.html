@@ -36,10 +36,7 @@
                     <a (click)="choosecomponent(4)" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-users"></i></span><span class="pcoded-mtext">profiles</span></a>
                 </li>
-                <li class="nav-item">
-                    <a (click)="choosecomponent(5)" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-calendar"></i></span><span class="pcoded-mtext">calendar</span></a>
-                </li>
+                
 
             </ul>
 
@@ -386,9 +383,12 @@
                                         <div class="table-responsive">
                                             <div class="session-scroll" style="height:478px;position:relative;">
                                                 <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" *ngFor="let notif of dashboardData.searchHistory">"<span class="text-primary">{{notif.name}}</span>" a cherché le mot "<span class="text-primary">{{notif.searchTerm}}</span>"</li>
-                                                    
-                                                  </ul>
+                                                    <li class="list-group-item"
+                                                        *ngFor="let notif of dashboardData.searchHistory">"<span
+                                                            class="text-primary">{{notif.name}}</span>" a cherché le mot
+                                                        "<span class="text-primary">{{notif.searchTerm}}</span>"</li>
+
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -409,7 +409,7 @@
                                         </h6>
                                         <p>Male </p>
                                         <hr>
-                                        <p class="m-t-15">Activity Level:100%</p> 
+                                        <p class="m-t-15">Activity Level:100%</p>
                                         <div class="bg-c-blue counter-block m-t-10 p-20">
                                             <div class="row">
                                                 <div class="col-4">
@@ -2121,7 +2121,7 @@
                                                         <td>1</td>
                                                         <td>TanitJobs</td>
                                                         <td>{{dashboardData.tanitJobCount}}</td>
-                                                        
+
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
@@ -2132,13 +2132,13 @@
                                                         <td>3</td>
                                                         <td>EmploisTunisie</td>
                                                         <td>{{dashboardData.emploiJobCount}}</td>
-                                                        
+
                                                     </tr>
                                                     <tr>
                                                         <td>4</td>
                                                         <td>Totale</td>
                                                         <td>{{dashboardData.numberOfJobs}}</td>
-                                                        
+
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -2168,7 +2168,7 @@
                                                         <td>1</td>
                                                         <td>3MJobs</td>
                                                         <td>{{dashboardData.createdUsingEmail}}</td>
-                                                       
+
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
@@ -2206,7 +2206,7 @@
                                                         <th>#</th>
                                                         <th>Tag</th>
                                                         <th>Nombre d'occurences</th>
-                                                        
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -2215,7 +2215,7 @@
                                                         <td>{{tag}}</td>
                                                         <td>{{dashboardData.tags[tag]}}</td>
                                                     </tr>
-                                                    
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -2236,17 +2236,18 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Domaine</th>
-                                                        <th>Nombre d'occurences<th>
+                                                        <th>Nombre d'occurences
+                                                        <th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr></tr>
-                                                        <tr *ngFor="let domain of domaines ;let index =index">
-                                                            <td>{{index + 1}}</td>
-                                                            <td>{{domain}}</td>
-                                                            <td>{{dashboardData.domaines[domain]}}</td>
-                                                        </tr>
-                                                    
+                                                    <tr *ngFor="let domain of domaines ;let index =index">
+                                                        <td>{{index + 1}}</td>
+                                                        <td>{{domain}}</td>
+                                                        <td>{{dashboardData.domaines[domain]}}</td>
+                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -2292,11 +2293,14 @@
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>Bar [ Simple ] Chart</h5>
+                                        <h5>Nombre d'offres par jours de chaque site</h5>
                                     </div>
-                                    <div class="card-body">
-                                        <div id="morris-bar-chart" style="height:300px"></div>
-                                    </div>
+                                    <ngx-charts-area-chart [view]="view" [scheme]="colorScheme" [legend]="legend"
+                                        [legendPosition]="legendPosition" [showXAxisLabel]="showXAxisLabel"
+                                        [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis"
+                                        [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline"
+                                        [results]="multi" (select)="onSelect($event)">
+                                    </ngx-charts-area-chart>
                                 </div>
                             </div>
                             <!-- [ bar-simple Chart ] end -->
@@ -2304,75 +2308,50 @@
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>Bar [ Stacked ] Chart</h5>
+                                        <h5>Nombre total des offres</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div id="morris-bar-stacked-chart" style="height:300px"></div>
+                                        <ngx-charts-area-chart [view]="view1" [scheme]="colorScheme" [legend]="legend"
+                                            [legendPosition]="legendPosition" [showXAxisLabel]="showXAxisLabel"
+                                            [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis"
+                                            [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline"
+                                            [results]="multi1" (select)="onSelect($event)">
+                                        </ngx-charts-area-chart>
                                     </div>
                                 </div>
                             </div>
                             <!-- [ bar-stacked Chart ] end -->
                             <!-- [ line-angle Chart ] start -->
-                            <div class="col-xl-6">
+                            <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h5>Line [ Angle ] Chart</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div id="morris-area-chart" style="height:300px"></div>
+                                        <ngx-charts-pie-chart [view]="view3" [scheme]="colorScheme3" [results]="single3"
+                                            [gradient]="gradient3" [legend]="showLegend3"
+                                            [legendPosition]="legendPosition3" [labels]="showLabels3"
+                                            [doughnut]="isDoughnut3" (select)="onSelect($event)"
+                                            (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+                                        </ngx-charts-pie-chart>
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ line-angle Chart ] end -->
-                            <!-- [ area-smooth Chart ] start -->
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>Area [ Smooth ] Chart</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="morris-area-curved-chart" style="height:300px"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- [ area-smooth Chart ] end -->
-                            <!-- [ line-angle Chart ] start -->
-                            <div class="col-xl-6">
+                            <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h5>Line [ Angle ] Chart</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div id="morris-line-chart" class="ChartShadow" style="height:300px"></div>
+                                        <ngx-charts-pie-chart [view]="view3" [scheme]="colorScheme3" [results]="single4"
+                                            [gradient]="gradient3" [legend]="showLegend3"
+                                            [legendPosition]="legendPosition3" [labels]="showLabels3"
+                                            [doughnut]="isDoughnut3" (select)="onSelect($event)"
+                                            (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+                                        </ngx-charts-pie-chart>
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ line-angle Chart ] end -->
-                            <!-- [ line-smooth Chart ] start -->
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>Line [ Smooth ] Chart</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="morris-line-smooth-chart" class="ChartShadow" style="height:300px">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- [ line-smooth Chart ] end -->
-                            <!-- [ donut-Chart ] start -->
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>Donut Chart</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="morris-donut-chart" style="height:300px"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- [ donut-Chart ] end -->
                         </div>
                         <!-- [ Main Content ] end -->
                     </div>
@@ -2410,6 +2389,6 @@
         </div>
     </div>
 </div>
-<script src="src/app/js/vendor-all.min.js"></script> 
+<script src="src/app/js/vendor-all.min.js"></script>
 <script src="src/app/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="src/app/assets/js/pcoded.min.js"></script>

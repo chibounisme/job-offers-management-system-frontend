@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { UserService } from 'src/app/services/user.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -12,74 +13,37 @@ import { UserService } from 'src/app/services/user.service';
 export class DashboardAdminComponent implements OnInit {
   multi = [
     {
-      "name": "Germany",
+      "name": "TanitJobs",
       "series": [
-        {
-          "name": "1990",
-          "value": 62000000
-        },
-        {
-          "name": "2010",
-          "value": 73000000
-        },
-        {
-          "name": "2011",
-          "value": 89400000
-        }
+        
       ]
     },
   
     {
-      "name": "USA",
+      "name": "Jobi",
       "series": [
-        {
-          "name": "1990",
-          "value": 250000000
-        },
-        {
-          "name": "2010",
-          "value": 309000000
-        },
-        {
-          "name": "2011",
-          "value": 311000000
-        }
+
       ]
     },
   
     {
-      "name": "France",
+      "name": "EmploisTunisie",
       "series": [
-        {
-          "name": "1990",
-          "value": 58000000
-        },
-        {
-          "name": "2010",
-          "value": 50000020
-        },
-        {
-          "name": "2011",
-          "value": 58000000
-        }
-      ]
-    },
-    {
-      "name": "UK",
-      "series": [
-        {
-          "name": "1990",
-          "value": 57000000
-        },
-        {
-          "name": "2010",
-          "value": 62000000
-        }
+       
       ]
     }
   ];
+  multi1 = [
+    {
+      "name": "TanitJobs",
+      "series": [
+        
+      ]
+    }
+  ]
   
-  view: any[] = [700, 300];
+  view: any[] = [600, 400];
+  view1: any[] = [500, 400];
 
   // options
   legend: boolean = true;
@@ -92,25 +56,89 @@ export class DashboardAdminComponent implements OnInit {
   xAxisLabel: string = 'Date';
   yAxisLabel: string = 'Nbr d"Offres par site';
   timeline: boolean = true;
+  legendPosition :string = 'below';
+
 
   colorScheme = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+    domain: ['#47ACB1', '#F26522', '#FFCD33']
   };
   profile: any;
   dashboardData: any;
   maxFacebookValue: any = 50;
   maxGoogleValue: any = 50;
   maxEmailValue: any = 50;
+//first pie chart 
+single3 = [
+];
+single4 = [
+];
+  view3: any[] = [1200, 400];
+  // options
+  gradient3: boolean = true;
+  showLegend3: boolean = true;
+  showLabels3: boolean = true;
+  isDoughnut3: boolean = false;
+  legendPosition3: string = 'below';
+
+  colorScheme3 = {
+    domain: ['#47ACB1', '#F26522', '#F9AA7B', '#542923', '#286C4F', '#646463', '#C9222B', '#FFE8AF', '#FFE8AF', '#FFCD33']
+  };
   constructor( @Inject(DOCUMENT) private document: Document, private dashboardService: DashboardService, private userService: UserService,private sanitizer:DomSanitizer) {
     // Object.assign(this,{multi});
+    
+    this.dashboardService.getDashboardInformation().subscribe(data => {
+      this.dashboardData = data;
+      this.tags = Object.keys(this.dashboardData.tags);
+      this.domaines = Object.keys(this.dashboardData.domaines);
+      var startdate = moment().subtract(this.dashboardData.tanitJobCount.length, "days");
+      var startdate1 = moment().subtract(this.dashboardData.tanitJobCount.length, "days");
+      var startdate2 = moment().subtract(this.dashboardData.tanitJobCount.length, "days");
+      this.multi[0].series=this.dashboardData.tanitJobCount.map((res,i) => {
+        return {name : startdate.add(1,"days").format("DD-MM-YYYY"),value : res}
+      })
+      this.multi[1].series=this.dashboardData.jobiJobCount.map((res,i) => {
+        return {name : startdate1.add(1,"days").format("DD-MM-YYYY"),value : res}
+      })
+      this.multi[2].series=this.dashboardData.emploiJobCount.map((res,i) => {
+        return {name : startdate2.add(1,"days").format("DD-MM-YYYY"),value : res}
+      })
+     
+      this.multi1[0].series.push({
+        value: this.multi[0].series[0].value +  this.multi[1].series[0].value + this.multi[2].series[0].value,
+        name:  this.multi[0].series[0].name
+        })
+      for(let i = 1; i < this.dashboardData.jobiJobCount.length; i++) {
+        this.multi1[0].series.push({
+        value: this.multi1[0].series[i-1].value  + this.multi[0].series[i].value +  this.multi[1].series[i].value + this.multi[2].series[i].value,
+        name:  this.multi[0].series[i].name
+        })}
+        for(let tag of Object.keys(this.dashboardData.tags)){
+          this.single3.push({name: tag , value:this.dashboardData.tags[tag]})
+        }
+        for(let domain of Object.keys(this.dashboardData.domaines)){
+          this.single4.push({name: domain , value:this.dashboardData.domaines[domain]})
+        }
+       
+        
+    }
+    
+    )
+    
+   
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
       this.profile.image = 'http://127.0.0.1:3000/' + this.profile.image.split('\\').join('/');
     });
-    this.dashboardData = null;
   }
   onSelect(event) {
     console.log(event);
+  }
+  onActivate(data): void {
+    console.log('Activate', JSON.parse(JSON.stringify(data)));
+  }
+
+  onDeactivate(data): void {
+    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   isAdmin() {
     return this.profile.email == 'mohamedchiboub97@gmail.com';
@@ -121,11 +149,7 @@ export class DashboardAdminComponent implements OnInit {
   domaines :any;
   ngOnInit(): void {
     this.selectedpage[0] = true;
-    this.dashboardService.getDashboardInformation().subscribe(data => {
-      this.dashboardData = data;
-      this.tags = Object.keys(this.dashboardData.tags);
-      this.domaines = Object.keys(this.dashboardData.domaines);
-    })
+   
   }
   choosecomponent(i: any) {
     this.selectedpage = [false, false, false, false];
