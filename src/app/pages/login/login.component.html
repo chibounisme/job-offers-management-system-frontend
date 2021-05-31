@@ -25,7 +25,7 @@
             </div>
             <br>
             <div *ngIf="isLoginError" class="alert alert-danger" role="alert">
-              Email already used!
+              Erreur Lors de la connexion!
           </div>
             <div class="d-flex justify-content-between align-items-center mb-5">
               <button name="login" id="login" class="btn login-btn">Login</button>
@@ -40,7 +40,7 @@
             <a href="#!" class="social-login-link">
               <img src="assets/img/twitter.svg" alt="twitter logo"> Twitter
             </a>
-            <a href="#!" class="social-login-link">
+            <a href="#!" class="social-login-link" (click)="signInWithGoogle()">
               <img src="assets/img/google.svg" alt="google logo"> Google
             </a>
           </nav>

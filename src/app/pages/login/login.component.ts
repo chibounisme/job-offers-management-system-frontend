@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,16 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class LoginComponent implements OnInit {
   isLoginError: boolean = false;
   isRememberMeCheckboxChecked: boolean = false;
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private socialAuthService: SocialAuthService, private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
 
     if (window.localStorage.getItem('remember_email')) {
       this.isRememberMeCheckboxChecked = true;
       this.loginForm.controls.email.setValue(window.localStorage.getItem('remember_email'));
     }
+  }
+
+  signInWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
   loginForm = this.formBuilder.group({
@@ -26,6 +31,9 @@ export class LoginComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.socialAuthService.authState.subscribe(user => {
+      console.log(user);
+    })
   }
 
   login() {

@@ -5,6 +5,7 @@ import Stepper from 'bs-stepper';
 import { faThumbsUp, faThumbtack, faHashtag } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-register',
@@ -33,12 +34,20 @@ export class RegisterComponent implements OnInit {
     Gouvernorat: new FormControl(''),
     Ville: new FormControl('')
   });
-  constructor(private formBuilder: FormBuilder
+  constructor(private socialAuthService: SocialAuthService, private formBuilder: FormBuilder
     , @Inject(DOCUMENT) private document: Document,
     private authService: AuthService) { }
   stepper: Stepper;
   ngOnInit(): void {
     this.stepper = new Stepper(this.document.querySelector('.bs-stepper'));
+  }
+
+  signInWithGoogle(): void {
+    this.socialAuthService
+      .signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then(data => {
+        console.log(data);
+      });
   }
 
   onclick1() {

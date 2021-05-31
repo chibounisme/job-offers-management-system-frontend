@@ -29,6 +29,11 @@ import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { SafeUrlPipe } from './services/safe-url';
 
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider
+} from 'angularx-social-login';
+
 
 @NgModule({
   declarations: [
@@ -59,13 +64,27 @@ import { SafeUrlPipe } from './services/safe-url';
     LoadingBarRouterModule,
     MatProgressBarModule,
     LoadingBarModule,
-    TooltipModule ,
+    TooltipModule,
+    SocialLoginModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+    },{
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '552875118448-d5av82j4f09b2rtjhns1pb0h9tvoptrp.apps.googleusercontent.com'
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
     }
   ],
   bootstrap: [AppComponent]
