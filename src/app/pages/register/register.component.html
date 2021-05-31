@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Register</h5>
-                                    <form class="form-signin" [formGroup]="profileForm" (ngSubmit)="onclick1()">
+                                    <form class="form-signin" [formGroup]="profileForm">
                                         <div class="form-group">
                                             <label for="Email">Email</label>
                                             <input
@@ -66,15 +66,15 @@
                                         <div *ngIf="registerErrorExists" class="alert alert-danger" role="alert">
                                             Email already used!
                                         </div>
-                                        <button class="btn btn-lg btn-primary btn-block text-uppercase"
+                                        <button (ngSubmit)="onclick1()" class="btn btn-lg btn-primary btn-block text-uppercase"
                                             [disabled]="profileForm.invalid">Register</button>
                                         <p class="text-center mt-1 mb-0 d-block small">ou</p>
                                         <a class="d-block text-center mt-0 small" routerLink="/login">Login</a>
                                         <hr class="my-4">
-                                        <button (click)="signInWithGoogle()" class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
+                                        <button type="button" (click)="signInWithGoogle()" class="btn btn-lg btn-google btn-block text-uppercase"><i
                                                 class="fab fa-google mr-2"></i> Sign up with Google</button>
                                         <button class="btn btn-lg btn-facebook btn-block text-uppercase"
-                                            type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with
+                                            type="button"><i class="fab fa-facebook-f mr-2"></i> Sign up with
                                             Facebook</button>
                                     </form>
                                 </div>

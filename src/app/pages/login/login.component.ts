@@ -13,6 +13,7 @@ import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 export class LoginComponent implements OnInit {
   isLoginError: boolean = false;
   isRememberMeCheckboxChecked: boolean = false;
+  clickedGoogle: boolean = false;
   constructor(private socialAuthService: SocialAuthService, private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
 
     if (window.localStorage.getItem('remember_email')) {
@@ -21,8 +22,23 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  signInWithGoogle(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  signInWithGoogle() {
+    this.isLoginError = false;
+    this.clickedGoogle = true;
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(_ => {
+      this.socialAuthService.authState.subscribe(user => {
+        console.log(user);
+        if (user) {
+          this.authService.saveLoginSocialMedia(user).subscribe((res: any) => {
+            this.authService.setSessionSocialMedia(res.token, 'google');
+            this.router.navigateByUrl('/');
+          }, (err) => {
+            if (this.clickedGoogle)
+            this.isLoginError = true;
+          });
+        }
+      });
+    });
   }
 
   loginForm = this.formBuilder.group({
@@ -31,12 +47,10 @@ export class LoginComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.socialAuthService.authState.subscribe(user => {
-      console.log(user);
-    })
   }
-
+  
   login() {
+    this.clickedGoogle = false;
     if (this.isRememberMeCheckboxChecked)
       window.localStorage.setItem('remember_email', this.loginForm.controls.email.value)
     this.isLoginError = false;

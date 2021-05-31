@@ -37,41 +37,78 @@ export class RegisterComponent implements OnInit {
   constructor(private socialAuthService: SocialAuthService, private formBuilder: FormBuilder
     , @Inject(DOCUMENT) private document: Document,
     private authService: AuthService) { }
+
   stepper: Stepper;
+  isRegisterWithGoogle: boolean = false;
+  googleEmail: string ;
+
   ngOnInit(): void {
     this.stepper = new Stepper(this.document.querySelector('.bs-stepper'));
   }
 
   signInWithGoogle(): void {
+    this.registerErrorExists = false;
     this.socialAuthService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then(data => {
-        console.log(data);
+        this.isRegisterWithGoogle = true;
+        this.googleEmail = data.email;
+        this.authService.checkEmail(data.email).subscribe(_ => {
+          this.stepper.next();
+        }, err => {
+          this.registerErrorExists = true;
+        });
       });
   }
+
 
   onclick1() {
     this.stepper.next();
   }
+
   onclick2() {
-    // envoyer requete à travers le service
-    this.authService.register({
-      email: this.profileForm.value.Email,
-      password: this.profileForm.value.mdp,
-      first_name: this.profileForm2.value.Prenom,
-      last_name: this.profileForm2.value.Nom,
-      tel: this.profileForm2.value.tel,
-      sex: this.profileForm2.value.sexe,
-      address: this.profileForm2.value.adresse,
-      state: this.profileForm2.value.Gouvernorat,
-      city: this.profileForm2.value.Ville,
-      tags: this.selectedTags.map(tag => tag.$ngOptionLabel)
-    }).subscribe(_ => {
-      this.stepper.next();
-    }, err => {
-      this.registerErrorExists = true;
-      this.stepper.previous();
-    })
+    if (this.isRegisterWithGoogle) {
+      this.authService.googleRegister({
+        email: this.googleEmail,
+        first_name: this.profileForm2.value.Prenom,
+        last_name: this.profileForm2.value.Nom,
+        tel: this.profileForm2.value.tel,
+        sex: this.profileForm2.value.sexe,
+        address: this.profileForm2.value.adresse,
+        state: this.profileForm2.value.Gouvernorat,
+        city: this.profileForm2.value.Ville,
+        tags: this.selectedTags.map(tag => tag.$ngOptionLabel)
+      }).subscribe(_ => {
+        this.authService.saveLoginSocialMedia({email: this.googleEmail})
+          .subscribe((res:any) => {
+            this.authService.setSessionSocialMedia(res.token, 'google');
+            this.stepper.next();
+          })
+      }, err => {
+        this.registerErrorExists = true;
+        this.stepper.previous();
+      });
+    } else
+      this.authService.register({
+        email: this.profileForm.value.Email,
+        password: this.profileForm.value.mdp,
+        first_name: this.profileForm2.value.Prenom,
+        last_name: this.profileForm2.value.Nom,
+        tel: this.profileForm2.value.tel,
+        sex: this.profileForm2.value.sexe,
+        address: this.profileForm2.value.adresse,
+        state: this.profileForm2.value.Gouvernorat,
+        city: this.profileForm2.value.Ville,
+        tags: this.selectedTags.map(tag => tag.$ngOptionLabel)
+      }).subscribe(_ => {
+        this.authService.login(this.profileForm.value.Email, this.profileForm.value.mdp).subscribe(res => {
+          this.authService.setSession(res.token);
+          this.stepper.next();
+        });
+      }, err => {
+        this.registerErrorExists = true;
+        this.stepper.previous();
+      });
   }
 
   checkPassword(): ValidatorFn {
