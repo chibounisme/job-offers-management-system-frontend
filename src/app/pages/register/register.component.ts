@@ -6,6 +6,7 @@ import { faThumbsUp, faThumbtack, faHashtag } from '@fortawesome/free-solid-svg-
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -36,13 +37,16 @@ export class RegisterComponent implements OnInit {
   });
   constructor(private socialAuthService: SocialAuthService, private formBuilder: FormBuilder
     , @Inject(DOCUMENT) private document: Document,
-    private authService: AuthService) { }
+    private authService: AuthService, private router: Router) { }
 
   stepper: Stepper;
   isRegisterWithGoogle: boolean = false;
   googleEmail: string ;
 
   ngOnInit(): void {
+    if(this.authService.isLoggedIn()) {
+      this.router.navigateByUrl('/');
+    }
     this.stepper = new Stepper(this.document.querySelector('.bs-stepper'));
   }
 
