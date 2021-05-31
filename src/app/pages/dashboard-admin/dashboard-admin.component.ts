@@ -27,11 +27,12 @@ export class DashboardAdminComponent implements OnInit {
   }
   formatBytes(a, b = 2) { if (0 === a) return "0 Bytes"; const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024)); return parseFloat((a / Math.pow(1024, d)).toFixed(c)) + " " + ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d] }
   selectedpage: boolean[] = [false, false, false, false, false, false];
-
+  tags: any;
   ngOnInit(): void {
     this.selectedpage[0] = true;
     this.dashboardService.getDashboardInformation().subscribe(data => {
       this.dashboardData = data;
+      this.tags = Object.keys(this.dashboardData.tags);
     })
   }
   choosecomponent(i: any) {

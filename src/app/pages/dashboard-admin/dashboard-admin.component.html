@@ -2104,9 +2104,7 @@
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>Basic Table</h5>
-                                        <span class="d-block m-t-5">use class <code>table</code> inside table
-                                            element</span>
+                                        <h5>Bilan des Offres</h5>
                                     </div>
                                     <div class="card-body table-border-style">
                                         <div class="table-responsive">
@@ -2114,29 +2112,33 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
+                                                        <th>Site</th>
+                                                        <th>Nombre d'offres</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
+                                                        <td>TanitJobs</td>
+                                                        <td>{{dashboardData.tanitJobCount}}</td>
+                                                        
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
+                                                        <td>Jobi</td>
+                                                        <td>{{dashboardData.jobiJobCount}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>3</td>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
+                                                        <td>EmploisTunisie</td>
+                                                        <td>{{dashboardData.emploiJobCount}}</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Totale</td>
+                                                        <td>{{dashboardData.numberOfJobs}}</td>
+                                                        
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -2149,9 +2151,7 @@
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>Inverse Table</h5>
-                                        <span class="d-block m-t-5">use class <code>table-inverse</code> inside table
-                                            element</span>
+                                        <h5>Bilan des Users</h5>
                                     </div>
                                     <div class="card-body table-border-style">
                                         <div class="table-responsive">
@@ -2159,29 +2159,31 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
+                                                        <th>Plateforme</th>
+                                                        <th>Nombre de Users</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
+                                                        <td>3MJobs</td>
+                                                        <td>{{dashboardData.createdUsingEmail}}</td>
+                                                       
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
+                                                        <td>Google</td>
+                                                        <td>{{dashboardData.createdUsingGoogle}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>3</td>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
+                                                        <td>Facebook</td>
+                                                        <td>{{dashboardData.createdUsingFacebook}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Total</td>
+                                                        <td>{{dashboardData.numberOfUsers}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -2194,9 +2196,7 @@
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>Hover Table</h5>
-                                        <span class="d-block m-t-5">use class <code>table-hover</code> inside table
-                                            element</span>
+                                        <h5>Les tags les plus utilisés (dans les jobs )</h5>
                                     </div>
                                     <div class="card-body table-border-style">
                                         <div class="table-responsive">
@@ -2204,30 +2204,18 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
+                                                        <th>Tag</th>
+                                                        <th>Nombre d'occurences</th>
+                                                        >
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
+                                                    <tr *ngFor="let tag of tags ;let index =index">
+                                                        <td>{{index + 1}}</td>
+                                                        <td>{{tag}}</td>
+                                                        <td>{{dashboardData.tags[tag]}}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
@@ -2422,28 +2410,27 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
+                                                        <th>Site</th>
+                                                        <th>Nombre d'offres</th>
+                                                       
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr class="bg-primary">
                                                         <td>1</td>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
+                                                        <td>TanitJobs</td>
+                                                        <td>{{dashboardData.tanitJobCount}}</td>
+                                                        
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
+                                                        <td>Jobi</td>
+                                                        <td>{{dashboardData.jobiJobCount}}</td>
                                                     </tr>
                                                     <tr class="bg-success">
                                                         <td>3</td>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
+                                                        <td>EmploisTunisie</td>
+                                                        <td>{{dashboardData}}</td>
                                                         <td>@twitter</td>
                                                     </tr>
                                                     <tr>
