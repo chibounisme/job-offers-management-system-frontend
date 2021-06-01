@@ -30,7 +30,7 @@ import { TooltipModule } from 'ng2-tooltip-directive';
 import { SafeUrlPipe } from './services/safe-url';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
 import {
   GoogleLoginProvider
 } from 'angularx-social-login';
@@ -75,7 +75,7 @@ import {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    },{
+    }, {
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
@@ -85,6 +85,10 @@ import {
             provider: new GoogleLoginProvider(
               '552875118448-d5av82j4f09b2rtjhns1pb0h9tvoptrp.apps.googleusercontent.com'
             )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('176184177664726')
           }
         ]
       } as SocialAuthServiceConfig,

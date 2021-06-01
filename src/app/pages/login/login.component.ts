@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   isLoginError: boolean = false;
   isRememberMeCheckboxChecked: boolean = false;
   clickedGoogle: boolean = false;
+  clickedFacebook: boolean = false;
   constructor(private socialAuthService: SocialAuthService, private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
-
     if (window.localStorage.getItem('remember_email')) {
       this.isRememberMeCheckboxChecked = true;
       this.loginForm.controls.email.setValue(window.localStorage.getItem('remember_email'));
@@ -41,6 +41,25 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  signInWithFacebook() {
+    this.isLoginError = false;
+    this.clickedFacebook = true;
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(_ => {
+      this.socialAuthService.authState.subscribe(user => {
+        console.log(user);
+        if (user) {
+          this.authService.saveLoginFacebook(user).subscribe((res: any) => {
+            this.authService.setSessionSocialMedia(res.token, 'facebook');
+            this.router.navigateByUrl('/');
+          }, (err) => {
+            if (this.clickedFacebook)
+            this.isLoginError = true;
+          });
+        }
+      });
+    });
+  }
+
   loginForm = this.formBuilder.group({
     email: new FormControl(''),
     password: new FormControl(''),
@@ -51,6 +70,7 @@ export class LoginComponent implements OnInit {
   
   login() {
     this.clickedGoogle = false;
+    this.clickedFacebook = false;
     if (this.isRememberMeCheckboxChecked)
       window.localStorage.setItem('remember_email', this.loginForm.controls.email.value)
     this.isLoginError = false;

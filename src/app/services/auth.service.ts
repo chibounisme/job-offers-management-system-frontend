@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as moment from "moment";
-import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 interface User {
   token: string;
@@ -25,7 +24,6 @@ export class AuthService {
 
   setSession(token) {
     const expiresAt = moment().add(1, 'hour');
-
     localStorage.setItem('id_token', token);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
@@ -47,6 +45,10 @@ export class AuthService {
 
   saveLoginSocialMedia(user) {
     return this.http.post('http://localhost:3000/auth/google-login', user);
+  }
+  
+  saveLoginFacebook(user) {
+    return this.http.post('http://localhost:3000/auth/facebook-login', user);
   }
 
   getToken() {
@@ -73,6 +75,10 @@ export class AuthService {
 
   googleRegister(data) {
     return this.http.post('http://localhost:3000/auth/google-register', data);
+  }
+
+  facebookRegister(data) {
+    return this.http.post('http://localhost:3000/auth/facebook-register', data);
   }
   
   checkEmail(email) {

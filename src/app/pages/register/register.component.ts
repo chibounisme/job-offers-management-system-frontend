@@ -5,7 +5,7 @@ import Stepper from 'bs-stepper';
 import { faThumbsUp, faThumbtack, faHashtag } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
-import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { Router } from '@angular/router';
 
 @Component({
@@ -41,10 +41,12 @@ export class RegisterComponent implements OnInit {
 
   stepper: Stepper;
   isRegisterWithGoogle: boolean = false;
-  googleEmail: string ;
+  isRegisterWithFacebook: boolean = false;
+  googleEmail: string;
+  facebookEmail: string;
 
   ngOnInit(): void {
-    if(this.authService.isLoggedIn()) {
+    if (this.authService.isLoggedIn()) {
       this.router.navigateByUrl('/');
     }
     this.stepper = new Stepper(this.document.querySelector('.bs-stepper'));
@@ -57,6 +59,21 @@ export class RegisterComponent implements OnInit {
       .then(data => {
         this.isRegisterWithGoogle = true;
         this.googleEmail = data.email;
+        this.authService.checkEmail(data.email).subscribe(_ => {
+          this.stepper.next();
+        }, err => {
+          this.registerErrorExists = true;
+        });
+      });
+  }
+
+  signInWithFacebook(): void {
+    this.registerErrorExists = false;
+    this.socialAuthService
+      .signIn(FacebookLoginProvider.PROVIDER_ID)
+      .then(data => {
+        this.isRegisterWithGoogle = true;
+        this.facebookEmail = data.email;
         this.authService.checkEmail(data.email).subscribe(_ => {
           this.stepper.next();
         }, err => {
@@ -83,9 +100,30 @@ export class RegisterComponent implements OnInit {
         city: this.profileForm2.value.Ville,
         tags: this.selectedTags.map(tag => tag.$ngOptionLabel)
       }).subscribe(_ => {
-        this.authService.saveLoginSocialMedia({email: this.googleEmail})
-          .subscribe((res:any) => {
+        this.authService.saveLoginSocialMedia({ email: this.googleEmail })
+          .subscribe((res: any) => {
             this.authService.setSessionSocialMedia(res.token, 'google');
+            this.stepper.next();
+          })
+      }, err => {
+        this.registerErrorExists = true;
+        this.stepper.previous();
+      });
+    } else if (this.isRegisterWithFacebook) {
+      this.authService.googleRegister({
+        email: this.facebookEmail,
+        first_name: this.profileForm2.value.Prenom,
+        last_name: this.profileForm2.value.Nom,
+        tel: this.profileForm2.value.tel,
+        sex: this.profileForm2.value.sexe,
+        address: this.profileForm2.value.adresse,
+        state: this.profileForm2.value.Gouvernorat,
+        city: this.profileForm2.value.Ville,
+        tags: this.selectedTags.map(tag => tag.$ngOptionLabel)
+      }).subscribe(_ => {
+        this.authService.saveLoginSocialMedia({ email: this.facebookEmail })
+          .subscribe((res: any) => {
+            this.authService.setSessionSocialMedia(res.token, 'facebook');
             this.stepper.next();
           })
       }, err => {
