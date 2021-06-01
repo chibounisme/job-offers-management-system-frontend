@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     
     typewriter
       .pauseFor(2500)
-      .typeString('Bienvenue sur 3MJobs')
+      .typeString('Bienvenue sur 3MJobs !')
       .pauseFor(300)
       .pauseFor(1000)
       .start();
