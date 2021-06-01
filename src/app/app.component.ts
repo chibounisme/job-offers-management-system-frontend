@@ -22,9 +22,6 @@ export class AppComponent implements OnInit {
       this.profile = profile;
     });
   }
-  isAdmin() {
-    return this.profile.email == 'mohamedchiboub97@gmail.com';
-  }
   ngOnInit() {
     setTimeout(() => {
       this.document.getElementById('chatbot-chat').style.visibility = 'hidden';

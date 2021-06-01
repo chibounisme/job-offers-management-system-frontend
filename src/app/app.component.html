@@ -12,7 +12,7 @@
         <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">Accueil</a>
       </li>
       <li class="nav-item" >
-        <a class="nav-link" routerLink="/dash" routerLinkActive="active">Dashboard</a>
+        <a class="nav-link" routerLink="/dash" routerLinkActive="active" *ngIf="!authService.isAdmin()">Dashboard</a>
       </li>
       <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a class="nav-link" routerLink="/offers" routerLinkActive="active">Offres</a>
@@ -37,7 +37,7 @@
 
 <router-outlet> </router-outlet>
 
-<footer class="footer bg-light" style="z-index: -1 !important;" *ngIf="!isAdmin()">
+<footer class="footer bg-light" style="z-index: -1 !important;" >
   <div class="container">
     <div class="row">
       <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
