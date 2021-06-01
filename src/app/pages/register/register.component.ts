@@ -110,7 +110,7 @@ export class RegisterComponent implements OnInit {
         this.stepper.previous();
       });
     } else if (this.isRegisterWithFacebook) {
-      this.authService.googleRegister({
+      this.authService.facebookRegister({
         email: this.facebookEmail,
         first_name: this.profileForm2.value.Prenom,
         last_name: this.profileForm2.value.Nom,

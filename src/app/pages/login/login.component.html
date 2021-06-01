@@ -7,7 +7,7 @@
         <p class="login-wrapper-signup-text">Vous avez besoin d'un compte? <a routerLink="/register">Tapez ici!</a></p>
         <div class="login-wrapper">
           <h2 class="login-title">Se connecter</h2>
-          <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <form [formGroup]="loginForm">
             <div class="form-group">
               <label for="Email" class="sr-only">Email</label>
               <input formControlName="email" type="email" name="username" id="username" class="form-control" placeholder="Email">
@@ -25,14 +25,14 @@
               Erreur Lors de la connexion!
           </div>
             <div class="d-flex justify-content-between align-items-center mb-5">
-              <button name="login" id="login" class="btn login-btn">Se connecter</button>
+              <button name="login" id="login" class="btn login-btn" (click)="login()">Se connecter</button>
 
             </div>
           </form>
           <h6 class="social-login-title">Ou</h6>
           <nav class="social-login-links">
             <a class="btn social-login-link">
-              <img src="assets/img/facebook.svg" alt="facebook logo"> Facebook
+              <img src="assets/img/facebook.svg" (click)="signInWithFacebook()" alt="facebook logo"> Facebook
             </a>
             <a class="btn social-login-link" (click)="signInWithGoogle()">
               <img src="assets/img/google.svg" alt="google logo"> Google
