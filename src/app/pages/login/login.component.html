@@ -2,37 +2,34 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-5 intro-section">
-
-
-
       </div>
       <div class="col-sm-7 form-section">
-        <p class="login-wrapper-signup-text">Need an account? <a routerLink="/register">Register</a></p>
+        <p class="login-wrapper-signup-text">Vous avez besoin d'un compte? <a routerLink="/register">Tapez ici!</a></p>
         <div class="login-wrapper">
-          <h2 class="login-title">Sign in</h2>
+          <h2 class="login-title">Se connecter</h2>
           <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="form-group">
               <label for="Email" class="sr-only">Email</label>
               <input formControlName="email" type="email" name="username" id="username" class="form-control" placeholder="Email">
             </div>
             <div class="form-group mb-3">
-              <label for="password" class="sr-only">Password</label>
+              <label for="password" class="sr-only">Mot de passe</label>
               <input formControlName="password" type="password" name="password" id="password" class="form-control" placeholder="Password">
             </div>
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" [ngModelOptions]="{standalone: true}" [(ngModel)]="isRememberMeCheckboxChecked" id="rememberMeCheck" name="rememberMeCheck">
-              <label class="custom-control-label" for="rememberMeCheck">Remember Me</label>
+              <label class="custom-control-label" for="rememberMeCheck">Se Rappeler de moi</label>
             </div>
             <br>
             <div *ngIf="isLoginError" class="alert alert-danger" role="alert">
               Erreur Lors de la connexion!
           </div>
             <div class="d-flex justify-content-between align-items-center mb-5">
-              <button name="login" id="login" class="btn login-btn">Login</button>
-              <a href="#!" class="forgot-password-link">Password?</a>
+              <button name="login" id="login" class="btn login-btn">Se connecter</button>
+
             </div>
           </form>
-          <h6 class="social-login-title">OR</h6>
+          <h6 class="social-login-title">Ou</h6>
           <nav class="social-login-links">
             <a class="btn social-login-link">
               <img src="assets/img/facebook.svg" alt="facebook logo"> Facebook
@@ -40,6 +37,7 @@
             <a class="btn social-login-link" (click)="signInWithGoogle()">
               <img src="assets/img/google.svg" alt="google logo"> Google
             </a>
+            
           </nav>
         </div>
       </div>

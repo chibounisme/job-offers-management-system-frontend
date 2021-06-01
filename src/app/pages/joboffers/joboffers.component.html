@@ -7,7 +7,7 @@
                     <div class="card">
                         <article class="card-group-item">
                             <header class="card-header">
-                                <h6 class="title mb-0">Choisir Type</h6>
+                                <h6 class="title mb-0">Choisir le type</h6>
                             </header>
                             <div class="filter-content">
                                 <div class="card-body">
@@ -15,7 +15,7 @@
                                         <input [disabled]="!hasLoadedJobs" [(ngModel)]="jobType" class="custom-control-input" id="job_type_all"
                                             type="radio" name="job_type" value="all" (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_type_all">
-                                            Tous les Types
+                                            Tous les types
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio">
@@ -41,7 +41,7 @@
                     <div class="card">
                         <article class="card-group-item">
                             <header class="card-header">
-                                <h6 class="title mb-0">Choisir Site</h6>
+                                <h6 class="title mb-0">Choisir les sites</h6>
                             </header>
                             <div class="filter-content">
                                 <div class="card-body">
@@ -50,7 +50,7 @@
                                             name="job_source" value="all" [(ngModel)]="jobSource"
                                             (ngModelChange)="searchJobs()">
                                         <label class="custom-control-label" for="job_source_all">
-                                            Tous les Sites
+                                            Tous les sites
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio">
@@ -219,15 +219,11 @@
                                     (click)="onclick(job._id)">Enregistrer</button></div>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>
         <div class="container mt-3 mb-3" *ngIf="hasLoadedJobs && jobs.length == 0">
-            <p class="title text-center">No jobs were found!</p>
+            <p class="title text-center">Pas d'offre de travail avec ces critéres!</p>
         </div>
         <nav aria-label="Page navigation example" *ngIf="hasLoadedJobs && jobs.length != 0">
             <ul class="pagination justify-content-center">

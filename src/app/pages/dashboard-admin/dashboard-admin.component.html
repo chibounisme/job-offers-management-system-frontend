@@ -1,14 +1,9 @@
-<!-- [ Pre-loader ] End -->
-
-<!-- [ navigation menu ] start -->
 <nav class="pcoded-navbar menupos-fixed menu-light brand-blue ">
     <div class="navbar-wrapper ">
         <div class="navbar-brand header-logo">
             <a href="index.html" class="b-brand">
-                <img src="/src/assets/images/logo.svg" alt="" class="logo images">
-                <img src="/src/assets/images/logo-icon.svg" alt="" class="logo-thumb images">
+                <img src="assets/img/logo-svg.svg" class="logo images" style="height: 100%; width: 100%; margin-left: -30px  ;">
             </a>
-            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
         </div>
         <div class="navbar-content scroll-div">
             <ul class="nav pcoded-inner-navbar">
@@ -21,225 +16,76 @@
                 </li>
                 <li class="nav-item" [ngClass]="{'active':selectedpage[1]}">
                     <a (click)="choosecomponent(1)" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-box"></i></span><span class="pcoded-mtext">Componant</span></a>
+                                class="feather icon-box"></i></span><span class="pcoded-mtext">Composant</span></a>
                 </li>
                 <li class="nav-item" [ngClass]="{'active':selectedpage[2]}">
                     <a (click)="choosecomponent(2)" class="nav-link"><span class="pcoded-micon"><i
                                 class="feather icon-align-justify"></i></span><span class="pcoded-mtext">
-                            tables</span></a>
+                            Tables</span></a>
                 </li>
                 <li class="nav-item" [ngClass]="{'active':selectedpage[3]}">
                     <a (click)="choosecomponent(3)" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a>
+                                class="feather icon-pie-chart"></i></span><span
+                            class="pcoded-mtext">Graphique</span></a>
                 </li>
                 <li class="nav-item" [ngClass]="{'active':selectedpage[4]}">
                     <a (click)="choosecomponent(4)" class="nav-link"><span class="pcoded-micon"><i
-                                class="feather icon-users"></i></span><span class="pcoded-mtext">profiles</span></a>
+                                class="feather icon-users"></i></span><span class="pcoded-mtext"> Les
+                            Profils</span></a>
                 </li>
-                
-
             </ul>
-
         </div>
     </div>
 </nav>
-<!-- [ navigation menu ] end -->
-
-<!-- [ Header ] start -->
 <header style="width:100%;" class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed">
-    <div class="m-header">
-        <a class="mobile-menu" id="mobile-collapse1" href="#!"><span></span></a>
-        <a href="index.html" class="b-brand">
-            <img src="/src/assets/images/logo.svg" alt="" class="logo images">
-            <img src="/src/assetsimages/logo-icon.svg" alt="" class="logo-thumb images">
-        </a>
-    </div>
-    <a class="mobile-menu" id="mobile-header" href="#!">
-        <i class="feather icon-more-horizontal"></i>
-    </a>
     <div style="margin-left:264px;" class="collapse navbar-collapse">
-        <a href="#!" class="mob-toggler"></a>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <div class="main-search open">
-                    <div class="input-group">
-                        <input type="text" id="m-search" class="form-control" placeholder="Search . . .">
-                        <a href="#!" class="input-group-append search-close">
-                            <i class="feather icon-x input-group-text"></i>
-                        </a>
-                        <span class="input-group-append search-btn btn btn-primary">
-                            <i class="feather icon-search input-group-text"></i>
-                        </span>
-                    </div>
-                </div>
-            </li>
-        </ul>
         <ul class="navbar-nav ml-auto">
             <li>
-                <div class="dropdown">
-                    <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                            class="icon feather icon-bell"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right notification">
-                        <div class="noti-head">
-                            <h6 class="d-inline-block m-b-0">Notifications</h6>
-                            <div class="float-right">
-                                <a href="#!" class="m-r-10">mark as read</a>
-                                <a href="#!">clear all</a>
-                            </div>
-                        </div>
-                        <ul class="noti-body">
-                            <li class="n-title">
-                                <p class="m-b-0">NEW</p>
-                            </li>
-                            <li class="notification">
-                                <div class="media">
-                                    <img class="img-radius" src="/src/assetsimages/user/avatar-1.jpg"
-                                        alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <p><strong>John Doe</strong><span class="n-time text-muted"><i
-                                                    class="icon feather icon-clock m-r-10"></i>5 min</span></p>
-                                        <p>New ticket Added</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="n-title">
-                                <p class="m-b-0">EARLIER</p>
-                            </li>
-                            <li class="notification">
-                                <div class="media">
-                                    <img class="img-radius" src="/src/assets/images/user/avatar-2.jpg"
-                                        alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i
-                                                    class="icon feather icon-clock m-r-10"></i>10 min</span></p>
-                                        <p>Prchace New Theme and make payment</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="notification">
-                                <div class="media">
-                                    <img class="img-radius" src="/src/assets/images/user/avatar-3.jpg"
-                                        alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i
-                                                    class="icon feather icon-clock m-r-10"></i>12 min</span></p>
-                                        <p>currently login</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="notification">
-                                <div class="media">
-                                    <img class="img-radius" src="/src/assets/images/user/avatar-1.jpg"
-                                        alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i
-                                                    class="icon feather icon-clock m-r-10"></i>30 min</span></p>
-                                        <p>Prchace New Theme and make payment</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="notification">
-                                <div class="media">
-                                    <img class="img-radius" src="/src/assets/images/user/avatar-3.jpg"
-                                        alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i
-                                                    class="icon feather icon-clock m-r-10"></i>1 hour</span></p>
-                                        <p>currently login</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="notification">
-                                <div class="media">
-                                    <img class="img-radius" src="/src/assets/images/user/avatar-1.jpg"
-                                        alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i
-                                                    class="icon feather icon-clock m-r-10"></i>2 hour</span></p>
-                                        <p>Prchace New Theme and make payment</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="noti-footer">
-                            <a href="#!">show all</a>
-                        </div>
-                    </div>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+                    routerLinkActive="active">Visiter en tant que utilisateur</a>
             </li>
             <li>
-                <div class="dropdown drp-user">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon feather icon-settings"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right profile-notification">
-                        <div class="pro-head">
-                            <img src="images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                            <span>John Doe</span>
-                            <a href="auth-signin.html" class="dud-logout" title="Logout">
-                                <i class="feather icon-log-out"></i>
-                            </a>
-                        </div>
-                        <ul class="pro-body">
-                            <li><a href="#!" class="dropdown-item"><i class="feather icon-settings"></i> Settings</a>
-                            </li>
-                            <li><a href="#!" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                            <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My
-                                    Messages</a></li>
-                            <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock
-                                    Screen</a></li>
-                        </ul>
-                    </div>
-                </div>
             </li>
         </ul>
     </div>
 </header>
-<!-- [ Header ] end -->
-
-<!-- [ Main Content ] start -->
 <div class="pcoded-main-container custom-pcoded" *ngIf="selectedpage[0] && dashboardData != null">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
             <div class="pcoded-inner-content">
                 <div class="main-body">
                     <div class="page-wrapper">
-                        <!-- [ breadcrumb ] start -->
                         <div class="page-header">
                             <div class="page-block">
                                 <div class="row align-items-center">
                                     <div class="col-md-12">
                                         <div class="page-header-title">
-                                            <h5>Home</h5>
+                                            <h5>Accueil</h5>
                                         </div>
                                         <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="index.html"><i
-                                                        class="feather icon-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="#!">Analytics Dashboard</a></li>
+                                            <li class="breadcrumb-item"><i
+                                                        class="feather icon-home"></i></li>
+                                            <li class="breadcrumb-item">Dashboard</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- [ breadcrumb ] end -->
-                        <!-- [ Main Content ] start -->
                         <div class="row">
-
-                            <!-- product profit start -->
                             <div class="col-xl-3 col-md-6">
                                 <div class="card prod-p-card bg-c-red">
                                     <div class="card-body">
                                         <div class="row align-items-center m-b-25">
                                             <div class="col">
-                                                <h6 class="m-b-5 text-white">Nombre d'Offres en Total</h6>
+                                                <h6 class="m-b-5 text-white">Nombre des offres en Total</h6>
                                                 <h3 class="m-b-0 text-white">{{ dashboardData.numberOfJobs }}</h3>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-money-bill-alt text-c-red f-18"></i>
                                             </div>
                                         </div>
-                                        <p class="m-b-0 text-white"><span
-                                                class="label label-danger m-r-10">+52%</span>From Previous Month</p>
+                                        <p class="m-b-0 text-white">À partir des trois sites</p>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +94,7 @@
                                     <div class="card-body">
                                         <div class="row align-items-center m-b-25">
                                             <div class="col">
-                                                <h6 class="m-b-5 text-white">Nombre d'Offres d'Aujourd'hui</h6>
+                                                <h6 class="m-b-5 text-white">Nombre des nouveaux offres</h6>
                                                 <h3 class="m-b-0 text-white">{{
                                                     dashboardData.jobiJobCount[dashboardData.jobiJobCount.length - 1] +
                                                     dashboardData.tanitJobCount[dashboardData.tanitJobCount.length - 1]
@@ -259,8 +105,7 @@
                                                 <i class="fas fa-dollar-sign text-c-green f-18"></i>
                                             </div>
                                         </div>
-                                        <p class="m-b-0 text-white"><span
-                                                class="label label-success m-r-10">+52%</span>From Previous Month</p>
+                                        <p class="m-b-0 text-white">À partir du scraping d'aujourd'hui</p>
                                     </div>
                                 </div>
                             </div>
@@ -269,7 +114,7 @@
                                     <div class="card-body">
                                         <div class="row align-items-center m-b-25">
                                             <div class="col">
-                                                <h6 class="m-b-5 text-white">Etat de la Base</h6>
+                                                <h6 class="m-b-5 text-white">État de la Base</h6>
                                                 <h3 class="m-b-0 text-white">
                                                     {{formatBytes(dashboardData.currentScrapingDbSize) }} / 500 MB</h3>
                                             </div>
@@ -277,8 +122,7 @@
                                                 <i class="fas fa-database text-c-blue f-18"></i>
                                             </div>
                                         </div>
-                                        <p class="m-b-0 text-white"><span
-                                                class="label label-primary m-r-10">+12%</span>From Previous Month</p>
+                                        <p class="m-b-0 text-white">Pour la base contenant les offres </p>
                                     </div>
                                 </div>
                             </div>
@@ -287,19 +131,17 @@
                                     <div class="card-body">
                                         <div class="row align-items-center m-b-25">
                                             <div class="col">
-                                                <h6 class="m-b-5 text-white">Nombre d'Utilisateurs</h6>
+                                                <h6 class="m-b-5 text-white">Nombre total d'Utilisateurs</h6>
                                                 <h3 class="m-b-0 text-white">{{ dashboardData.numberOfUsers }}</h3>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-tags text-c-yellow f-18"></i>
                                             </div>
                                         </div>
-                                        <p class="m-b-0 text-white"><span
-                                                class="label label-warning m-r-10">+52%</span>From Previous Month</p>
+                                        <p class="m-b-0 text-white">De 3MJobs,Google et Facebook</p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- product profit end -->
                             <div class="col-md-12 col-xl-4">
                                 <div class="card card-social">
                                     <div class="card-block border-bottom">
@@ -309,15 +151,14 @@
                                             </div>
                                             <div class="col text-right">
                                                 <h3>{{dashboardData.createdUsingFacebook}}</h3>
-                                                <h5 class="text-c-blue mb-0"><span class="text-muted">Number of Accounts
-                                                        created using Facebook</span></h5>
+                                                <h5 class="text-c-blue mb-0"><span class="text-muted">Nombre de comptes créés en utilisant Facebook</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-block">
                                         <div class="row align-items-center justify-content-center card-active">
                                             <div class="col-12">
-                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:
+                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Cible:
                                                     </span>{{ maxFacebookValue }}</h6>
                                             </div>
                                         </div>
@@ -334,15 +175,14 @@
                                             </div>
                                             <div class="col text-right">
                                                 <h3>{{dashboardData.createdUsingGoogle}}</h3>
-                                                <h5 class="text-c-red mb-0"><span class="text-muted">Number of Accounts
-                                                        created using Google</span></h5>
+                                                <h5 class="text-c-red mb-0"><span class="text-muted">Nombre de comptes créés en utilisant Google</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-block">
                                         <div class="row align-items-center justify-content-center card-active">
                                             <div class="col-12">
-                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:
+                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Cible:
                                                     </span>{{ maxGoogleValue }}</h6>
                                             </div>
                                         </div>
@@ -354,30 +194,28 @@
                                     <div class="card-block border-bottom">
                                         <div class="row align-items-center justify-content-center">
                                             <div class="col-auto">
-                                                <i class="fab fa-twitter text-c-info f-36"></i>
+                                                <i class="fas fa-at text-c-info f-36"></i>
                                             </div>
                                             <div class="col text-right">
                                                 <h3>{{dashboardData.createdUsingEmail}}</h3>
-                                                <h5 class="text-c-info mb-0"><span class="text-muted">Number of Accounts
-                                                        created using Email</span></h5>
+                                                <h5 class="text-c-info mb-0"><span class="text-muted">Nombre de comptes créés en utilisant 3MJobs</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-block">
                                         <div class="row align-items-center justify-content-center card-active">
                                             <div class="col-12">
-                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Target:
+                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">Cible:
                                                     </span>{{ maxEmailValue }}</h6>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- sessions-section start -->
                             <div class="col-xl-8 col-md-6">
                                 <div class="card table-card">
                                     <div class="card-header">
-                                        <h5>Site visitors session log</h5>
+                                        <h5>Les dernières recherches effectuées par les utilisateurs</h5>
                                     </div>
                                     <div class="card-body px-0 py-0">
                                         <div class="table-responsive">
@@ -385,7 +223,7 @@
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item"
                                                         *ngFor="let notif of dashboardData.searchHistory">"<span
-                                                            class="text-primary">{{notif.name}}</span>" a cherché le mot
+                                                            class="text-primary">{{notif.name}}</span>" a cherché(e) le mot
                                                         "<span class="text-primary">{{notif.searchTerm}}</span>"</li>
 
                                                 </ul>
@@ -394,11 +232,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- sessions-section end -->
                             <div class="col-md-6 col-xl-4">
                                 <div class="card user-card">
                                     <div class="card-header">
-                                        <h5>Profile</h5>
+                                        <h5>Profil</h5>
                                     </div>
                                     <div class="card-body  text-center">
                                         <div class="usre-image">
@@ -407,9 +244,9 @@
                                         </div>
                                         <h6 class="f-w-600 m-t-25 m-b-10">{{profile.first_name}} {{profile.last_name}}
                                         </h6>
-                                        <p>Male </p>
+                                        <p> Homme </p>
                                         <hr>
-                                        <p class="m-t-15">Activity Level:100%</p>
+                                        <p class="m-t-15">Niveau d'activité:100%</p>
                                         <div class="bg-c-blue counter-block m-t-10 p-20">
                                             <div class="row">
                                                 <div class="col-4">
@@ -426,16 +263,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <p class="m-t-15">Perfection is Our Goal. 3M-Jobs for life 👌💪</p>
+                                        <p class="m-t-15">La Perfection est notre objectif. 3M-Jobs pour la vie 👌💪</p>
                                         <hr>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- [ Main Content ] end -->
                     </div>
-
                 </div>
             </div>
         </div>
@@ -448,19 +282,17 @@
                 <div class="pcoded-inner-content">
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ breadcrumb ] start -->
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
                                         <div class="col-md-12">
                                             <div class="page-header-title">
-                                                <h5 class="m-b-10">Button</h5>
+                                                <h5 class="m-b-10">Bouton</h5>
                                             </div>
                                             <ul class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="index.html"><i
-                                                            class="feather icon-home"></i></a></li>
-                                                <li class="breadcrumb-item"><a href="#!">Basic Components</a></li>
-                                                <li class="breadcrumb-item"><a href="#!">Button</a></li>
+                                                <li class="breadcrumb-item"></li>
+                    
+                                                <li class="breadcrumb-item">Bouton</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -495,9 +327,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ default-button ] end -->
-
-                                <!-- [ outline-button ] start -->
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -531,8 +360,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ outline-button ] end -->
-                                <!-- [ size-button ] start -->
+                                
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
@@ -546,8 +374,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ size-button ] end -->
-                                <!-- [ size-small-button ] start -->
+                               
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
@@ -561,8 +388,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ size-small-button ] end -->
-                                <!-- [ checkbox-button ] start -->
+                              
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
@@ -576,8 +402,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ checkbox-button ] end -->
-                                <!-- [ radio-button ] start -->
+                                
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
@@ -596,10 +421,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ radio-button ] end -->
+                                
                             </div>
                             <div class="row">
-                                <!-- [ button-icon ] start -->
+                                
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
@@ -621,9 +446,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ button-icon ] end -->
-                                <!-- [ button-outline ] start -->
-                                <div class="col-md-6">
+                              
+                
+                            <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Outline Icon Buttons</h5>
@@ -644,10 +469,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ button-outline ] end -->
+                                
                             </div>
                             <div class="row">
-                                <!-- [ basic-dropdown-button ] start -->
+                              
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -717,15 +542,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ basic-dropdown-button ] end -->
-                                <!-- [ split-danger-button ] start -->
+                               
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Split Dropdown Button</h5>
                                         </div>
                                         <div class="card-body">
-                                            <!-- Example split danger button -->
+                                          
                                             <div class="btn-group mb-2 mr-2">
                                                 <button type="button" class="btn btn-primary">Primary</button>
                                                 <button type="button"
@@ -819,8 +643,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ split-danger-button ] end -->
-                                <!-- [ outline-dropdown-button ] start -->
+                               
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -890,15 +713,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ outline-dropdown-button ] end -->
-                                <!-- [ split-dropdown-button ] start -->
+                              
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Split Outline Dropdown Button</h5>
                                         </div>
                                         <div class="card-body">
-                                            <!-- Example split danger button -->
                                             <div class="btn-group mb-2 mr-2">
                                                 <button type="button" class="btn btn-outline-primary">Primary</button>
                                                 <button type="button"
@@ -993,7 +814,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ split-dropdown-button ] end -->
+                                
                             </div>
                         </div>
                     </div>
@@ -1007,7 +828,7 @@
                 <div class="pcoded-inner-content">
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ breadcrumb ] start -->
+                        
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
@@ -1025,10 +846,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ breadcrumb ] end -->
-                            <!-- [ Main Content ] start -->
                             <div class="row">
-                                <!-- [ badge ] start -->
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -1108,9 +926,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ badge ] end -->
+                          
                             </div>
-                            <!-- [ Main Content ] end -->
+                     
                         </div>
                     </div>
                 </div>
@@ -1123,7 +941,7 @@
                 <div class="pcoded-inner-content">
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ breadcrumb ] start -->
+                      
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
@@ -1142,10 +960,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ breadcrumb ] end -->
-                            <!-- [ Main Content ] start -->
+                    
                             <div class="row">
-                                <!-- [ Breadcrumbs & Pagination ] start -->
+                             
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-header">
@@ -1301,9 +1118,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Breadcrumbs & Pagination ] end -->
                             </div>
-                            <!-- [ Main Content ] end -->
+                        
                         </div>
                     </div>
                 </div>
@@ -1316,7 +1132,7 @@
                 <div class="pcoded-inner-content">
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ breadcrumb ] start -->
+                           
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
@@ -1334,10 +1150,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ breadcrumb ] end -->
-                            <!-- [ Main Content ] start -->
+                          
                             <div class="row">
-                                <!-- [ basic-collapse ] start -->
+                              
                                 <div class="col-sm-12">
                                     <h5 class="mb-3">Basic Collapse</h5>
                                     <hr>
@@ -1360,8 +1175,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ basic-collapse ] end -->
-                                <!-- [ multiple-collapse ] start -->
+                               
                                 <div class="col-sm-12 mb-3">
                                     <h5 class="mb-3">Multiple Targets</h5>
                                     <hr>
@@ -1406,8 +1220,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ multiple-collapse ] end -->
-                                <!-- [ accordion-collapse ] start -->
+                           
                                 <div class="col-sm-12">
                                     <h5 class="mb-3">Accordion Example</h5>
                                     <hr>
@@ -1474,9 +1287,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ accordion-collapse ] end -->
+                                
                             </div>
-                            <!-- [ Main Content ] end -->
+                         
                         </div>
                     </div>
                 </div>
@@ -1489,7 +1302,7 @@
                 <div class="pcoded-inner-content">
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ breadcrumb ] start -->
+                          
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
@@ -1507,10 +1320,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ breadcrumb ] end -->
-                            <!-- [ Main Content ] start -->
+   
                             <div class="row">
-                                <!-- [ progress ] start -->
+             
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -1610,9 +1422,9 @@
                                     </div>
 
                                 </div>
-                                <!-- [ progress ] end -->
+                                
                             </div>
-                            <!-- [ Main Content ] end -->
+                            
                         </div>
                     </div>
                 </div>
@@ -1625,7 +1437,7 @@
                 <div class="pcoded-inner-content">
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <!-- [ breadcrumb ] start -->
+
                             <div class="page-header">
                                 <div class="page-block">
                                     <div class="row align-items-center">
@@ -1643,10 +1455,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ breadcrumb ] end -->
-                            <!-- [ Main Content ] start -->
+
                             <div class="row">
-                                <!-- [ tabs ] start -->
+                        
                                 <div class="col-sm-12">
                                     <h5>Basic Tabs</h5>
                                     <hr>
@@ -1774,9 +1585,9 @@
                                     </div>
                                 </div>
 
-                                <!-- [ tabs ] end -->
+                       
                             </div>
-                            <!-- [ Main Content ] end -->
+                   
                         </div>
                     </div>
                 </div>
@@ -1807,10 +1618,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ breadcrumb ] end -->
-                            <!-- [ Main Content ] start -->
+                       
                             <div class="row">
-                                <!-- [ Typography ] start -->
+          
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
@@ -2058,20 +1868,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- [ Typography ] end -->
+                
                             </div>
-                            <!-- [ Main Content ] end -->
+                        
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
 </div>
 <section class="pcoded-main-container  custom-pcoded" *ngIf="selectedpage[2]">
     <div class="pcoded-wrapper">
@@ -2079,28 +1884,23 @@
             <div class="pcoded-inner-content">
                 <div class="main-body">
                     <div class="page-wrapper">
-                        <!-- [ breadcrumb ] start -->
                         <div class="page-header">
                             <div class="page-block">
                                 <div class="row align-items-center">
                                     <div class="col-md-12">
                                         <div class="page-header-title">
-                                            <h5 class="m-b-10">Bootstrap Basic Tables</h5>
+                                            <h5 class="m-b-10">Tables</h5>
                                         </div>
                                         <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="index.html"><i
-                                                        class="feather icon-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a></li>
-                                            <li class="breadcrumb-item"><a href="#!">Basic Tables</a></li>
+                                            <li class="breadcrumb-item"><i
+                                                        class="feather icon-home"></i></li>
+                                            <li class="breadcrumb-item">Tables</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- [ breadcrumb ] end -->
-                        <!-- [ Main Content ] start -->
                         <div class="row">
-                            <!-- [ basic-table ] start -->
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
@@ -2136,7 +1936,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>4</td>
-                                                        <td>Totale</td>
+                                                        <td>Total</td>
                                                         <td>{{dashboardData.numberOfJobs}}</td>
 
                                                     </tr>
@@ -2146,8 +1946,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ basic-table ] end -->
-                            <!-- [ inverse-table ] start -->
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
@@ -2191,8 +1989,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ inverse-table ] end -->
-                            <!-- [ Hover-table ] start -->
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
@@ -2222,8 +2018,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ Hover-table ] end -->
-                            <!-- [ dark-table ] start -->
+       
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
@@ -2247,7 +2042,6 @@
                                                         <td>{{domain}}</td>
                                                         <td>{{dashboardData.domaines[domain]}}</td>
                                                     </tr>
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -2255,7 +2049,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- [ Main Content ] end -->
+
                     </div>
                 </div>
             </div>
@@ -2268,28 +2062,26 @@
             <div class="pcoded-inner-content">
                 <div class="main-body">
                     <div class="page-wrapper">
-                        <!-- [ breadcrumb ] start -->
+                    
                         <div class="page-header">
                             <div class="page-block">
                                 <div class="row align-items-center">
                                     <div class="col-md-12">
                                         <div class="page-header-title">
-                                            <h5 class="m-b-10">Morris Chart</h5>
+                                            <h5 class="m-b-10">Graphique</h5>
                                         </div>
                                         <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="index.html"><i
-                                                        class="feather icon-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="#!">Chart</a></li>
-                                            <li class="breadcrumb-item"><a href="#!">Morris Chart</a></li>
+                                            <li class="breadcrumb-item"><i
+                                                        class="feather icon-home"></i></li>
+                                            <li class="breadcrumb-item">Graphique</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- [ breadcrumb ] end -->
-                        <!-- [ Main Content ] start -->
+
                         <div class="row">
-                            <!-- [ bar-simple Chart ] start -->
+                        
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-header">
@@ -2303,8 +2095,6 @@
                                     </ngx-charts-area-chart>
                                 </div>
                             </div>
-                            <!-- [ bar-simple Chart ] end -->
-                            <!-- [ bar-stacked Chart ] start -->
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-header">
@@ -2320,12 +2110,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ bar-stacked Chart ] end -->
-                            <!-- [ line-angle Chart ] start -->
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>Line [ Angle ] Chart</h5>
+                                        <h5>Les tags les plus utilisés (dans les jobs)</h5>
                                     </div>
                                     <div class="card-body">
                                         <ngx-charts-pie-chart [view]="view3" [scheme]="colorScheme3" [results]="single3"
@@ -2340,7 +2128,7 @@
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>Line [ Angle ] Chart</h5>
+                                        <h5>Classification des domaines selon leurs occurences - (top 10)</h5>
                                     </div>
                                     <div class="card-body">
                                         <ngx-charts-pie-chart [view]="view3" [scheme]="colorScheme3" [results]="single4"
@@ -2353,7 +2141,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- [ Main Content ] end -->
+                    
                     </div>
                 </div>
             </div>
@@ -2366,25 +2154,39 @@
 
             <div class="main-body">
                 <div class="page-wrapper">
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <div class="page-header-title">
+                                        <h5 class="m-b-10">Les Profils</h5>
+                                    </div>
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><i
+                                                    class="feather icon-home"></i></li>
+                                        <li class="breadcrumb-item">Les Profils</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-10">
                         <div class="card ">
                             <div class="card-body pb-0 ">
                                 <div *ngFor="let prof of users">
-                                <div class="row" >
-                                    <div class="col-sm-1">
-                                        <img [src]="prof.image ? sanitize(prof.image) :'assets/img/profile-picture.png' | safeUrl"
-                                         alt="User-Profile-Image"
-                                            class="avatar img-fluid rounded-circle">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                            <img [src]="prof.image ? sanitize(prof.image) :'assets/img/profile-picture.png' | safeUrl"
+                                                alt="User-Profile-Image" class="avatar img-fluid rounded-circle">
+                                        </div>
+                                        <div class="col-sm-6 my-auto">
+                                            <h6>{{prof.first_name}} {{prof.last_name}}</h6>
+                                        </div>
+                                        <a class="col-sm-3 my-auto " [href]="'profile-admin?email='+prof.email"> Voir le profil de l'utilisateur >></a>
+
                                     </div>
-                                    <div class="col-sm-6 my-auto">
-                                        <h6>{{prof.first_name}} {{prof.last_name}}</h6>
-                                    </div>
-                                    <!-- on doit pas oublier le onclick ici -->
-                                    <a class="col-sm-3 my-auto " [href]="'profile-admin?email='+prof.email"> Go Check the profile Infos >></a>
-                                    
+                                    <hr>
                                 </div>
-                                <hr>
-                            </div>
                             </div>
                         </div>
                     </div>

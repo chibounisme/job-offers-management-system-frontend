@@ -5,6 +5,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 import { UserService } from 'src/app/services/user.service';
 import * as moment from 'moment';
 import { subscribeOn } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -84,7 +85,7 @@ single4 = [
   colorScheme3 = {
     domain: ['#47ACB1', '#F26522', '#F9AA7B', '#542923', '#286C4F', '#646463', '#C9222B', '#FFE8AF', '#FFE8AF', '#FFCD33']
   };
-  constructor( @Inject(DOCUMENT) private document: Document, private dashboardService: DashboardService, private userService: UserService,private sanitizer:DomSanitizer) {
+  constructor( private router: Router,@Inject(DOCUMENT) private document: Document, private dashboardService: DashboardService, private userService: UserService,private sanitizer:DomSanitizer) {
     // Object.assign(this,{multi});
     
     this.dashboardService.getDashboardInformation().subscribe(data => {
