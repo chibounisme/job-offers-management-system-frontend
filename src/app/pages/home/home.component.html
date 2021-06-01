@@ -8,9 +8,9 @@
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <form>
           <div class="form-row">
-            <div class="col-12 col-md-4 " style="margin-left : 111px"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/register">Créer un compte
+            <div class="col-12 col-md-4 " style="margin-left : 111px"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/register" *ngIf="authService.isLoggedOut()">Créer un compte
               </button></div>
-            <div class="col-12 col-md-3"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/login">Se connecter
+            <div class="col-12 col-md-3"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/login" *ngIf="authService.isLoggedOut()">Se connecter
               </button></div>
           </div>
         </form>
@@ -82,13 +82,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <h2 class="mb-4">Prét a démarrer votre experience ? créez votre compte!</h2>
+        <h2 class="mb-4" *ngIf="authService.isLoggedOut()" >Prét a démarrer votre experience ? créez votre compte!</h2>
       </div>
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <form>
           <div class="form-row">
            
-            <div class="col-12 col-md-4" style="margin-left: 200px;"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/register">Créer un compte </button></div>
+            <div class="col-12 col-md-4" style="margin-left: 200px;"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/register" *ngIf="authService.isLoggedOut()">Créer un compte </button></div>
           </div>
         </form>
       </div>
