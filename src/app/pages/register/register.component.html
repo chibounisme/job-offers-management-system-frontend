@@ -66,7 +66,7 @@
                                         <div *ngIf="registerErrorExists" class="alert alert-danger" role="alert">
                                             Email already used!
                                         </div>
-                                        <button (ngSubmit)="onclick1()" class="btn btn-lg btn-primary btn-block text-uppercase"
+                                        <button (click)="onclick1()" class="btn btn-lg btn-primary btn-block text-uppercase"
                                             [disabled]="profileForm.invalid">Créer un compte</button>
                                         <p class="text-center mt-1 mb-0 d-block small">ou</p>
                                         <a class="d-block text-center mt-0 small" routerLink="/login">Login</a>
