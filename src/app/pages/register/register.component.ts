@@ -72,7 +72,7 @@ export class RegisterComponent implements OnInit {
     this.socialAuthService
       .signIn(FacebookLoginProvider.PROVIDER_ID)
       .then(data => {
-        this.isRegisterWithGoogle = true;
+        this.isRegisterWithFacebook = true;
         this.facebookEmail = data.email;
         this.authService.checkEmail(data.email).subscribe(_ => {
           this.stepper.next();
