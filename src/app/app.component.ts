@@ -26,6 +26,9 @@ export class AppComponent implements OnInit {
     return this.profile.email == 'mohamedchiboub97@gmail.com';
   }
   ngOnInit() {
+    setTimeout(() => {
+      this.document.getElementById('chatbot-chat').style.visibility = 'hidden';
+    }, 3000);
     this.document.querySelector(".navbar-toggler").addEventListener("click", () => {
       if (this.document.querySelector(".collapse.navbar-collapse").classList.contains("show")) {
         this.document.querySelector(".collapse.navbar-collapse").classList.remove("show")
