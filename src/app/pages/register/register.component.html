@@ -5,7 +5,7 @@
             <button type="button" class="step-trigger" role="tab" aria-controls="register-part"
                 id="register-part-trigger">
                 <span class="bs-stepper-circle">1</span>
-                <span class="bs-stepper-label">Register</span>
+                <span class="bs-stepper-label">Créer un Compte</span>
             </button>
         </div>
         <div class="line"></div>
@@ -13,7 +13,7 @@
             <button type="button" class="step-trigger" role="tab" aria-controls="confirm-register-part"
                 id="confirm-register-part-trigger">
                 <span class="bs-stepper-circle">2</span>
-                <span class="bs-stepper-label">Confirm Register</span>
+                <span class="bs-stepper-label">Ajouter les informations nécessaires</span>
             </button>
         </div>
         <div class="line"></div>
@@ -21,7 +21,7 @@
             <button type="button" class="step-trigger" role="tab" aria-controls="finish-register-part"
                 id="finish-register-part-trigger">
                 <span class="bs-stepper-circle">3</span>
-                <span class="bs-stepper-label">Finish Register</span>
+                <span class="bs-stepper-label">Commencer votre expérience</span>
             </button>
         </div>
     </div>
@@ -38,7 +38,7 @@
                                     <!-- Background image for card set in CSS! -->
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Register</h5>
+                                    <h5 class="card-title text-center">Créer un compte</h5>
                                     <form class="form-signin" [formGroup]="profileForm">
                                         <div class="form-group">
                                             <label for="Email">Email</label>
@@ -67,15 +67,14 @@
                                             Email already used!
                                         </div>
                                         <button (ngSubmit)="onclick1()" class="btn btn-lg btn-primary btn-block text-uppercase"
-                                            [disabled]="profileForm.invalid">Register</button>
+                                            [disabled]="profileForm.invalid">Créer un compte</button>
                                         <p class="text-center mt-1 mb-0 d-block small">ou</p>
                                         <a class="d-block text-center mt-0 small" routerLink="/login">Login</a>
                                         <hr class="my-4">
                                         <button type="button" (click)="signInWithGoogle()" class="btn btn-lg btn-google btn-block text-uppercase"><i
-                                                class="fab fa-google mr-2"></i> Sign up with Google</button>
+                                                class="fab fa-google mr-2"></i> Se connécter avec Google</button>
                                         <button type="button" (click)="signInWithFacebook()" class="btn btn-lg btn-facebook btn-block text-uppercase"
-                                            type="button"><i class="fab fa-facebook-f mr-2"></i> Sign up with
-                                            Facebook</button>
+                                            type="button"><i class="fab fa-facebook-f mr-2"></i> Se connecter avec Facebook</button>
                                     </form>
                                 </div>
                             </div>
@@ -94,7 +93,7 @@
                                 <div class="card-img-left d-none d-md-flex">
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Register</h5>
+                                    <h5 class="card-title text-center">Créer un compte</h5>
                                     <form class="form-signin" [formGroup]="profileForm2" (ngSubmit)="onclick2()">
                                         <div class="form-group">
                                             <label for="Nom">Nom</label>
@@ -118,7 +117,7 @@
                                                 formControlName="tel">
                                         </div>
                                         <div class="form-group">
-                                            <label for="adresse">Addresse</label>
+                                            <label for="adresse">Adresse</label>
                                             <input
                                                 [ngClass]="{'is-valid': profileForm2.controls.adresse.valid && profileForm2.controls.adresse.dirty, 'is-invalid': profileForm2.controls.adresse.invalid}"
                                                 type="text" class="form-control" id="adresse" placeholder="1234 Main St"
@@ -127,7 +126,7 @@
                                         <div class="form-group col-md-6">
                                             <label for="sexe">Sexe</label>
                                             <select id="sexe" class="form-control" formControlName="sexe">
-                                                <option selected>Choose...</option>
+                                                <option selected>Choisir...</option>
                                                 <option value="Homme">Homme</option>
                                                 <option value="Femme">Femme</option>
                                             </select>
@@ -143,7 +142,7 @@
                                             <div class="form-group col-md-4">
                                                 <label for="Ville">Ville</label>
                                                 <select id="Ville" class="form-control" formControlName="Ville">
-                                                    <option selected>Choose...</option>
+                                                    <option selected>choisir...</option>
                                                     <option>...</option>
                                                 </select>
                                             </div>
@@ -158,8 +157,8 @@
                                         </div>
                                         <br>
                                         <button class="btn btn-lg btn-primary btn-block text-uppercase"
-                                            [disabled]="profileForm2.invalid || !profileForm2.dirty">Create
-                                            account</button>
+                                            [disabled]="profileForm2.invalid || !profileForm2.dirty">Créer un compte
+                                            </button>
 
                                     </form>
                                 </div>
@@ -171,7 +170,6 @@
         </div>
         <div id="finish-register-part" class="content" role="tabpanel" aria-labelledby="finish-register-part-trigger">
             <main>
-                <!-- finish register -->
                 <app-stepper3></app-stepper3>
             </main>
         </div>
