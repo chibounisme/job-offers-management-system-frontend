@@ -73,6 +73,11 @@ export class ProfileComponent implements OnInit {
       profile.tags = profile.tags
         .map(tag => tag)
         .join('🔹');
+      if(this.profile.created_using != 'email') {
+        this.profileForm.controls.Email.disable();
+        this.profileForm.controls.mdp.disable();
+        this.profileForm.controls.cmdp.disable();
+      }
     })
   }
 
