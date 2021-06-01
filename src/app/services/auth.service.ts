@@ -24,7 +24,8 @@ export class AuthService {
   }
 
   isAdmin() {
-    return this.isLoggedIn() && ['tazbaki1919@gmail.com', 'mohamedchiboub97@gmail.com'].includes(jwt_decode(this.getToken()).email) 
+     var i : any =jwt_decode(this.getToken())
+    return this.isLoggedIn() && ['tazbaki1919@gmail.com', 'mohamedchiboub97@gmail.com'].includes(i.email)
   }
 
   setSession(token) {

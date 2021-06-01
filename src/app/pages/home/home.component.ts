@@ -4,6 +4,7 @@ import Typewriter from 'typewriter-effect/dist/core';
 
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { Inject } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(public authService : AuthService, @Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {
     AOS.init();
