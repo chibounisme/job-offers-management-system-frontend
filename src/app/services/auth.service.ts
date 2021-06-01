@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as moment from "moment";
+import jwt_decode from "jwt-decode";
 
 interface User {
   token: string;
@@ -20,6 +21,10 @@ export class AuthService {
   // standard login
   login(email: string, password: string) {
     return this.http.post<User>('http://localhost:3000/auth/login', { email, password });
+  }
+
+  isAdmin() {
+    return this.isLoggedIn() && ['tazbaki1919@gmail.com', 'mohamedchiboub97@gmail.com'].includes(jwt_decode(this.getToken()).email) 
   }
 
   setSession(token) {
