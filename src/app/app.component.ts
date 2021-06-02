@@ -18,14 +18,16 @@ export class AppComponent implements OnInit {
     email: ''
   };
   constructor(private userService: UserService, @Inject(DOCUMENT) private document: Document, public authService: AuthService, private router: Router, public loader: LoadingBarService) {
-    this.userService.getUserProfile().subscribe((profile) => {
-      this.profile = profile;
-    });
+    if(this.authService.isLoggedIn()) {
+      this.userService.getUserProfile().subscribe((profile) => {
+        this.profile = profile;
+      });
+    }
   }
   ngOnInit() {
-    setTimeout(() => {
-      this.document.getElementById('chatbot-chat').style.visibility = 'hidden';
-    }, 3000);
+    // setTimeout(() => {
+    //   this.document.getElementById('chatbot-chat').style.visibility = 'hidden';
+    // }, 3000);
     this.document.querySelector(".navbar-toggler").addEventListener("click", () => {
       if (this.document.querySelector(".collapse.navbar-collapse").classList.contains("show")) {
         this.document.querySelector(".collapse.navbar-collapse").classList.remove("show")

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as moment from "moment";
-import jwt_decode from "jwt-decode";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 interface User {
   token: string;
@@ -18,14 +18,19 @@ export class AuthService {
   }
 
   constructor(private http: HttpClient) { }
+
   // standard login
   login(email: string, password: string) {
     return this.http.post<User>('http://localhost:3000/auth/login', { email, password });
   }
 
   isAdmin() {
-     var i : any =jwt_decode(this.getToken())
-    return this.isLoggedIn() && ['tazbaki1919@gmail.com', 'mohamedchiboub97@gmail.com'].includes(i.email)
+    const helper = new JwtHelperService();
+    const token = localStorage.getItem('id_token');
+    if (!token) return false;
+    else
+      return this.isLoggedIn() && helper.decodeToken(token).email == "tazbaki1919@gmail.com"
+        || helper.decodeToken(token).email == "mohamedchiboub97@gmail.com";
   }
 
   setSession(token) {
@@ -52,7 +57,7 @@ export class AuthService {
   saveLoginSocialMedia(user) {
     return this.http.post('http://localhost:3000/auth/google-login', user);
   }
-  
+
   saveLoginFacebook(user) {
     return this.http.post('http://localhost:3000/auth/facebook-login', user);
   }
@@ -86,10 +91,10 @@ export class AuthService {
   facebookRegister(data) {
     return this.http.post('http://localhost:3000/auth/facebook-register', data);
   }
-  
+
   checkEmail(email) {
-    return this.http.post('http://localhost:3000/auth/check-email', {email});
-    
+    return this.http.post('http://localhost:3000/auth/check-email', { email });
+
   }
 
 }
