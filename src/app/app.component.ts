@@ -18,13 +18,31 @@ export class AppComponent implements OnInit {
     email: ''
   };
   constructor(private userService: UserService, @Inject(DOCUMENT) private document: Document, public authService: AuthService, private router: Router, public loader: LoadingBarService) {
-    if(this.authService.isLoggedIn()) {
+    if (this.authService.isLoggedIn()) {
       this.userService.getUserProfile().subscribe((profile) => {
         this.profile = profile;
       });
+
+      // save chatbotid in db
+      console.log(this.document.cookie);
+      // const chatbotId = this.readCookie('amplitude_idchatbot.com');
+      // console.log(chatbotId);
     }
   }
+
+  readCookie(name: string) {
+    var nameEQ = name + "=";
+    var ca = this.document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
   ngOnInit() {
+    console.log(this.document.cookie);
     // setTimeout(() => {
     //   this.document.getElementById('chatbot-chat').style.visibility = 'hidden';
     // }, 3000);

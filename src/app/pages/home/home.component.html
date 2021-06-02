@@ -2,53 +2,63 @@
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
-      <div class="col-xl-9 mx-auto">
+      <div class="col-md-9 mx-auto">
         <h1 id='typewriter' class="mb-5"></h1>
       </div>
-      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form>
-          <div class="form-row">
-            <div class="col-12 col-md-4 " style="margin-left : 111px"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/register" *ngIf="authService.isLoggedOut()">Créer un compte
-              </button></div>
-            <div class="col-12 col-md-3"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/login" *ngIf="authService.isLoggedOut()">Se connecter
-              </button></div>
-          </div>
-        </form>
+    </div>
+    <div class="row align-items-center mb-3">
+      <div class="offset-md-4 col-md-4"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/register"
+          *ngIf="authService.isLoggedOut()">Créer un compte
+        </button>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="offset-md-4 col-md-4"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/login"
+          *ngIf="authService.isLoggedOut()">Se connecter
+        </button>
       </div>
     </div>
   </div>
 </header>
 <div class="col-xs-12 text-center">
-  <h1 class="mr-front-heading"style= "margin-top:30px;margin-bottom:30px">Une plateforme de recrutement, Facile a utiliser</h1>
+  <h1 class="mr-front-heading" style="margin-top:30px;margin-bottom:30px">Une plateforme de recrutement, Facile a
+    utiliser</h1>
 </div>
 
 <section class="showcase">
 
   <div class="container-fluid p-0">
     <div class="row no-gutters">
-      <div class="col-lg-6 order-lg-2 text-white showcase-img" data-aos="fade-left"
-        style="background-image: url('assets/img/first.jpg');background-size: 225px;background-repeat: no-repeat;
+      <div class="col-lg-6 order-lg-2 text-white showcase-img" data-aos="fade-left" style="background-image: url('assets/img/first.jpg');background-size: 225px;background-repeat: no-repeat;
         background-position: center;"></div>
-      <div class="col-lg-6 order-lg-1 py-5 showcase-text" style="font-size: 26px ;text-align: center;" data-aos="fade-right">
+      <div class="col-lg-6 order-lg-1 py-5 showcase-text" style="font-size: 26px ;text-align: center;"
+        data-aos="fade-right">
         <h2>Un intermédiaire par excellence</h2>
-        <p class="lead mb-0" style ="margin-bottom: 40px ; box-sizing: border-box" >Cette plateforme vous permet d'economiser le temps de recherche d'une offre de travail en intégrant les différentes offres de plusieurs sites et en facilitant l'accès à ses offres via une redirection intelligente vers le lien de l'offre</p>
+        <p class="lead mb-0" style="margin-bottom: 40px ; box-sizing: border-box">Cette plateforme vous permet
+          d'economiser le temps de recherche d'une offre de travail en intégrant les différentes offres de plusieurs
+          sites et en facilitant l'accès à ses offres via une redirection intelligente vers le lien de l'offre</p>
       </div>
     </div>
     <div class="row no-gutters">
       <div class="col-lg-6 order-lg-2 text-white showcase-img" data-aos="fade-right" style="background-image: url('assets/img/second.jpg');background-size: 225px;background-repeat: no-repeat;
       background-position: center;"></div>
-      <div class="col-lg-6 order-lg-2 py-5 showcase-text"data-aos="fade-left" style="font-size: 26px ;text-align: center;">
+      <div class="col-lg-6 order-lg-2 py-5 showcase-text" data-aos="fade-left"
+        style="font-size: 26px ;text-align: center;">
         <h2>Un chat-bot a votre disposition </h2>
-        <p class="lead mb-0">Ce site offre aussi la possibilité de discuter avec un chat-bot intelligent pour vous guider a la recherche d'une offre d'emplois bien spécifique selon vos préférences en termes de salaire, nom de l'entreprise, etc ..</p>
+        <p class="lead mb-0">Ce site offre aussi la possibilité de discuter avec un chat-bot intelligent pour vous
+          guider a la recherche d'une offre d'emplois bien spécifique selon vos préférences en termes de salaire, nom de
+          l'entreprise, etc ..</p>
       </div>
     </div>
     <div class="row no-gutters">
-      <div class="col-lg-6 order-lg-2 text-white showcase-img" data-aos="fade-left"
-        style="background-image: url('assets/img/third.jpg');background-size: 300px;background-repeat: no-repeat;
+      <div class="col-lg-6 order-lg-2 text-white showcase-img" data-aos="fade-left" style="background-image: url('assets/img/third.jpg');background-size: 300px;background-repeat: no-repeat;
         background-position: center;"></div>
-      <div class="col-lg-6 order-lg-1 py-5 showcase-text" data-aos="fade-right" style="font-size: 26px ;text-align: center;">
+      <div class="col-lg-6 order-lg-1 py-5 showcase-text" data-aos="fade-right"
+        style="font-size: 26px ;text-align: center;">
         <h2>Facile a manipuler</h2>
-        <p class="lead mb-0">Cette plateforme présente une large flexibilité en matière de manipulation des différentes parties du site ainsi que la modification des données personnelles sur le profil. Ceci dit, ce site est donc facile à utiliser et ne presente aucune difficulté pour toutes les catégories d'âge. </p>
+        <p class="lead mb-0">Cette plateforme présente une large flexibilité en matière de manipulation des différentes
+          parties du site ainsi que la modification des données personnelles sur le profil. Ceci dit, ce site est donc
+          facile à utiliser et ne presente aucune difficulté pour toutes les catégories d'âge. </p>
       </div>
     </div>
   </div>
@@ -66,8 +76,8 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="testimonial-item mx-auto mb-5 mb-lg-0"data-aos="flip-right">
-          <img class="img-fluid rounded-circle mb-3" src="assets/img/Baccari Mohamed Mootez.jpg"/>
+        <div class="testimonial-item mx-auto mb-5 mb-lg-0" data-aos="flip-right">
+          <img class="img-fluid rounded-circle mb-3" src="assets/img/Baccari Mohamed Mootez.jpg" />
           <h5>Baccari Mohamed Mootez</h5>
           <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice
             landing pages."</p>
@@ -82,13 +92,14 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <h2 class="mb-4" *ngIf="authService.isLoggedOut()" >Prét a démarrer votre experience ? créez votre compte!</h2>
+        <h2 class="mb-4" *ngIf="authService.isLoggedOut()">Prét a démarrer votre experience ? créez votre compte!</h2>
       </div>
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <form>
           <div class="form-row">
-           
-            <div class="col-12 col-md-4" style="margin-left: 200px;"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/register" *ngIf="authService.isLoggedOut()">Créer un compte </button></div>
+
+            <div class="col-12 col-md-4" style="margin-left: 200px;"><button class="btn btn-block btn-lg btn-primary"
+                type="submit" routerLink="/register" *ngIf="authService.isLoggedOut()">Créer un compte </button></div>
           </div>
         </form>
       </div>
