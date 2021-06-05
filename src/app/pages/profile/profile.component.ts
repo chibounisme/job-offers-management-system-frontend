@@ -69,7 +69,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
-      this.profile.image = 'https://3mjobs.netlify.app/' + this.profile.image.split('\\').join('/');
+      this.profile.image = 'https://powerful-basin-10007.herokuapp.com/' + this.profile.image.split('\\').join('/');
       profile.tags = profile.tags
         .map(tag => tag)
         .join('🔹');
@@ -153,7 +153,7 @@ export class ProfileComponent implements OnInit {
       this.userService.updateProfile(updateProfile).subscribe((res: any) => {
         this.profile = res;
         if (this.profile.image)
-          this.profile.image = 'https://3mjobs.netlify.app/' + this.profile.image.split('\\').join('/');
+          this.profile.image = 'https://powerful-basin-10007.herokuapp.com/' + this.profile.image.split('\\').join('/');
         if (res.token) {
           this.authService.updateToken(res.token);
         }

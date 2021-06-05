@@ -129,13 +129,13 @@ single4 = [
    this.userService.getAllUsers().subscribe((users) =>{
      this.users= users
      for( let prof of users){
-      prof.image = 'https://3mjobs.netlify.app/' + prof.image.split('\\').join('/');
+      prof.image = 'https://powerful-basin-10007.herokuapp.com/' + prof.image.split('\\').join('/');
      }
     
    })
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
-      this.profile.image = 'https://3mjobs.netlify.app/' + this.profile.image.split('\\').join('/');
+      this.profile.image = 'https://powerful-basin-10007.herokuapp.com/' + this.profile.image.split('\\').join('/');
     });
   }
   onSelect(event) {
@@ -149,7 +149,7 @@ single4 = [
     // console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   isAdmin() {
-    return this.profile.email == 'mohamedchiboub97@gmail.com';
+    return this.profile.email == 'mohamedchiboub97@gmail.com' || this.profile.email == 'tazbaki1919@gmail.com';
   }
   formatBytes(a, b = 2) { if (0 === a) return "0 Bytes"; const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024)); return parseFloat((a / Math.pow(1024, d)).toFixed(c)) + " " + ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d] }
   selectedpage: boolean[] = [false, false, false, false, false, false];

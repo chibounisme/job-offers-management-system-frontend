@@ -52,7 +52,7 @@ export class ProfileAdminComponent implements OnInit {
           this.users= users
           this.currentprofile =users.filter(user => user.email == this.email)[0]
           if (this.currentprofile.image){
-          this.currentprofile.image = 'https://3mjobs.netlify.app/' + this.currentprofile.image.split('\\').join('/');
+          this.currentprofile.image = 'https://powerful-basin-10007.herokuapp.com/' + this.currentprofile.image.split('\\').join('/');
           }
       }) 
       })
