@@ -96,15 +96,10 @@
       <div class="col-xl-9 mx-auto">
         <h2 class="mb-4" *ngIf="authService.isLoggedOut()">Prét à démarrer votre expérience ? créez votre compte!</h2>
       </div>
-      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form>
-          <div class="row">
-
-            <div class="col-12 col-md-4"><button class="btn btn-block btn-lg btn-primary" type="submit"
-                routerLink="/register" *ngIf="authService.isLoggedOut()">Créer un compte</button></div>
-          </div>
-        </form>
-      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-12 col-md-4"><button class="btn btn-block btn-lg btn-primary" type="submit" routerLink="/register"
+          *ngIf="authService.isLoggedOut()">Créer un compte</button></div>
     </div>
   </div>
 </section>
