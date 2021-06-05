@@ -17,21 +17,21 @@ export class DashboardAdminComponent implements OnInit {
     {
       "name": "TanitJobs",
       "series": [
-        
+
       ]
     },
-  
+
     {
       "name": "Jobi",
       "series": [
 
       ]
     },
-  
+
     {
       "name": "EmploisTunisie",
       "series": [
-       
+
       ]
     }
   ];
@@ -39,14 +39,14 @@ export class DashboardAdminComponent implements OnInit {
     {
       "name": "Total des offres",
       "series": [
-        
+
       ]
     }
   ]
-  
+
   view: any[] = [600, 400];
   view1: any[] = [500, 400];
-users :any[];
+  users: any[];
   // options
   legend: boolean = true;
   showLabels: boolean = true;
@@ -58,7 +58,7 @@ users :any[];
   xAxisLabel: string = 'Date';
   yAxisLabel: string = 'Nbr d"Offres par site';
   timeline: boolean = true;
-  legendPosition :string = 'below';
+  legendPosition: string = 'below';
 
 
   colorScheme = {
@@ -69,11 +69,11 @@ users :any[];
   maxFacebookValue: any = 50;
   maxGoogleValue: any = 50;
   maxEmailValue: any = 50;
-//first pie chart 
-single3 = [
-];
-single4 = [
-];
+  //first pie chart 
+  single3 = [
+  ];
+  single4 = [
+  ];
   view3: any[] = [1200, 400];
   // options
   gradient3: boolean = true;
@@ -85,9 +85,9 @@ single4 = [
   colorScheme3 = {
     domain: ['#47ACB1', '#F26522', '#F9AA7B', '#542923', '#286C4F', '#646463', '#C9222B', '#FFE8AF', '#FFE8AF', '#FFCD33']
   };
-  constructor( private router: Router,@Inject(DOCUMENT) private document: Document, private dashboardService: DashboardService, private userService: UserService,private sanitizer:DomSanitizer) {
+  constructor(private router: Router, @Inject(DOCUMENT) private document: Document, private dashboardService: DashboardService, private userService: UserService, private sanitizer: DomSanitizer) {
     // Object.assign(this,{multi});
-    
+
     this.dashboardService.getDashboardInformation().subscribe(data => {
       this.dashboardData = data;
       this.tags = Object.keys(this.dashboardData.tags);
@@ -95,47 +95,50 @@ single4 = [
       var startdate = moment().subtract(this.dashboardData.tanitJobCount.length, "days");
       var startdate1 = moment().subtract(this.dashboardData.tanitJobCount.length, "days");
       var startdate2 = moment().subtract(this.dashboardData.tanitJobCount.length, "days");
-      this.multi[0].series=this.dashboardData.tanitJobCount.map((res,i) => {
-        return {name : startdate.add(1,"days").format("DD-MM-YYYY"),value : res}
+      this.multi[0].series = this.dashboardData.tanitJobCount.map((res, i) => {
+        return { name: startdate.add(1, "days").format("DD-MM-YYYY"), value: res }
       })
-      this.multi[1].series=this.dashboardData.jobiJobCount.map((res,i) => {
-        return {name : startdate1.add(1,"days").format("DD-MM-YYYY"),value : res}
+      this.multi[1].series = this.dashboardData.jobiJobCount.map((res, i) => {
+        return { name: startdate1.add(1, "days").format("DD-MM-YYYY"), value: res }
       })
-      this.multi[2].series=this.dashboardData.emploiJobCount.map((res,i) => {
-        return {name : startdate2.add(1,"days").format("DD-MM-YYYY"),value : res}
+      this.multi[2].series = this.dashboardData.emploiJobCount.map((res, i) => {
+        return { name: startdate2.add(1, "days").format("DD-MM-YYYY"), value: res }
       })
-     
+
       this.multi1[0].series.push({
-        value: this.multi[0].series[0].value +  this.multi[1].series[0].value + this.multi[2].series[0].value,
-        name:  this.multi[0].series[0].name
-        })
-      for(let i = 1; i < this.dashboardData.jobiJobCount.length; i++) {
+        value: this.multi[0].series[0].value + this.multi[1].series[0].value + this.multi[2].series[0].value,
+        name: this.multi[0].series[0].name
+      })
+      for (let i = 1; i < this.dashboardData.jobiJobCount.length; i++) {
         this.multi1[0].series.push({
-        value: this.multi1[0].series[i-1].value  + this.multi[0].series[i].value +  this.multi[1].series[i].value + this.multi[2].series[i].value,
-        name:  this.multi[0].series[i].name
-        })}
-        for(let tag of Object.keys(this.dashboardData.tags)){
-          this.single3.push({name: tag , value:this.dashboardData.tags[tag]})
-        }
-        for(let domain of Object.keys(this.dashboardData.domaines)){
-          this.single4.push({name: domain , value:this.dashboardData.domaines[domain]})
-        }
-       
-        
+          value: this.multi1[0].series[i - 1].value + this.multi[0].series[i].value + this.multi[1].series[i].value + this.multi[2].series[i].value,
+          name: this.multi[0].series[i].name
+        })
+      }
+      for (let tag of Object.keys(this.dashboardData.tags)) {
+        this.single3.push({ name: tag, value: this.dashboardData.tags[tag] })
+      }
+      for (let domain of Object.keys(this.dashboardData.domaines)) {
+        this.single4.push({ name: domain, value: this.dashboardData.domaines[domain] })
+      }
+
+
     }
-    
+
     )
-    
-   this.userService.getAllUsers().subscribe((users) =>{
-     this.users= users
-     for( let prof of users){
-      prof.image = 'https://powerful-basin-10007.herokuapp.com/' + prof.image.split('\\').join('/');
-     }
-    
-   })
+
+    this.userService.getAllUsers().subscribe((users) => {
+      this.users = users
+      for (let prof of users) {
+        if (prof.image)
+          prof.image = 'https://powerful-basin-10007.herokuapp.com/' + prof.image.split('\\').join('/');
+      }
+
+    })
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
-      this.profile.image = 'https://powerful-basin-10007.herokuapp.com/' + this.profile.image.split('\\').join('/');
+      if (this.profile.image)
+        this.profile.image = 'https://powerful-basin-10007.herokuapp.com/' + this.profile.image.split('\\').join('/');
     });
   }
   onSelect(event) {
@@ -154,16 +157,16 @@ single4 = [
   formatBytes(a, b = 2) { if (0 === a) return "0 Bytes"; const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024)); return parseFloat((a / Math.pow(1024, d)).toFixed(c)) + " " + ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d] }
   selectedpage: boolean[] = [false, false, false, false, false, false];
   tags: any;
-  domaines :any;
+  domaines: any;
   ngOnInit(): void {
     this.selectedpage[0] = true;
-   
+
   }
   choosecomponent(i: any) {
     this.selectedpage = [false, false, false, false];
     this.selectedpage[i] = true
   }
-  sanitize(url:string){
+  sanitize(url: string) {
     return this.sanitizer.bypassSecurityTrustUrl(url);
-} 
+  }
 }
