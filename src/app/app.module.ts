@@ -23,8 +23,6 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { AuthInterceptor } from './services/authintercepter';
-import { JobService } from './services/job.service';
-import { AuthService } from './services/auth.service';
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { SafeUrlPipe } from './services/safe-url';
@@ -48,7 +46,6 @@ import {
     
     JoboffersComponent,
     DashboardAdminComponent,
-
     SafeUrlPipe
   ],
   imports: [
@@ -92,7 +89,7 @@ import {
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

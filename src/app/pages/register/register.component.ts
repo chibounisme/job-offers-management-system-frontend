@@ -3,7 +3,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators, FormBuilder, AsyncValidatorFn } from '@angular/forms';
 import Stepper from 'bs-stepper';
 import { faThumbsUp, faThumbtack, faHashtag } from '@fortawesome/free-solid-svg-icons';
-import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { Router } from '@angular/router';
@@ -19,6 +18,7 @@ export class RegisterComponent implements OnInit {
   faHashtag = faHashtag;
   registerErrorExists: boolean = false;
   selectedTags: any;
+  stepperInd: any = 1;
   tags: any = [{ name: " amibitieux" }, { name: "serieux" }];
   profileForm = this.formBuilder.group({
     Email: new FormControl('', [Validators.required, Validators.email]),
@@ -35,9 +35,10 @@ export class RegisterComponent implements OnInit {
     Gouvernorat: new FormControl(''),
     Ville: new FormControl('')
   });
+  deviceWidth = window.innerWidth;;
   constructor(private socialAuthService: SocialAuthService, private formBuilder: FormBuilder
     , @Inject(DOCUMENT) private document: Document,
-    private authService: AuthService, private router: Router) { }
+    private authService: AuthService, private router: Router) {}
 
   stepper: Stepper;
   isRegisterWithGoogle: boolean = false;
@@ -49,7 +50,15 @@ export class RegisterComponent implements OnInit {
     if (this.authService.isLoggedIn()) {
       this.router.navigateByUrl('/');
     }
-    this.stepper = new Stepper(this.document.querySelector('.bs-stepper'));
+    this.stepper = new Stepper(this.document.querySelector('.bs-stepper'), {
+        linear: true,
+        animation: true,
+        selectors: {
+          steps: '.step',
+          trigger: '.step-trigger',
+          stepper: '.bs-stepper'
+        }
+    });
   }
 
   signInWithGoogle(): void {
@@ -60,6 +69,7 @@ export class RegisterComponent implements OnInit {
         this.isRegisterWithGoogle = true;
         this.googleEmail = data.email;
         this.authService.checkEmail(data.email).subscribe(_ => {
+          this.stepperInd++;
           this.stepper.next();
         }, err => {
           this.registerErrorExists = true;
@@ -75,6 +85,7 @@ export class RegisterComponent implements OnInit {
         this.isRegisterWithFacebook = true;
         this.facebookEmail = data.email;
         this.authService.checkEmail(data.email).subscribe(_ => {
+          this.stepperInd++;
           this.stepper.next();
         }, err => {
           this.registerErrorExists = true;
@@ -84,6 +95,7 @@ export class RegisterComponent implements OnInit {
 
 
   onclick1() {
+    this.stepperInd++;
     this.stepper.next();
   }
 
@@ -103,10 +115,12 @@ export class RegisterComponent implements OnInit {
         this.authService.saveLoginSocialMedia({ email: this.googleEmail })
           .subscribe((res: any) => {
             this.authService.setSessionSocialMedia(res.token, 'google');
+            this.stepperInd++;
             this.stepper.next();
           })
       }, err => {
         this.registerErrorExists = true;
+        this.stepperInd--;
         this.stepper.previous();
       });
     } else if (this.isRegisterWithFacebook) {
@@ -124,10 +138,12 @@ export class RegisterComponent implements OnInit {
         this.authService.saveLoginSocialMedia({ email: this.facebookEmail })
           .subscribe((res: any) => {
             this.authService.setSessionSocialMedia(res.token, 'facebook');
+            this.stepperInd++;
             this.stepper.next();
           })
       }, err => {
         this.registerErrorExists = true;
+        this.stepperInd--;
         this.stepper.previous();
       });
     } else
@@ -145,10 +161,12 @@ export class RegisterComponent implements OnInit {
       }).subscribe(_ => {
         this.authService.login(this.profileForm.value.Email, this.profileForm.value.mdp).subscribe(res => {
           this.authService.setSession(res.token);
+          this.stepperInd++;
           this.stepper.next();
         });
       }, err => {
         this.registerErrorExists = true;
+        this.stepperInd--;
         this.stepper.previous();
       });
   }
