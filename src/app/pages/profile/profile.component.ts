@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
   triggerModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
-      console.log('ok');
+      // console.log('ok');
 
 
 

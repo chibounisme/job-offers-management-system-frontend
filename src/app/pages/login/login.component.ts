@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.clickedGoogle = true;
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(_ => {
       this.socialAuthService.authState.subscribe(user => {
-        console.log(user);
+        // console.log(user);
         if (user) {
           this.authService.saveLoginSocialMedia(user).subscribe((res: any) => {
             this.authService.setSessionSocialMedia(res.token, 'google');
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     this.clickedFacebook = true;
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(_ => {
       this.socialAuthService.authState.subscribe(user => {
-        console.log(user);
+        // console.log(user);
         if (user) {
           this.authService.saveLoginFacebook(user).subscribe((res: any) => {
             this.authService.setSessionSocialMedia(res.token, 'facebook');

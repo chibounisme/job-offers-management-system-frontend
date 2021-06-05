@@ -22,11 +22,6 @@ export class AppComponent implements OnInit {
       this.userService.getUserProfile().subscribe((profile) => {
         this.profile = profile;
       });
-
-      // save chatbotid in db
-      console.log(this.document.cookie);
-      // const chatbotId = this.readCookie('amplitude_idchatbot.com');
-      // console.log(chatbotId);
     }
   }
 
@@ -42,7 +37,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.document.cookie);
     // setTimeout(() => {
     //   this.document.getElementById('chatbot-chat').style.visibility = 'hidden';
     // }, 3000);

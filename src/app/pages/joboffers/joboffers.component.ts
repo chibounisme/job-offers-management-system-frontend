@@ -141,7 +141,7 @@ export class JoboffersComponent implements OnInit {
     if (!dontChangePageNumber)
       this.currentPageNumber = 1;
     this.jobService.getJobs(this.currentPageNumber, options).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       this.jobs = res.jobs;
       this.jobs.map(job => {
         job.tags = job.tags
@@ -152,7 +152,7 @@ export class JoboffersComponent implements OnInit {
       this.calculatePageNumbers();
       this.hasLoadedJobs = true;
     }, err => {
-      console.log(err);
+      // console.log(err);
     });
   }
 

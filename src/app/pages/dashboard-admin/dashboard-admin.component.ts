@@ -139,14 +139,14 @@ single4 = [
     });
   }
   onSelect(event) {
-    console.log(event);
+    // console.log(event);
   }
   onActivate(data): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
+    // console.log('Activate', JSON.parse(JSON.stringify(data)));
   }
 
   onDeactivate(data): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+    // console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   isAdmin() {
     return this.profile.email == 'mohamedchiboub97@gmail.com';
