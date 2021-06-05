@@ -8,13 +8,13 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   getAllUsers() {
-    return this.http.get<any>('http://localhost:3000/users/profile/all');
+    return this.http.get<any>('https://powerful-basin-10007.herokuapp.com/users/profile/all');
   }
   getUserProfile() {
-    return this.http.get<any>('http://localhost:3000/users/profile');
+    return this.http.get<any>('https://powerful-basin-10007.herokuapp.com/users/profile');
   }
   deleteUserProfile(email: string) {
-    return this.http.delete<any>('http://localhost:3000/users/profile/' + email);
+    return this.http.delete<any>('https://powerful-basin-10007.herokuapp.com/users/profile/' + email);
   }
 
   updateProfile(profile) {
@@ -25,6 +25,6 @@ export class UserService {
     }
     if (profile.file)
       formData.append('file', profile.file, profile.file.name);
-    return this.http.patch('http://localhost:3000/users/profile', formData);
+    return this.http.patch('https://powerful-basin-10007.herokuapp.com/users/profile', formData);
   }
 }

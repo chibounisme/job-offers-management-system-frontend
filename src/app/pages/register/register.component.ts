@@ -163,9 +163,9 @@ export class RegisterComponent implements OnInit {
   // checkEmailIsValid(http: HttpClient): AsyncValidatorFn {
   //   return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
   //     console.log(control.value);
-  //     http.post('http://localhost:3000/auth/check-email',
+  //     http.post('https://powerful-basin-10007.herokuapp.com/auth/check-email',
   //     { email: control.value }).subscribe(_ => console.log)
-  //     return http.post('http://localhost:3000/auth/check-email',
+  //     return http.post('https://powerful-basin-10007.herokuapp.com/auth/check-email',
   //       { email: control.value })
   //       .pipe(
   //         map((res: any) => {

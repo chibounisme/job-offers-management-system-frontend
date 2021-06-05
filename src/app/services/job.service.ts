@@ -10,17 +10,17 @@ export class JobService {
   constructor(private http: HttpClient) { }
 
   getJobs(pagenumber: any, option: any) {
-    return this.http.post<any>('http://localhost:3000/jobs?page=' + pagenumber, option);
+    return this.http.post<any>('https://powerful-basin-10007.herokuapp.com/jobs?page=' + pagenumber, option);
   }
 
   addJobToFavorites(jobId: any) {
-    return this.http.post<any>('http://localhost:3000/jobs/add', {
+    return this.http.post<any>('https://powerful-basin-10007.herokuapp.com/jobs/add', {
       job_offer_id: jobId
     });
   }
 
   deleteJobToFavorites(jobUrl: any) {
-    return this.http.delete<any>('http://localhost:3000/jobs/delete?job_offer_link=' + jobUrl);
+    return this.http.delete<any>('https://powerful-basin-10007.herokuapp.com/jobs/delete?job_offer_link=' + jobUrl);
   }
 
 }

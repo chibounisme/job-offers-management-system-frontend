@@ -9,6 +9,6 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   getDashboardInformation() {
-    return this.http.get<any>('http://localhost:3000/dashboard');
+    return this.http.get<any>('https://powerful-basin-10007.herokuapp.com/dashboard');
   }
 }

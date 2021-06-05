@@ -21,7 +21,7 @@ export class AuthService {
 
   // standard login
   login(email: string, password: string) {
-    return this.http.post<User>('http://localhost:3000/auth/login', { email, password });
+    return this.http.post<User>('https://powerful-basin-10007.herokuapp.com/auth/login', { email, password });
   }
 
   isAdmin() {
@@ -55,11 +55,11 @@ export class AuthService {
   }
 
   saveLoginSocialMedia(user) {
-    return this.http.post('http://localhost:3000/auth/google-login', user);
+    return this.http.post('https://powerful-basin-10007.herokuapp.com/auth/google-login', user);
   }
 
   saveLoginFacebook(user) {
-    return this.http.post('http://localhost:3000/auth/facebook-login', user);
+    return this.http.post('https://powerful-basin-10007.herokuapp.com/auth/facebook-login', user);
   }
 
   getToken() {
@@ -81,19 +81,19 @@ export class AuthService {
   }
 
   register(data: any): Observable<any> {
-    return this.http.post('http://localhost:3000/auth/register', data);
+    return this.http.post('https://powerful-basin-10007.herokuapp.com/auth/register', data);
   }
 
   googleRegister(data) {
-    return this.http.post('http://localhost:3000/auth/google-register', data);
+    return this.http.post('https://powerful-basin-10007.herokuapp.com/auth/google-register', data);
   }
 
   facebookRegister(data) {
-    return this.http.post('http://localhost:3000/auth/facebook-register', data);
+    return this.http.post('https://powerful-basin-10007.herokuapp.com/auth/facebook-register', data);
   }
 
   checkEmail(email) {
-    return this.http.post('http://localhost:3000/auth/check-email', { email });
+    return this.http.post('https://powerful-basin-10007.herokuapp.com/auth/check-email', { email });
 
   }
 
