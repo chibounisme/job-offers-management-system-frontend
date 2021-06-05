@@ -129,13 +129,13 @@ single4 = [
    this.userService.getAllUsers().subscribe((users) =>{
      this.users= users
      for( let prof of users){
-      prof.image = 'http://127.0.0.1:3000/' + prof.image.split('\\').join('/');
+      prof.image = 'https://3mjobs.netlify.app/' + prof.image.split('\\').join('/');
      }
     
    })
     this.userService.getUserProfile().subscribe((profile) => {
       this.profile = profile;
-      this.profile.image = 'http://127.0.0.1:3000/' + this.profile.image.split('\\').join('/');
+      this.profile.image = 'https://3mjobs.netlify.app/' + this.profile.image.split('\\').join('/');
     });
   }
   onSelect(event) {
