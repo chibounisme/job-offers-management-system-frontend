@@ -59,7 +59,7 @@ export class JoboffersComponent implements OnInit {
 
   onclick(jobId: any) {
     this.jobService.addJobToFavorites(jobId).subscribe(_ => {
-      this._service.success("offre enregistré");
+      this._service.success("Offre enregistrée");
     });
   }
 

@@ -157,7 +157,7 @@ export class ProfileComponent implements OnInit {
         if (res.token) {
           this.authService.updateToken(res.token);
         }
-        this._service.success("succés");
+        this._service.success("Succés");
         this.modalService.dismissAll();
       }, err => {
         this.modalService.dismissAll();

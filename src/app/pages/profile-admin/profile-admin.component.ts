@@ -66,7 +66,7 @@ export class ProfileAdminComponent implements OnInit {
     // supprimer le compte depuis la base
     this.userService.deleteUserProfile(this.currentprofile.email).subscribe(res => {
       console.log("hhhh")
-      this._service.success("compte supprimé");
+      this._service.success("Compte supprimé");
     
   this.router.navigateByUrl("/dash")
   this.modalService.dismissAll();}
