@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard-admin.component.css']
 })
 export class DashboardAdminComponent implements OnInit {
+  sumJobi = 0;
+  sumTanit = 0;
+  sumEmplois = 0;
   multi = [
     {
       "name": "TanitJobs",
@@ -96,20 +99,22 @@ export class DashboardAdminComponent implements OnInit {
       var startdate1 = moment().subtract(this.dashboardData.tanitJobCount.length, "days");
       var startdate2 = moment().subtract(this.dashboardData.tanitJobCount.length, "days");
       this.multi[0].series = this.dashboardData.tanitJobCount.map((res, i) => {
+        this.sumTanit += res;
         return { name: startdate.add(1, "days").format("DD-MM-YYYY"), value: res }
-      })
+      }).slice(1);
       this.multi[1].series = this.dashboardData.jobiJobCount.map((res, i) => {
+        this.sumJobi += res;
         return { name: startdate1.add(1, "days").format("DD-MM-YYYY"), value: res }
-      })
+      }).slice(1);
       this.multi[2].series = this.dashboardData.emploiJobCount.map((res, i) => {
+        this.sumEmplois += res;
         return { name: startdate2.add(1, "days").format("DD-MM-YYYY"), value: res }
-      })
-
+      }).slice(1);
       this.multi1[0].series.push({
         value: this.multi[0].series[0].value + this.multi[1].series[0].value + this.multi[2].series[0].value,
         name: this.multi[0].series[0].name
       })
-      for (let i = 1; i < this.dashboardData.jobiJobCount.length; i++) {
+      for (let i = 1; i < this.dashboardData.jobiJobCount.length - 1; i++) {
         this.multi1[0].series.push({
           value: this.multi1[0].series[i - 1].value + this.multi[0].series[i].value + this.multi[1].series[i].value + this.multi[2].series[i].value,
           name: this.multi[0].series[i].name
